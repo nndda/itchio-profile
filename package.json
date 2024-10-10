@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/nndda/itchio-profile/issues"
   },
-  "homepage": "https://github.com/nndda/itchio-profile#readme"
+  "homepage": "https://github.com/nndda/itchio-profile#readme",
+  "dependencies": {
+    "clean-css": "^5.3.3",
+    "sass": "^1.79.4"
+  }
 }
