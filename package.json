@@ -1,0 +1,20 @@
+{
+  "name": "nnda-itchio-profile",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Source code for my itch.io profile page.",
+  "main": " ",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nndda/itchio-profile.git"
+  },
+  "author": "nnda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nndda/itchio-profile/issues"
+  },
+  "homepage": "https://github.com/nndda/itchio-profile#readme"
+}
