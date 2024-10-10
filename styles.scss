@@ -1,0 +1,608 @@
+$text: #e7e9e8;     $primary: #fc3a78;
+$link: #eaeaea;     $secondary: #3ae5f9;
+$gradient-a: linear-gradient(90deg, $secondary, #2a8aec);
+$gradient-b: linear-gradient(90deg, $primary, #b23ee0);
+$background: #100f15;
+$background-lighten: #15141B;
+$background-window: $background-lighten;
+
+$shadow: "#101e";
+$transparent: "#0000";
+
+.user_page_wrap {
+  --r: #{$primary};
+  --g1: #{$gradient-a};
+  --g2: #{$gradient-b};
+  padding-bottom: 2.5em;
+}
+
+
+/* Copyright (c) 2024 nnda */
+/* Licensed under MIT License (see LICENSE.md) */
+
+
+// Requirements:
+// npm i -g sass clean-css
+
+// Compiling:
+// sass --no-source-map \!custom-css.scss custom-css.css && cleancss -O2 --output custom-css.min.css custom-css.css
+
+
+// The comment block
+// 
+// /*! IMPORT-START */
+//    ...
+// /*! IMPORT-END */
+// 
+// Use to mark CSS codes that will be imported with @import to save character count
+
+
+/*
+  COLOR
+  BG        : #0d0c12       match $background
+  Text      : #e7e9e8       match $text
+  Link      : #eaeaea
+
+  TEXT
+  Font      : Raleway
+  Size      : 96
+
+  MY PROJECTS
+  Layout    : Grid 
+  B.Radius  : 0
+
+  COLLECTIONS
+  Layout    : List 
+*/
+
+
+// .user_page > div,
+// .user_page > section {
+.user_page {
+  // border: 1px solid unquote("#fff3");
+  margin: auto;
+  max-width: 1200px;
+  box-shadow: 0 -2em 3em unquote($shadow);
+}
+.inner_column {
+  max-width: 100%;
+}
+#profile_header,
+.user_page .profile_content {
+  margin-bottom: 0;
+  border-bottom: 0;
+  padding: 0;
+}
+
+
+/* Jumping cat animation */
+.custom-st {
+  // Inlined to save character count  
+  // margin: -12px 1em;
+  // height: 3em;
+
+  image-rendering: pixelated;
+  animation: 2s cubic-bezier(.175, .885, .32, 1.275) infinite alternate j;
+}
+/*! IMPORT-START */
+@keyframes j {
+  15%, 5% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(-1em);
+  }
+}
+/*! IMPORT-END */
+
+
+/* Header banner */
+#profile_header {
+  position: relative;
+  border: 0;
+
+  & img {
+    object-fit: cover;
+    height: var(--h);
+    width: 100%;
+  }
+}
+
+
+/* Scrolling background */
+$bg-size: 860px;
+.profile_column {
+  // background: url(https://cdn.jsdelivr.net/gh/nndda/n@n/s.png);
+  // background: url(https://s2.svgbox.net/heropatterns.svg?ic=tic-tac-toe&color=fff1);
+  background: url(https://s2.svgbox.net/heropatterns.svg?ic=hideout&color=fff1);
+  // background: url(https://s2.svgbox.net/heropatterns.svg?ic=skulls&color=fff1);
+
+  background-size: $bg-size auto;
+
+  padding-bottom: 1em;
+  animation: 9s linear infinite b;
+}
+/*! IMPORT-START */
+@keyframes b {
+  to {
+    background-position-x: $bg-size;
+    background-position-y: $bg-size;
+  }
+}
+/*! IMPORT-END */
+
+
+/* Links */
+.user_links {
+  padding: .8em 1em 0;
+  color: $primary;
+  background: $background-lighten;
+  box-shadow: 0 -1.5em 3em unquote($shadow);
+}
+.user_page svg {
+  opacity: 1 !important;
+  fill:  $primary !important;
+}
+.link_group {
+  padding-bottom: .8em;
+}
+
+
+
+/* Profile picture */
+.user_links {
+  position: relative;
+  margin-bottom: 0 !important;
+}
+.link_group:first-child {
+  margin-left: 102px;
+}
+.user_links:after,
+.user_links:before {
+  position: absolute;
+  top: -45px;
+  content: "";
+  background: url(https://cdn.jsdelivr.net/gh/nndda/n@n/i.webp) 0 0/cover;
+  height: 80px;
+  width: 80px;
+  backdrop-filter: blur(0);
+  border-radius: 4px;
+  box-shadow: 0 0 8px unquote($shadow);
+}
+.user_links:after {
+  top: 100%;
+  left: 0;
+  background: var(--g2);
+  height: 1px;
+  width: 100%;
+}
+
+/* itch.io username + display name */
+// .link_group:first-child a:after {
+//   content: " (nnda)";
+//   opacity: .6
+// } 
+
+
+/* Corner border background */
+.custom-wi,
+.game_column {
+  & > div {
+    border: 1.2em solid;
+    border-image: url(https://cdn.jsdelivr.net/gh/nndda/n@n/b.png) 30;
+  }
+}
+
+
+/* Window panel UI */
+.custom-w {
+  position: relative;
+  box-shadow:
+    9px 9px 0 -3px #bbb,
+    0 0 2em 0 unquote($shadow);
+  background: $background-window;
+  border: 1px solid unquote("#fff5");
+  border-radius: 4px;
+}
+.user_profile {
+  padding-top: 4em;
+  overflow: hidden;
+}
+/* "About Me" side label */
+/*! IMPORT-START */
+.custom-ws {
+  position: relative;
+}
+.custom-ws::before {
+  content: "ABOUT ME";
+  font-weight: bold;
+  position: absolute;
+  transform: rotate(-90deg);
+  margin: 9em 0 0 -11em;
+  padding: 7px 1em;
+  border-radius: 4px;
+  background: var(--g2);
+}
+/*! IMPORT-END */
+
+
+/* Vertical & horizontal dashed lines */
+/*! IMPORT-START */
+.custom-h,
+.custom-j {
+  position: absolute;
+  top: 10%;
+  left: -200%;
+  border: 3px dashed unquote("#fff3");
+  z-index: -9;
+
+  // INLINED
+  // height: 80%;
+  // width: 500%;
+}
+.custom-h {
+  top: -100%;
+  left: 10%;
+
+  // INLINED
+  // height: 300%;
+  // width: 80%;
+}
+/*! IMPORT-END */
+
+
+/* Window Container */
+.custom-wr {
+  position: relative;
+  max-width: 26.5em;
+  margin: 0 auto 15em;
+}
+
+/* Bottom gradient */
+.custom-g2 {
+  background: var(--g2);
+  height: .5em;
+}
+
+/* Yellow Stripes */
+/*! IMPORT-START */
+.custom-y {
+  height: 1em;
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      unquote($transparent), unquote($transparent) 1em,
+      #ffd90e 1em, #ffd90e 2em
+    );
+  background-size: 200%;
+  margin-top: 1em;
+  animation: 18s linear infinite y;
+}
+@keyframes y {
+  to {
+    background-position: 100%;
+  }
+}
+/*! IMPORT-END */
+
+
+/* Ko-fi window */
+.custom-wn {
+  --g2: var(--g1);
+  margin: -5em -2vw 0 0;
+  float: right;
+}
+/*! IMPORT-START */
+.custom-k,
+.custom-k > *
+{
+  position: absolute;
+  top: -1.5em;
+  left: -1.5em;
+
+  // INLINED
+  // width: 100%;
+  // height: 110%;
+
+  border: 1.5em solid unquote($transparent);
+  border-image: url(https://cdn.jsdelivr.net/gh/nndda/n@n/b2.png) 30 !important;
+  z-index: -1;
+}
+.custom-k > * {
+  border: 0;
+  font-size: 1.5em;
+  padding: 1.5em;
+
+  // INLINED
+  // height: 10%;
+  // text-align: center;
+
+  top: 80%;
+}
+/*! IMPORT-END */
+
+
+/* Window's title bar */
+
+/* Buttons */
+.custom-wb {
+  margin: 0 6px;
+  height: .8em;
+
+  &:last-child {
+    height: 1.4em;
+    vertical-align: -.2em;
+  }
+}
+
+
+/* Title bar */
+.custom-wt {
+  display: flex;
+  white-space: nowrap;
+  font-weight: bold;
+  padding: 6px 6px 3px;
+  background: $background;
+
+  & > :first-child {
+    width: 6em;
+    color: unquote($transparent);
+
+    padding: 4px 1em;
+    margin-bottom: -4px;
+
+    background: $background-window;
+    border-radius: 7px 7px 0 0;
+
+    & > div {
+      overflow: hidden;
+      text-shadow: 0 0 $text, 11ch 0 $text;
+      animation: 3s linear infinite c;
+    }
+  }
+}
+/* Running title bar text */
+/*! IMPORT-START */
+@keyframes c {
+  to {
+    text-shadow: -11ch 0 $text, 0 0 $text;
+  }
+}
+/*! IMPORT-END */
+
+
+/* Window's content */
+.custom-wi {
+  padding: 0 1em .8em;
+
+  & > div > div {
+    padding: 1.5em 0 2.5em;
+    margin: auto;
+    max-width: 18em;
+    letter-spacing: .2ch;
+  }
+}
+.custom-wt > :last-child {
+  flex-grow: 1;
+}
+.custom-wn .custom-wi {
+  margin-top: .1em;
+  padding: 1em;
+}
+
+
+/*! IMPORT-START */
+/* Gradient fill text */
+.collections h2,
+.custom-wi h3 {
+  background: var(--g2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: unquote($transparent);
+
+  font-size: 2em;
+}
+
+/* Main window's strikethrough text */
+s {
+  text-decoration-color: $primary;
+}
+/*! IMPORT-END */
+
+
+/* Main window's social links */
+.custom-n {
+  padding: .5em 1em;
+  // background: $background-window;
+
+  & > span {
+    display: inline-block;
+    margin: .4em;
+  }
+  & img {
+    vertical-align: -.4em;
+    margin-right: .4em;
+  }
+}
+.custom-w hr {
+  background: var(--g2);
+}
+
+
+/* Game items */
+.game_cell {
+  background: $background-lighten;
+  box-shadow: 0 0 8px unquote($shadow);
+  border: 1px solid unquote("#fff3");
+  border-radius: 4px;
+}
+.game_title {
+  line-height: 1.6em;
+  border-bottom: 1px dashed unquote("#fff7");
+}
+.game_cell_data {
+  margin-top: .3em !important;
+  min-height: 8em;
+
+  & > * {
+    padding: .2em 1em;
+  }
+}
+.icon {
+  color: $primary;
+  margin: .5em;
+}
+
+
+/* Specifics game items */
+// .game_column [data-game_id="2223248"] {
+//   background: #110f20;
+// }
+// .game_column [data-game_id="2223248"] .game_title > a {
+//   color: #f93875 !important;
+// }
+
+
+// .game_column [data-game_id="1839651"] {
+//   background: #341f29;
+// }
+// .game_column [data-game_id="1839651"] .game_title > a {
+//   color: #e4d8c7 !important;
+// } 
+
+
+/* ================================  Game column */
+
+/* ========================  Display: Grid */
+.game_column {
+  padding: 2em;
+  border-top: 3px dashed;
+  box-shadow: 0 0 3em 0 unquote($shadow);
+
+  & > div {
+    grid-template-columns: repeat(3, 24%) !important;
+    grid-gap: 2em;
+    justify-content: center;
+  }
+
+  & .game_cell_data {
+    min-height: 10em;
+  }
+}
+
+
+/* ========================  Display: Sidebar */
+// .game_column {
+//   padding: 1em;
+//   border-left: 1px solid #eaeaea !important;
+//   border-right: 1px solid;
+//   margin-left: 0 !important;
+//   box-shadow: 0 -1em 3em #000e;
+//   background: $background-lighten;
+// }
+// .game_column .game_cell {
+//   max-width: 240px;
+//   margin: auto;
+// }
+// .profile_column{
+//   top: 0 !important;
+// }
+// .game_column:before {
+//   content: "STOREFRONT";
+//   margin: 9em 0 0 -5.5em;
+// }
+
+
+/*! IMPORT-START */
+/* Collection - "Assets" */
+[data-collection_id="2974529"] {
+  --g2: var(--g1);
+  --r: #{$secondary};
+}
+
+
+/* Collections row */
+.collections {
+  & h2 {
+    letter-spacing: .1em;
+  }
+}
+.carousel_wrapper {
+  scrollbar-color: var(--r) $background !important;
+  border-bottom: 2px solid var(--r);
+}
+.collection_description {
+  white-space: normal !important;
+  text-overflow: clip !important;
+  flex-grow: 1;
+}
+/*! IMPORT-END */
+
+
+@media ( min-width : 780px ) {
+  .collections {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 2em 0 !important;
+
+    & .inner_column {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .collection_row { 
+    position: relative;
+    overflow: hidden;
+    margin: 0 .8em;
+
+    /* Fade out gradient */
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+
+      box-shadow: inset -13em 0 9em -2em $background;
+      pointer-events: none;
+      width: 100%;
+      height: 76%;
+      z-index: 2;
+    }
+    &:first-child {
+      padding-left: 1.2em
+    }
+    &:last-child {
+      padding-right: 1.2em
+    }
+  }
+}
+
+
+
+/* Mobile view */
+@media ( max-width : 900px ) {
+
+  .user_page > * {
+    border-left:  0;
+    border-right: 0;
+  }
+
+  .user_page_wrap {
+    --h: 26vh;
+  }
+
+  .custom-w.custom-wn {
+    margin: -4.5em 3em;
+  }
+
+  .game_column .game_grid_widget {
+    grid-template-columns: 250px !important;
+  }
+
+  // .game_column > div > div {
+  //   transform: translateX(4vw);
+  // }
+  // .game_column > div > :nth-child( odd ) {
+  //   transform: translateX(-4vw);
+  // } 
+}
