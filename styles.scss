@@ -25,7 +25,7 @@ $transparent: "#0000";
 // npm i -g sass clean-css
 
 // Compiling:
-// sass --no-source-map \!custom-css.scss custom-css.css && cleancss -O2 --output custom-css.min.css custom-css.css
+// sass --no-source-map styles.scss styles.css && cleancss -O2 --output styles.min.css styles.css
 
 
 // The comment block
@@ -34,7 +34,7 @@ $transparent: "#0000";
 //    ...
 // /*! IMPORT-END */
 // 
-// Use to mark CSS codes that will be imported with @import to save character count
+// Are used to mark CSS codes that will be imported with @import to save character count
 
 
 /*
