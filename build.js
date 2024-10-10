@@ -22,7 +22,8 @@ child_process.exec("sass --no-source-map styles.scss styles.css && cleancss -O2 
       CSSDirect = CSSDirect.replace(match[0], "");
     }
 
-    fs.writeFileSync(path.resolve(__dirname, "dist/styles-direct.min.css"), CSSDirect);
+    fs.writeFileSync(path.resolve(__dirname, "dist/styles-direct.min.css"),
+      `@import url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/dist/styles-import.min.css");` + CSSDirect);
     fs.writeFileSync(path.resolve(__dirname, "dist/styles-import.min.css"), CSSImported.join(""));
 
   }
