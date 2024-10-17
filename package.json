@@ -5,7 +5,8 @@
   "description": "Source code for my itch.io profile page.",
   "main": " ",
   "scripts": {
-    "build": "node build.js"
+    "build": "node build.js",
+    "dev": "sass --no-source-map styles.scss styles.css"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,12 @@
   "homepage": "https://github.com/nndda/itchio-profile#readme",
   "devDependencies": {
     "clean-css": "^5.3.3",
-    "sass": "^1.79.4"
+    "css": "^3.0.0",
+    "jsdom": "^25.0.1",
+    "sass": "^1.80.1"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47"
   }
 }
