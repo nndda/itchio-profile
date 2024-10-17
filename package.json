@@ -18,14 +18,11 @@
     "url": "https://github.com/nndda/itchio-profile/issues"
   },
   "homepage": "https://github.com/nndda/itchio-profile#readme",
-  "devDependencies": {
-    "clean-css": "^5.3.3",
-    "css": "^3.0.0",
-    "jsdom": "^25.0.1",
-    "sass": "^1.80.1"
-  },
   "dependencies": {
     "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.47"
+    "clean-css": "^5.3.3",
+    "css": "^3.0.0",
+    "postcss": "^8.4.47",
+    "sass": "^1.80.2"
   }
 }
