@@ -9,6 +9,8 @@ $background-window: $background-lighten;
 $shadow: "#101e";
 $transparent: "#0000";
 
+@use "sass:string";
+
 .user_page_wrap {
   --r: #{$primary};
   --g1: #{$gradient-a};
@@ -26,16 +28,6 @@ $transparent: "#0000";
 
 // Compiling:
 // sass --no-source-map styles.scss styles.css && cleancss -O2 --output styles.min.css styles.css
-
-
-// The comment block
-// 
-// /*! IMPORT-START */
-//    ...
-// /*! IMPORT-END */
-// 
-// Are used to mark CSS codes that will be imported with @import to save character count
-
 
 /*
   COLOR
@@ -59,10 +51,10 @@ $transparent: "#0000";
 // .user_page > div,
 // .user_page > section {
 .user_page {
-  // border: 1px solid unquote("#fff3");
+  // border: 1px solid string.unquote("#fff3");
   margin: auto;
   max-width: 1200px;
-  box-shadow: 0 -2em 3em unquote($shadow);
+  box-shadow: 0 -2em 3em string.unquote($shadow);
 }
 .inner_column {
   max-width: 100%;
@@ -84,7 +76,6 @@ $transparent: "#0000";
   image-rendering: pixelated;
   animation: 2s cubic-bezier(.175, .885, .32, 1.275) infinite alternate j;
 }
-/*! IMPORT-START */
 @keyframes j {
   15%, 5% {
     transform: translateY(0);
@@ -93,7 +84,6 @@ $transparent: "#0000";
     transform: translateY(-1em);
   }
 }
-/*! IMPORT-END */
 
 
 /* Header banner */
@@ -122,14 +112,12 @@ $bg-size: 860px;
   padding-bottom: 1em;
   animation: 9s linear infinite b;
 }
-/*! IMPORT-START */
 @keyframes b {
   to {
     background-position-x: $bg-size;
     background-position-y: $bg-size;
   }
 }
-/*! IMPORT-END */
 
 
 /* Links */
@@ -137,7 +125,7 @@ $bg-size: 860px;
   padding: .8em 1em 0;
   color: $primary;
   background: $background-lighten;
-  box-shadow: 0 -1.5em 3em unquote($shadow);
+  box-shadow: 0 -1.5em 3em string.unquote($shadow);
 }
 .user_page svg {
   opacity: 1 !important;
@@ -167,7 +155,7 @@ $bg-size: 860px;
   width: 80px;
   backdrop-filter: blur(0);
   border-radius: 4px;
-  box-shadow: 0 0 8px unquote($shadow);
+  box-shadow: 0 0 8px string.unquote($shadow);
 }
 .user_links:after {
   top: 100%;
@@ -199,9 +187,9 @@ $bg-size: 860px;
   position: relative;
   box-shadow:
     9px 9px 0 -3px #bbb,
-    0 0 2em 0 unquote($shadow);
+    0 0 2em 0 string.unquote($shadow);
   background: $background-window;
-  border: 1px solid unquote("#fff5");
+  border: 1px solid string.unquote("#fff5");
   border-radius: 4px;
 }
 .user_profile {
@@ -209,7 +197,6 @@ $bg-size: 860px;
   overflow: hidden;
 }
 /* "About Me" side label */
-/*! IMPORT-START */
 .custom-ws {
   position: relative;
 }
@@ -223,17 +210,15 @@ $bg-size: 860px;
   border-radius: 4px;
   background: var(--g2);
 }
-/*! IMPORT-END */
 
 
 /* Vertical & horizontal dashed lines */
-/*! IMPORT-START */
 .custom-h,
 .custom-j {
   position: absolute;
   top: 10%;
   left: -200%;
-  border: 3px dashed unquote("#fff3");
+  border: 3px dashed string.unquote("#fff3");
   z-index: -9;
 
   // INLINED
@@ -248,7 +233,6 @@ $bg-size: 860px;
   // height: 300%;
   // width: 80%;
 }
-/*! IMPORT-END */
 
 
 /* Window Container */
@@ -265,13 +249,12 @@ $bg-size: 860px;
 }
 
 /* Yellow Stripes */
-/*! IMPORT-START */
 .custom-y {
   height: 1em;
   background: 
     repeating-linear-gradient(
       45deg,
-      unquote($transparent), unquote($transparent) 1em,
+      string.unquote($transparent), string.unquote($transparent) 1em,
       #ffd90e 1em, #ffd90e 2em
     );
   background-size: 200%;
@@ -283,7 +266,6 @@ $bg-size: 860px;
     background-position: 100%;
   }
 }
-/*! IMPORT-END */
 
 
 /* Ko-fi window */
@@ -292,7 +274,6 @@ $bg-size: 860px;
   margin: -5em -2vw 0 0;
   float: right;
 }
-/*! IMPORT-START */
 .custom-k,
 .custom-k > *
 {
@@ -304,7 +285,7 @@ $bg-size: 860px;
   // width: 100%;
   // height: 110%;
 
-  border: 1.5em solid unquote($transparent);
+  border: 1.5em solid string.unquote($transparent);
   border-image: url(https://cdn.jsdelivr.net/gh/nndda/n@n/b2.png) 30 !important;
   z-index: -1;
 }
@@ -319,7 +300,6 @@ $bg-size: 860px;
 
   top: 80%;
 }
-/*! IMPORT-END */
 
 
 /* Window's title bar */
@@ -346,7 +326,7 @@ $bg-size: 860px;
 
   & > :first-child {
     width: 6em;
-    color: unquote($transparent);
+    color: string.unquote($transparent);
 
     padding: 4px 1em;
     margin-bottom: -4px;
@@ -362,13 +342,11 @@ $bg-size: 860px;
   }
 }
 /* Running title bar text */
-/*! IMPORT-START */
 @keyframes c {
   to {
     text-shadow: -11ch 0 $text, 0 0 $text;
   }
 }
-/*! IMPORT-END */
 
 
 /* Window's content */
@@ -391,14 +369,13 @@ $bg-size: 860px;
 }
 
 
-/*! IMPORT-START */
 /* Gradient fill text */
 .collections h2,
 .custom-wi h3 {
   background: var(--g2);
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: unquote($transparent);
+  -webkit-text-fill-color: string.unquote($transparent);
 
   font-size: 2em;
 }
@@ -407,7 +384,6 @@ $bg-size: 860px;
 s {
   text-decoration-color: $primary;
 }
-/*! IMPORT-END */
 
 
 /* Main window's social links */
@@ -432,13 +408,13 @@ s {
 /* Game items */
 .game_cell {
   background: $background-lighten;
-  box-shadow: 0 0 8px unquote($shadow);
-  border: 1px solid unquote("#fff3");
+  box-shadow: 0 0 8px string.unquote($shadow);
+  border: 1px solid string.unquote("#fff3");
   border-radius: 4px;
 }
 .game_title {
   line-height: 1.6em;
-  border-bottom: 1px dashed unquote("#fff7");
+  border-bottom: 1px dashed string.unquote("#fff7");
 }
 .game_cell_data {
   margin-top: .3em !important;
@@ -477,7 +453,7 @@ s {
 .game_column {
   padding: 2em;
   border-top: 3px dashed;
-  box-shadow: 0 0 3em 0 unquote($shadow);
+  box-shadow: 0 0 3em 0 string.unquote($shadow);
 
   & > div {
     grid-template-columns: repeat(3, 24%) !important;
@@ -513,7 +489,6 @@ s {
 // }
 
 
-/*! IMPORT-START */
 /* Collection - "Assets" */
 [data-collection_id="2974529"] {
   --g2: var(--g1);
@@ -536,7 +511,6 @@ s {
   text-overflow: clip !important;
   flex-grow: 1;
 }
-/*! IMPORT-END */
 
 
 @media ( min-width : 780px ) {
