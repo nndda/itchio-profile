@@ -2,14 +2,23 @@ $text: #e7e9e8;     $primary: #fc3a78;
 $link: #eaeaea;     $secondary: #3ae5f9;
 $gradient-a: linear-gradient(90deg, $secondary, #2a8aec);
 $gradient-b: linear-gradient(90deg, $primary, #b23ee0);
-$background: #100f15;
-$background-lighten: #15141B;
+$background: #15141B;
+$background-lighten: #1b1a23;
 $background-window: $background-lighten;
 
 $shadow: "#101e";
 $transparent: "#0000";
 
 @use "sass:string";
+
+// Debug
+// body {
+//   background: $background !important;
+// }
+
+a {
+  text-decoration-color: string.unquote("#fff5");
+}
 
 .user_page_wrap {
   --r: #{$primary};
@@ -100,9 +109,8 @@ $transparent: "#0000";
 
 
 /* Scrolling background */
-$bg-size: 860px;
+$bg-size: 840px;
 .profile_column {
-  // background: url(https://cdn.jsdelivr.net/gh/nndda/n@n/s.png);
   // background: url(https://s2.svgbox.net/heropatterns.svg?ic=tic-tac-toe&color=fff1);
   background: url(https://s2.svgbox.net/heropatterns.svg?ic=hideout&color=fff1);
   // background: url(https://s2.svgbox.net/heropatterns.svg?ic=skulls&color=fff1);
@@ -143,16 +151,16 @@ $bg-size: 860px;
   margin-bottom: 0 !important;
 }
 .link_group:first-child {
-  margin-left: 102px;
+  margin-left: 7.5em;
 }
 .user_links:after,
 .user_links:before {
   position: absolute;
-  top: -45px;
+  top: -3.8em;
   content: "";
-  background: url(https://cdn.jsdelivr.net/gh/nndda/n@n/i.webp) 0 0/cover;
-  height: 80px;
-  width: 80px;
+  background: url(https://cdn.jsdelivr.net/gh/nndda/itchio-profile@1.1.0/assets/profile.webp) 0 0/cover;
+  height: 96px;
+  width: 96px;
   backdrop-filter: blur(0);
   border-radius: 4px;
   box-shadow: 0 0 8px string.unquote($shadow);
@@ -163,6 +171,7 @@ $bg-size: 860px;
   background: var(--g2);
   height: 1px;
   width: 100%;
+  opacity: .7;
 }
 
 /* itch.io username + display name */
@@ -176,8 +185,8 @@ $bg-size: 860px;
 .custom-wi,
 .game_column {
   & > div {
-    border: 1.2em solid;
-    border-image: url(https://cdn.jsdelivr.net/gh/nndda/n@n/b.png) 30;
+    border: 1.2em solid string.unquote("#0000");
+    border-image: url(https://cdn.jsdelivr.net/gh/nndda/itchio-profile@1.1.0/assets/b.png) 30;
   }
 }
 
@@ -186,10 +195,11 @@ $bg-size: 860px;
 .custom-w {
   position: relative;
   box-shadow:
-    9px 9px 0 -3px #bbb,
+    // 9px 9px 0 -3px #bbb,
+    9px 9px 0 -3px string.unquote("#fff2"),
     0 0 2em 0 string.unquote($shadow);
   background: $background-window;
-  border: 1px solid string.unquote("#fff5");
+  border: 1px solid string.unquote("#fff2");
   border-radius: 4px;
 }
 .user_profile {
@@ -209,6 +219,7 @@ $bg-size: 860px;
   padding: 7px 1em;
   border-radius: 4px;
   background: var(--g2);
+  color: $background;
 }
 
 
@@ -268,11 +279,20 @@ $bg-size: 860px;
 }
 
 
-/* Ko-fi window */
+/* Support window */
 .custom-wn {
-  --g2: var(--g1);
+/*   --g2: var(--g1); */
   margin: -5em -2vw 0 0;
   float: right;
+  
+  & > .custom-wi > div {
+    display: flex;
+    padding: .7em 0;
+  }
+  
+  & .custom-g2 {
+    --g2: var(--g1);
+  }
 }
 .custom-k,
 .custom-k > *
@@ -286,7 +306,7 @@ $bg-size: 860px;
   // height: 110%;
 
   border: 1.5em solid string.unquote($transparent);
-  border-image: url(https://cdn.jsdelivr.net/gh/nndda/n@n/b2.png) 30 !important;
+  border-image: url(https://cdn.jsdelivr.net/gh/nndda/itchio-profile@1.1.0/assets/b2.png) 30 !important;
   z-index: -1;
 }
 .custom-k > * {
@@ -299,6 +319,28 @@ $bg-size: 860px;
   // text-align: center;
 
   top: 80%;
+}
+/* Support button */
+a.custom-cb {
+  color: $background !important;
+  background: linear-gradient(90deg, #2a8aec, $secondary);
+  font-weight: bold;
+  text-decoration: none;
+  vertical-align: middle;
+  padding: .2em .5em;
+  border-radius: 2px 7px 7px 2px;
+
+  & > img {
+    vertical-align: -.3em;
+  }
+  
+  &:first-child {
+    flex-grow: 1;
+    text-align: center;
+    background: var(--g1);
+    margin-right: .3em;
+    border-radius: 7px 2px 2px 7px;
+  }
 }
 
 
@@ -414,7 +456,7 @@ s {
 }
 .game_title {
   line-height: 1.6em;
-  border-bottom: 1px dashed string.unquote("#fff7");
+  border-bottom: 1px dashed string.unquote("#fff6");
 }
 .game_cell_data {
   margin-top: .3em !important;
@@ -451,8 +493,9 @@ s {
 
 /* ========================  Display: Grid */
 .game_column {
-  padding: 2em;
-  border-top: 3px dashed;
+  padding: 3em 2em;
+  // border-top: 3px dashed;
+  border-top: 1px solid;
   box-shadow: 0 0 3em 0 string.unquote($shadow);
 
   & > div {
