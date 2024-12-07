@@ -10,7 +10,7 @@ const crypto = require("crypto");
 
 const version = "1.2.0";
 const CDNImportTemplate = `@import url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@${version}/dist/%s.css");`;
-const maxCharLimit = 5120 - CDNImportTemplate.length - 8;
+const maxCharLimit = 5120 - CDNImportTemplate.length - 64;
 
 // Process CSS ============================================================================
 
