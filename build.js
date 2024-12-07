@@ -8,7 +8,7 @@ const autoprefixer = require("autoprefixer");
 const path = require("path");
 const crypto = require("crypto");
 
-const version = "1.1.0";
+const version = "1.2.0";
 const CDNImportTemplate = `@import url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@${version}/dist/%s.css");`;
 const maxCharLimit = 5120 - CDNImportTemplate.length - 8;
 
@@ -117,10 +117,9 @@ fs.readdirSync(distDir).forEach(value => {
   fs.unlinkSync(path.resolve(distDir, value));
 });
 
-fs.writeFileSync(path.resolve(__dirname, "dist/styles.min.css"),
+fs.writeFileSync(path.resolve(__dirname, "dist/styles.css"),
   CDNImportTemplate.replace("%s", hashFilename) + CSSMain);
 fs.writeFileSync(path.resolve(__dirname, `dist/${hashFilename}.css`), CSSImport);
-
 
 console.log('CSS main:', (CDNImportTemplate.replace("%s", hashFilename) + CSSMain).length);
 console.log('CSS imported:', CSSImport.length);

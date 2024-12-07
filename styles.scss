@@ -2,11 +2,11 @@ $text: #e7e9e8;     $primary: #fc3a78;
 $link: #eaeaea;     $secondary: #3ae5f9;
 $gradient-a: linear-gradient(90deg, $secondary, #2a8aec);
 $gradient-b: linear-gradient(90deg, $primary, #b23ee0);
-$background: #15141B;
-$background-lighten: #1b1a23;
+$background: #13151b;
+$background-lighten: #101218;
 $background-window: $background-lighten;
 
-$shadow: "#101e";
+$shadow: "#101b";
 $transparent: "#0000";
 
 @use "sass:string";
@@ -40,8 +40,8 @@ a {
 
 /*
   COLOR
-  BG        : #0d0c12       match $background
-  Text      : #e7e9e8       match $text
+  BG        : match $background
+  Text      : match $text
   Link      : #eaeaea
 
   TEXT
@@ -158,11 +158,11 @@ $bg-size: 840px;
   position: absolute;
   top: -3.8em;
   content: "";
-  background: url(https://cdn.jsdelivr.net/gh/nndda/itchio-profile@1.1.0/assets/profile.webp) 0 0/cover;
+  background: url(https://cdn.jsdelivr.net/gh/nndda/itchio-profile@1.2.0/assets/profile.webp) 0 0/cover;
   height: 96px;
   width: 96px;
   backdrop-filter: blur(0);
-  border-radius: 4px;
+  border-radius: 9px;
   box-shadow: 0 0 8px string.unquote($shadow);
 }
 .user_links:after {
@@ -186,7 +186,7 @@ $bg-size: 840px;
 .game_column {
   & > div {
     border: 1.2em solid string.unquote("#0000");
-    border-image: url(https://cdn.jsdelivr.net/gh/nndda/itchio-profile@1.1.0/assets/b.png) 30;
+    border-image: url(https://cdn.jsdelivr.net/gh/nndda/itchio-profile@1.2.0/assets/b.png) 30;
   }
 }
 
@@ -237,8 +237,8 @@ $bg-size: 840px;
   // width: 500%;
 }
 .custom-h {
-  top: -100%;
-  left: 10%;
+  top: -100% !important;
+  left: 10% !important;
 
   // INLINED
   // height: 300%;
@@ -306,7 +306,7 @@ $bg-size: 840px;
   // height: 110%;
 
   border: 1.5em solid string.unquote($transparent);
-  border-image: url(https://cdn.jsdelivr.net/gh/nndda/itchio-profile@1.1.0/assets/b2.png) 30 !important;
+  border-image: url(https://cdn.jsdelivr.net/gh/nndda/itchio-profile@1.2.0/assets/b2.png) 30 !important;
   z-index: -1;
 }
 .custom-k > * {
@@ -492,20 +492,49 @@ s {
 /* ================================  Game column */
 
 /* ========================  Display: Grid */
+$hi-light-col: string.unquote("#eee2");
 .game_column {
+  position: relative;
   padding: 3em 2em;
   // border-top: 3px dashed;
   border-top: 1px solid;
+  border-bottom: 1px solid;
   box-shadow: 0 0 3em 0 string.unquote($shadow);
 
   & > div {
-    grid-template-columns: repeat(3, 24%) !important;
+    grid-template-columns: 24% 24% 24% !important;
     grid-gap: 2em;
     justify-content: center;
   }
 
   & .game_cell_data {
     min-height: 10em;
+  }
+
+  &:before, &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    content: "ハイライトされたプロジェクト";
+    color: string.unquote($transparent);
+    font-size: 92px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-shadow: 0 0 $hi-light-col, 1600px 0 $hi-light-col;
+    animation: 19s linear infinite h;
+    z-index: -1;
+  }
+  
+  &:before {
+    top: auto;
+    bottom: 0;
+    animation-direction: reverse;
+  }
+}
+@keyframes h {
+  to {
+    text-shadow: -1600px 0 $hi-light-col, 0 0 $hi-light-col;
   }
 }
 

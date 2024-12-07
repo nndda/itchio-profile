@@ -1,6 +1,6 @@
 {
   "name": "nnda-itchio-profile",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "private": true,
   "description": "Source code for my itch.io profile page.",
   "main": " ",
@@ -22,7 +22,7 @@
     "autoprefixer": "^10.4.20",
     "clean-css": "^5.3.3",
     "css": "^3.0.0",
-    "postcss": "^8.4.47",
-    "sass": "^1.80.2"
+    "postcss": "^8.4.49",
+    "sass": "^1.82.0"
   }
 }
