@@ -121,3 +121,7 @@ Profile content—[`content.html`](content.html).
 </tr>
 </tbody>
 </table>
+
+## License
+
+[MIT licensed](LICENSE) :)
