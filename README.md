@@ -11,3 +11,113 @@ Profile content—[`content.html`](content.html).
 <div align="center">
   <img src="https://github.com/user-attachments/assets/fee27075-cd23-4274-853a-e2918e00e238">
 </div>
+
+<br>
+
+## Page theme settings
+
+<table>
+<thead>
+<tr>
+<td colspan="2">
+  <b> Theme setting </b>
+</td>
+<td>
+  <b> Value </b>
+</td>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td rowspan="3"><b> Color </b></td>
+<td> BG </td>
+<td>
+
+  `#15141B`
+
+</td>
+</tr>
+
+<tr>
+<td> Text </td>
+<td>
+
+  `#E7E9E8`
+
+</td>
+</tr>
+
+<tr>
+<td> Link </td>
+<td>
+
+  `#EAEAEA`
+
+</td>
+</tr>
+
+
+<tr>
+<td rowspan="2"><b> Text </b></td>
+<td> Font </td>
+<td>
+
+  `Zen Kaku Gothic New`
+
+</td>
+</tr>
+
+<tr>
+<td> Size </td>
+<td>
+
+  `96`
+
+</td>
+</tr>
+
+
+<tr>
+<td rowspan="1"><b> Images </b></td>
+<td> Size </td>
+<td>
+
+  `Full width`
+
+</td>
+</tr>
+
+
+<tr>
+<td rowspan="2"> My Projects </td>
+<td> Layout </td>
+<td>
+
+  `Grid`
+
+</td>
+</tr>
+
+<tr>
+<td> B. Radius </td>
+<td>
+
+  `0`
+
+</td>
+</tr>
+
+
+<tr>
+<td rowspan="1"><b> Collections </b></td>
+<td> Layout </td>
+<td>
+
+  `List`
+
+</td>
+</tr>
+</tbody>
+</table>
