@@ -9,7 +9,7 @@ Profile content—[`content.html`](content.html).
 </div>
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/fee27075-cd23-4274-853a-e2918e00e238">
+  <img src="https://github.com/user-attachments/assets/0f8eff10-4bb0-4f08-ab46-b753652355db" alt="">
 </div>
 
 <br>
