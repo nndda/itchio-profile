@@ -1,4 +1,11 @@
-"use strict";
+const
+
+  version = "1.2.0"
+, githubRepo = "nndda/itchio-profile"
+;
+
+// ========================================================================================
+
 const fs = require("fs");
 const css = require("css");
 const sass = require("sass");
@@ -8,8 +15,7 @@ const autoprefixer = require("autoprefixer");
 const path = require("path");
 const crypto = require("crypto");
 
-const version = "1.2.0";
-const CDNImportTemplate = `@import url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@${version}/dist/%s.css");`;
+const CDNImportTemplate = `@import url("https://cdn.jsdelivr.net/gh/${githubRepo}@${version}/dist/%s.css");`;
 const maxCharLimit = 5120 - CDNImportTemplate.length - 64;
 
 // Process CSS ============================================================================
