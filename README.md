@@ -122,6 +122,34 @@ Profile content—[`content.html`](content.html).
 </tbody>
 </table>
 
+## Installation
+
+Require Node.js `>23.5`.
+
+1. Fork this repository.
+
+2. Install the dependencies.
+  ```
+  npm install
+  ```
+
+3. Edit `build.js`.
+    - Update `version` constant to whatever version you want.
+    - Update `githubRepo` constant to the forked GitHub repository path, i.e. `nndda/itchio-profile`
+
+4. Modify the [`styles.scss`](styles.scss) and/or the [`content.html`](content.html) to your liking.
+
+5. Build the CSS.
+  ```
+  npm run build
+  ```
+
+6. Commit and push the changes. Most importantly, stuff under `dist/`.
+
+7. Create a new release. Make sure the release's name and the tag's name matched the `version` constant defined in `build.js`.
+
+8. Copy-paste the CSS from `dist/styles.css` to the profile page's theme editor. And the HTML from `content.html` to your profile page's content.
+
 ## License
 
 [MIT licensed](LICENSE) :)
