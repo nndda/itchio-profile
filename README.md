@@ -1,15 +1,13 @@
-<h1> <img height="32" width="32" src="https://cdn.simpleicons.org/itchdotio/fff"/> nnda&nbsp;<sub><sup>.itch.io</sup></sub> </h1>
+<h1 align="center"> <img height="32" width="32" src="https://cdn.simpleicons.org/itchdotio/fff"/> nnda&nbsp;<sub><sup>.itch.io</sup></sub> </h1>
 
-<div>
+<div align="center">
 
 Source code for my itch.io profile page.
 Main stylesheet—[`styles.scss`](styles.scss),
 Profile content—[`content.html`](content.html).
 
-</div>
+<img src="https://github.com/user-attachments/assets/0f8eff10-4bb0-4f08-ab46-b753652355db" alt="">
 
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/0f8eff10-4bb0-4f08-ab46-b753652355db" alt="">
 </div>
 
 <br>
