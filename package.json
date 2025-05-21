@@ -3,10 +3,8 @@
   "version": "1.2.0",
   "private": true,
   "description": "Source code for my itch.io profile page.",
-  "main": " ",
   "scripts": {
-    "build": "node build.js",
-    "dev": "sass --no-source-map styles.scss styles.css"
+    "build": "npx tsx src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -18,11 +16,16 @@
     "url": "https://github.com/nndda/itchio-profile/issues"
   },
   "homepage": "https://github.com/nndda/itchio-profile#readme",
-  "dependencies": {
-    "autoprefixer": "^10.4.20",
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "autoprefixer": "^10.4.21",
     "clean-css": "^5.3.3",
     "css": "^3.0.0",
-    "postcss": "^8.4.49",
-    "sass": "^1.83.0"
+    "cssnano": "^7.0.7",
+    "cssnano-preset-advanced": "^7.0.7",
+    "i": "^0.3.7",
+    "npm": "^11.4.0",
+    "postcss": "^8.5.3",
+    "simple-git": "^3.27.0"
   }
 }
