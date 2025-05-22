@@ -8,6 +8,8 @@ import
   }
 from "postcss";
 
+export type CSSVarTransform = (src: string, except: string[]) => string;
+
 function getCSSRuleStr(
   node: Rule | AtRule
 ): string {

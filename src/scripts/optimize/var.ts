@@ -4,9 +4,10 @@
 // --a: #abc;
 // color: var(--a);
 
+import { type CSSVarTransform } from "../css";
 import { num2alph } from "../util";
 
-export default function (
+export default ( function (
   src: string,
   except: string[] = [],
 ): string {
@@ -60,4 +61,4 @@ export default function (
       src,
     )
   ;
-}
+} as CSSVarTransform );

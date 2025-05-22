@@ -3,7 +3,9 @@
 
 // color: #abc;
 
-export default function (
+import { type CSSVarTransform } from "../css";
+
+export default ( function (
   src: string,
   except: string[] = [],
 ): string {
@@ -33,5 +35,4 @@ export default function (
       src
     )
   ;
-
-}
+} as CSSVarTransform );
