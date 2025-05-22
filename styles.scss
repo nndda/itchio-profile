@@ -74,7 +74,7 @@ a {
 }
 #profile_header img {
   object-fit: cover;
-  height: var(--h);
+  height: var(--height-min);
   width: 100%;
 }
 
@@ -612,7 +612,7 @@ s {
   }
 
   .user_page_wrap {
-    --h: 26vh;
+    --height-min: 26vh;
   }
 
   .custom-w.custom-wn {
