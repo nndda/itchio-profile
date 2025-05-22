@@ -4,8 +4,8 @@
 // --a: #abc;
 // color: var(--a);
 
-import { type CSSVarTransform } from "../css";
-import { num2alph } from "../util";
+import type { CSSVarTransform } from "../type";
+import { num2alph } from "./util";
 
 export default ( function (
   src: string,

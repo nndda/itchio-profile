@@ -27,47 +27,6 @@ export function writeTxtFile(
 
 }
 
-// CSS specific
-
-export function num2alph(
-  num: number,
-): string {
-
-  num++;
-
-  let output = "";
-
-  while (num > 0) {
-    output = String.fromCharCode(97 + (--num % 26)) + output;
-    num = Math.floor(num / 26);
-  }
-
-  return output;
-
-};
-
-export function whyDoesItchIoProfilePageHave5120CharacterCountLimitButOtherPagesDontIDontUnderstand(
-  cssArr: string[],
-  max: number,
-): [string[], string[]] {
-
-  let endLen: number = 0;
-
-  for (let i: number = cssArr.length; i--;) {
-    endLen += cssArr[i].length;
-
-    if (endLen >= max) {
-      return [
-        cssArr.slice(0, i),
-        cssArr.slice(i)
-      ];
-    }
-  }
-
-  return [ cssArr, [] ];
-
-}
-
 // git specific
 
 import type

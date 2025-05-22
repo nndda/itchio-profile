@@ -8,8 +8,6 @@ import
   }
 from "postcss";
 
-export type CSSVarTransform = (src: string, except: string[]) => string;
-
 function getCSSRuleStr(
   node: Rule | AtRule
 ): string {
@@ -77,3 +75,20 @@ export async function getCSSRulesArr(
     .filter((str: string) => str.trim().length > 0)
   ;
 }
+
+export function num2alph(
+  num: number,
+): string {
+
+  num++;
+
+  let output = "";
+
+  while (num > 0) {
+    output = String.fromCharCode(97 + (--num % 26)) + output;
+    num = Math.floor(num / 26);
+  }
+
+  return output;
+
+};

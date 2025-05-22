@@ -3,7 +3,7 @@
 
 // color: #abc;
 
-import { type CSSVarTransform } from "../css";
+import type { CSSVarTransform } from "../type";
 
 export default ( function (
   src: string,
