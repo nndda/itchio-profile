@@ -16,7 +16,7 @@ export default ( function (
 
     .entries(
       src
-        .matchAll(/--([\w-]+):\s+(.+);/gm)
+        .matchAll(/(?:--([\w-]+):\s*(.+?)[;}])/gm)
         .reduce(
           (
             prev: Record<string, string>,
