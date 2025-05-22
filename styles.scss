@@ -241,9 +241,9 @@ a {
     );
   background-size: 200%;
   margin-top: 1em;
-  animation: 18s linear infinite y;
+  animation: 18s linear infinite running-stripes;
 }
-@keyframes y {
+@keyframes running-stripes {
   to {
     background-position: 100%;
   }
