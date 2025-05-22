@@ -42,7 +42,7 @@ Profile content—[`content.html`](content.html).
 <td> Text </td>
 <td>
 
-  `#E7E9E8`
+  `#E7E9E8` (match `--text` CSS variable)
 
 </td>
 </tr>
@@ -51,7 +51,7 @@ Profile content—[`content.html`](content.html).
 <td> Link </td>
 <td>
 
-  `#EAEAEA`
+  `#EAEAEA` (match `--link` CSS variable)
 
 </td>
 </tr>
