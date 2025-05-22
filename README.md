@@ -122,31 +122,38 @@ Profile content—[`content.html`](content.html).
 
 ## Installation
 
-Require Node.js `>23.5`.
+Require Node.js `>23.5` or as latest as you possibly can.
 
-1. Fork this repository.
+1. [Fork](https://github.com/nndda/itchio-profile/fork) this repository, and clone your fork locally.
 
-2. Install the dependencies.
-  ```
-  npm install
-  ```
+1. Install the dependencies.
+    ```
+    npm install
+    ```
 
-3. Edit `build.js`.
-    - Update `version` constant to whatever version you want.
-    - Update `githubRepo` constant to the forked GitHub repository path, i.e. `nndda/itchio-profile`
+1. Modify the [`src/styles.scss`](src/styles.scss) and/or the [`src/content.html`](src/content.html) to your liking.
 
-4. Modify the [`styles.scss`](styles.scss) and/or the [`content.html`](content.html) to your liking.
+    See the [Development](#development) section.
 
-5. Build the CSS.
-  ```
-  npm run build
-  ```
+1. Build the CSS.
+    ```
+    npm run build
+    ```
 
-6. Commit and push the changes. Most importantly, stuff under `dist/`.
+1. Test the CSS, by copy-pasting the content of `dist/test.css` to your itch.io profile page.
 
-7. Create a new release. Make sure the release's name and the tag's name matched the `version` constant defined in `build.js`.
+1. If everything's fine and ready, edit `package.json`, and bump the `version` field. e.g. from `1.2.0` to `1.3.0`.
 
-8. Copy-paste the CSS from `dist/styles.css` to the profile page's theme editor. And the HTML from `content.html` to your profile page's content.
+    And publish your updates.
+    ```
+    npm run publish
+    ```
+
+    And then copy-paste the CSS from `dist/styles.css` to your itch.io profile page, and save it.
+
+## Development
+
+How do I update and develop the page with its HTML and CSS.
 
 ## License
 
