@@ -155,6 +155,18 @@ Require Node.js `>23.5` or as latest as you possibly can.
 
 How do I update and develop the page with its HTML and CSS.
 
+I use Firefox, because it has a nice style editor feature on its dev tool.
+
+1. Open your itch.io profile page. And clear out the custom CSS field.
+2. Open the Firefox Web Developer Tools, by pressing <kbd>f12</kbd> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>.
+3. Go to the `Style Editor` tab, and import the CSS source file.
+
+   ![](https://github.com/user-attachments/assets/495e2981-a40e-4d8d-be08-33ddb3567a34)
+
+   You can start working with the HTML from here. And save your changes by pressing <kbd>Ctrl</kbd> + <kbd>S</kbd>.
+
+As for editing the HTML, I just drag and drop the content of `src/content.html` to the `.user_profile.formatted` element on the `Inspector` tab. Edit it there, and copy it back to the `src/content.html` HTML file.
+
 ## License
 
 [MIT licensed](LICENSE) :)
