@@ -1,9 +1,7 @@
 *itch.io_files/
 *itch.io.html
 
-styles.css
-styles.min.css
-!dist/styles.min.css
+dist/test.css
 
 # Logs
 logs
