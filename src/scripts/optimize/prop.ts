@@ -12,6 +12,8 @@ export default ( function (
   except: string[] = [],
 ): string {
 
+  console.log("Optimizing variables names...");
+
   return Object
 
     .entries(

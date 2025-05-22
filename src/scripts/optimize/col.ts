@@ -9,6 +9,9 @@ export default ( function (
   src: string,
   except: string[] = [],
 ): string {
+
+  console.log("Optimizing variables...");
+
   return src
     .matchAll(/(--[\w-]+):\s*(#\w+);?/g)
     .reduce(
