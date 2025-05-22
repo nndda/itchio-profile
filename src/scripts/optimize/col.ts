@@ -10,7 +10,7 @@ export default ( function (
   except: string[] = [],
 ): string {
   return src
-    .matchAll(/(--[\w-]+):\s+(#.+);/gm)
+    .matchAll(/(--[\w-]+):\s*(#\w+);?/g)
     .reduce(
       (
         prev: string,
