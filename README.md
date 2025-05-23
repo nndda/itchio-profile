@@ -18,6 +18,8 @@ Profile content—[`src/content.html`](src/content.html)
 
 - May 23<sup>rd</sup> 2025 — [Profile Page Updates: Documentation](https://itch.io/blog/950966/profile-page-updates-documentation)
 
+<br>
+
 ## Page theme settings
 
 <table>
@@ -126,6 +128,8 @@ Profile content—[`src/content.html`](src/content.html)
 </tbody>
 </table>
 
+<br>
+
 ## Installation
 
 Require Node.js `>23.5` or as latest as you possibly can.
@@ -162,6 +166,8 @@ Require Node.js `>23.5` or as latest as you possibly can.
 >
 > You should, however, run the `npm run build`, and then commit and push the changes to the HTML files yourself.
 
+<br>
+
 ## Development
 
 How do I update and develop the page with its HTML and CSS.
@@ -187,11 +193,15 @@ I use Firefox, because it has a nice style editor feature on its dev tool.
 
 As for editing the HTML, I just copy-paste the content of `src/content.html` to the `.user_profile.formatted` element on the `Inspector` tab. Edit it there, and copy it back to the `src/content.html` HTML file.
 
+<br>
+
 <div align="center">
   <a href="https://github.com/SAWARATSUKI/KawaiiLogos">
     <img width="520" src="https://github.com/user-attachments/assets/ea12ce4c-abf4-4836-9662-456c67ee2f8b">
   </a>
 </div>
+
+<br>
 
 ## License
 
