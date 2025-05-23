@@ -154,7 +154,7 @@ Require Node.js `>23.5` or as latest as you possibly can.
     And then copy-paste the CSS from `dist/styles.css` to your itch.io profile page, and save it.
 
 > [!IMPORTANT]
-> If its only the HTML that were updated/changed, there's no ***need to bump the version and publish the update*** via `npm run publish`, as its were designed only for the CSS.
+> If you've only changed the HTML, there's no ***need to bump the version and publish the update*** via `npm run publish`, as that is only for the CSS updates.
 > 
 > You should, however, commit and push the changes yourself.
 
@@ -165,7 +165,7 @@ How do I update and develop the page with its HTML and CSS.
 I use Firefox, because it has a nice style editor feature on its dev tool.
 
 1. Open your itch.io profile page. And clear out the custom CSS field.
-2. Open the Firefox Web Developer Tools, by pressing <kbd>f12</kbd> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>.
+2. Open the Firefox Web Developer Tools by pressing <kbd>f12</kbd> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>.
 3. Go to the `Style Editor` tab, and import the CSS source file.
 
    ![](https://github.com/user-attachments/assets/495e2981-a40e-4d8d-be08-33ddb3567a34)
@@ -173,19 +173,19 @@ I use Firefox, because it has a nice style editor feature on its dev tool.
    You can start working with the CSS from here. And save your changes by pressing <kbd>Ctrl</kbd> + <kbd>S</kbd>.
 
 > [!IMPORTANT]
-> When importing CSS file that has unicode characters in it (like this CSS source code),
-> Firefox may or may not break the unicode characters inside.
+> When importing CSS file that has unicode characters in it (like this CSS),
+> Firefox might break those characters.
 >
-> To resolve this:
-> 1. Open the CSS in any text editor.
+> To fix that:
+> 1. Open the CSS in your favourite text editor.
 > 2. Select and copy ALL of the content.
-> 3. Go back to the Firefox `Style Editor`, and paste it there, **overwriting** it.
+> 3. Go back to the Firefox `Style Editor`, and paste over the imported CSS, **overwriting** it.
 
 As for editing the HTML, I just copy-paste the content of `src/content.html` to the `.user_profile.formatted` element on the `Inspector` tab. Edit it there, and copy it back to the `src/content.html` HTML file.
 
 > [!IMPORTANT]
-> Make sure to ***compress/minify the [`src/content.html`](src/content.html) first***, before copy-pasting it to your profile page's content.
-> You can do that using [online tools](https://www.google.com/search?q=html+compressor) or any way you prefer.
+> Make sure to ***minify the [`src/content.html`](src/content.html) first***, before copy-pasting it to your profile page.
+> You can use [online HTML minifier](https://www.google.com/search?q=html+compressor) or any way you prefer.
 
 <div align="center">
   <a href="https://github.com/SAWARATSUKI/KawaiiLogos">
