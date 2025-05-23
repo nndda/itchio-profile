@@ -120,24 +120,33 @@ a {
 /* Profile picture */
 .user_links {
   position: relative;
-  margin-bottom: 0 !important;
+/*   display: flex; */
+/*   row-gap: .65em; */
 }
 .link_group:first-child {
   margin-left: 7.5em;
 }
-.user_links:after,
-.user_links:before {
+.user_links:before, .user_links:after {
   position: absolute;
-  top: -3.8em;
-  content: "";
-  background: url(https://cdn.jsdelivr.net/gh/nndda/itchio-profile@1.2.0/assets/profile.webp) 0 0/cover;
+  content: url(https://cdn.jsdelivr.net/gh/nndda/itchio-profile@1.2.0/assets/profile.webp);
+
   height: 96px;
   width: 96px;
-  backdrop-filter: blur(0);
+
   border-radius: 9px;
+
+  object-fit: cover;
+  
+  overflow: hidden;
   box-shadow: 0 0 8px var(--shadow);
+  
+  top: -3.8em;
 }
+
+/* Bottom gradient border */
 .user_links:after {
+/*   position: absolute; */
+  content: "";
   top: 100%;
   left: 0;
   background: var(--gradient-primary);
