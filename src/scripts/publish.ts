@@ -51,6 +51,22 @@ function cmd(
 
   try {
 
+    // Validate CSS
+
+    [
+      "dist/styles.css",
+      "dist/i.css",
+    ].forEach((file: string): void => {
+      cmd(
+        "npx",
+        [
+          "csstree-validator",
+          file,
+        ],
+        "CSS output validation failed",
+      );
+    });
+
     const
       git: SimpleGit = simpleGit()
 
