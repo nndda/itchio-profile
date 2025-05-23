@@ -142,7 +142,7 @@ Require Node.js `>23.5` or as latest as you possibly can.
     npm run build
     ```
 
-1. Test the CSS, by copy-pasting the content of `dist/test.css` to your itch.io profile page.
+1. Test the CSS and the HTML, by copy-pasting the content of `dist/test.css` and `dist/content.html` to your itch.io profile page.
 
 1. If everything's fine and ready, edit `package.json`, and bump the `version` field. e.g. from `1.2.0` to `1.3.0`.
 
@@ -155,8 +155,8 @@ Require Node.js `>23.5` or as latest as you possibly can.
 
 > [!IMPORTANT]
 > If you've only changed the HTML, there's no ***need to bump the version and publish the update*** via `npm run publish`, as that is only for the CSS updates.
-> 
-> You should, however, commit and push the changes yourself.
+>
+> You should, however, run the `npm run build`, and then commit and push the changes to the HTML files yourself.
 
 ## Development
 
@@ -182,10 +182,6 @@ I use Firefox, because it has a nice style editor feature on its dev tool.
 > 3. Go back to the Firefox `Style Editor`, and paste over the imported CSS, **overwriting** it.
 
 As for editing the HTML, I just copy-paste the content of `src/content.html` to the `.user_profile.formatted` element on the `Inspector` tab. Edit it there, and copy it back to the `src/content.html` HTML file.
-
-> [!IMPORTANT]
-> Make sure to ***minify the [`src/content.html`](src/content.html) first***, before copy-pasting it to your profile page.
-> You can use [online HTML minifier](https://www.google.com/search?q=html+compressor) or any way you prefer.
 
 <div align="center">
   <a href="https://github.com/SAWARATSUKI/KawaiiLogos">
