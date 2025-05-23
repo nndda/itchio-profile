@@ -26,6 +26,7 @@ import {
   writeTxtFile,
 } from "./util";
 
+import "./optimize/html";
 
 ( async (): Promise<void> => {
 
