@@ -3,10 +3,12 @@
 <div align="center">
 
 Source code for my itch.io profile page.
-Main stylesheet—[`styles.scss`](styles.scss),
-Profile content—[`content.html`](content.html).
 
-<img src="https://github.com/user-attachments/assets/0f8eff10-4bb0-4f08-ab46-b753652355db" alt="">
+Main stylesheet—[`src/styles.scss`](src/styles.scss),
+｜
+Profile content—[`src/content.html`](src/content.html).
+
+<img src="https://github.com/user-attachments/assets/0f8eff10-4bb0-4f08-ab46-b753652355db" alt="" height="1436" width="900">
 
 </div>
 
@@ -42,7 +44,7 @@ Profile content—[`content.html`](content.html).
 <td> Text </td>
 <td>
 
-  `#E7E9E8`
+  `#E7E9E8` (match `--text` CSS variable)
 
 </td>
 </tr>
@@ -51,7 +53,7 @@ Profile content—[`content.html`](content.html).
 <td> Link </td>
 <td>
 
-  `#EAEAEA`
+  `#EAEAEA` (match `--link` CSS variable)
 
 </td>
 </tr>
@@ -122,31 +124,56 @@ Profile content—[`content.html`](content.html).
 
 ## Installation
 
-Require Node.js `>23.5`.
+Require Node.js `>23.5` or as latest as you possibly can.
 
-1. Fork this repository.
+1. [Fork](https://github.com/nndda/itchio-profile/fork) this repository, and clone your fork locally.
 
-2. Install the dependencies.
-  ```
-  npm install
-  ```
+1. Install the dependencies.
+    ```
+    npm install
+    ```
 
-3. Edit `build.js`.
-    - Update `version` constant to whatever version you want.
-    - Update `githubRepo` constant to the forked GitHub repository path, i.e. `nndda/itchio-profile`
+1. Modify the [`src/styles.scss`](src/styles.scss) and/or the [`src/content.html`](src/content.html) to your liking.
 
-4. Modify the [`styles.scss`](styles.scss) and/or the [`content.html`](content.html) to your liking.
+    See the [Development](#development) section.
 
-5. Build the CSS.
-  ```
-  npm run build
-  ```
+1. Build the CSS.
+    ```
+    npm run build
+    ```
 
-6. Commit and push the changes. Most importantly, stuff under `dist/`.
+1. Test the CSS, by copy-pasting the content of `dist/test.css` to your itch.io profile page.
 
-7. Create a new release. Make sure the release's name and the tag's name matched the `version` constant defined in `build.js`.
+1. If everything's fine and ready, edit `package.json`, and bump the `version` field. e.g. from `1.2.0` to `1.3.0`.
 
-8. Copy-paste the CSS from `dist/styles.css` to the profile page's theme editor. And the HTML from `content.html` to your profile page's content.
+    And publish your updates.
+    ```
+    npm run publish
+    ```
+
+    And then copy-paste the CSS from `dist/styles.css` to your itch.io profile page, and save it.
+
+## Development
+
+How do I update and develop the page with its HTML and CSS.
+
+I use Firefox, because it has a nice style editor feature on its dev tool.
+
+1. Open your itch.io profile page. And clear out the custom CSS field.
+2. Open the Firefox Web Developer Tools, by pressing <kbd>f12</kbd> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>.
+3. Go to the `Style Editor` tab, and import the CSS source file.
+
+   ![](https://github.com/user-attachments/assets/495e2981-a40e-4d8d-be08-33ddb3567a34)
+
+   You can start working with the CSS from here. And save your changes by pressing <kbd>Ctrl</kbd> + <kbd>S</kbd>.
+
+As for editing the HTML, I just copy-paste the content of `src/content.html` to the `.user_profile.formatted` element on the `Inspector` tab. Edit it there, and copy it back to the `src/content.html` HTML file.
+
+<div align="center">
+  <a href="https://github.com/SAWARATSUKI/KawaiiLogos">
+    <img width="520" src="https://github.com/user-attachments/assets/ea12ce4c-abf4-4836-9662-456c67ee2f8b">
+  </a>
+</div>
 
 ## License
 
