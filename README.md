@@ -178,6 +178,9 @@ I use Firefox, because it has a nice style editor feature on its dev tool.
 
 As for editing the HTML, I just copy-paste the content of `src/content.html` to the `.user_profile.formatted` element on the `Inspector` tab. Edit it there, and copy it back to the `src/content.html` HTML file.
 
+> [!IMPORTANT]
+> Make sure to ***compress/minify the [`src/content.html`](src/content.html) first***, before copy-pasting it to your profile page's content.
+> You can do that using [online tools](https://www.google.com/search?q=html+compressor) or any way you prefer.
 
 <div align="center">
   <a href="https://github.com/SAWARATSUKI/KawaiiLogos">
