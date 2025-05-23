@@ -1,4 +1,7 @@
-import { spawn } from "node:child_process";
+import {
+  spawnSync,
+  type SpawnSyncReturns,
+} from "node:child_process";
 
 import {
   simpleGit,
@@ -8,30 +11,24 @@ import {
 } from "simple-git";
 
 
-async function cmd(
+function cmd(
   command: string,
   args: string[],
-  err: string,
-): Promise<void> {
-  return new Promise<void>((
-    resolve: (value: void | PromiseLike<void>) => any,
-    reject: (reason: any) => void,
-  ): void => {
-    spawn(
-      command,
-      args,
-      { stdio: "inherit" }
-    ).on(
-      "exit",
-      (code: number): void => {
-        if (code === 0) {
-          resolve();
-        } else {
-          reject(new Error(`Error ${code}: ` + err));
-        }
-      }
-    );
-  });
+  errMsg: string,
+): void {
+  const result: SpawnSyncReturns<Buffer<ArrayBufferLike>> = spawnSync(
+    command,
+    args,
+    { stdio: "inherit" },
+  );
+
+  if (result.error) throw new Error(
+    result.error.message
+  );
+
+  if (result.status !== 0) throw new Error(
+    `Error ${result.status}:` + errMsg
+  );
 }
 
 
@@ -80,7 +77,7 @@ async function cmd(
     , distModified: string[] = getModified(status, distFiles)
     ;
 
-    await cmd(
+    cmd(
       "npm",
       [
         "version",
@@ -128,7 +125,7 @@ async function cmd(
 
     // Committing
 
-    await cmd(
+    cmd(
       "git",
       [ "commit", "-m", version ],
       "git commit failed",
