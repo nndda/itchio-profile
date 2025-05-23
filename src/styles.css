@@ -326,6 +326,35 @@ a.custom-cb:first-child {
   border-radius: 7px 2px 2px 7px;
 }
 
+/* 👉👈 */
+.custom-uwu::before, .custom-uwu::after {
+  content: "👉";
+
+  display: inline-block;
+  margin: 0 2px;
+  transform-origin: center;
+
+  animation: plzzzz 1.15s ease-out infinite;
+}
+
+.custom-uwu::after {
+  content: "👈";
+  --d: -1;
+}
+
+@keyframes plzzzz {
+  0%, 30%, 75%, 100% {
+    transform:
+      translateX(0)
+      rotate(0deg);
+  }
+
+  10%, 50%  {
+    transform:
+      translateX( calc( 5px * var(--d, 1) ) )
+      rotate( calc( 9deg * var(--d, 1) ) );
+  }
+}
 
 
 /* Window's title bar */
