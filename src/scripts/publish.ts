@@ -8,6 +8,33 @@ import {
 } from "simple-git";
 
 
+async function cmd(
+  command: string,
+  args: string[],
+  err: string,
+): Promise<void> {
+  return new Promise<void>((
+    resolve: (value: void | PromiseLike<void>) => any,
+    reject: (reason: any) => void,
+  ): void => {
+    spawn(
+      command,
+      args,
+      { stdio: "inherit" }
+    ).on(
+      "exit",
+      (code: number): void => {
+        if (code === 0) {
+          resolve();
+        } else {
+          reject(new Error(`Error ${code}: ` + err));
+        }
+      }
+    );
+  });
+}
+
+
 ( async (): Promise<void> => {
 
   function lsFiles(files: string[]): string {
@@ -42,7 +69,6 @@ import {
     }
 
     const
-
       status: StatusResult = await git.status()
 
     , distFiles: string[] = [
@@ -52,10 +78,26 @@ import {
       ]
 
     , distModified: string[] = getModified(status, distFiles)
+    ;
 
-    , srcModified: string[] = getModified(status, [
+    await cmd(
+      "npm",
+      [
+        "version",
+        version,
+        "--allow-same-version",
+        "--no-commit-hooks",
+        "--no-git-tag-version",
+      ],
+      "Failed to sync package-lock.json version.",
+    );
+
+    const
+     srcModified: string[] = getModified(status, [
         "src/styles.css",
         "src/content.html",
+        "package-lock.json",
+        "package.json",
       ])
     ;
 
@@ -86,25 +128,11 @@ import {
 
     // Committing
 
-    await new Promise<void>((
-      resolve: (value: void | PromiseLike<void>) => any,
-      reject: (reason: any) => void,
-    ): void => {
-      spawn(
-        "git",
-        [ "commit", "-m", version ],
-        { stdio: "inherit" }
-      ).on(
-        "exit",
-        (code: number): void => {
-          if (code === 0) {
-            resolve();
-          } else {
-            reject(new Error(`git commit failed with code: ${code}`));
-          }
-        }
-      );
-    });
+    await cmd(
+      "git",
+      [ "commit", "-m", version ],
+      "git commit failed",
+    );
 
     // Pushing
 
