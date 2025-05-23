@@ -81,18 +81,6 @@ function cmd(
       );
     }
 
-    const
-      status: StatusResult = await git.status()
-
-    , distFiles: string[] = [
-        "dist/content.html",
-        "dist/styles.css",
-        "dist/i.css",
-      ]
-
-    , distModified: string[] = getModified(status, distFiles)
-    ;
-
     cmd(
       "npm",
       [
@@ -106,7 +94,17 @@ function cmd(
     );
 
     const
-     srcModified: string[] = getModified(status, [
+      status: StatusResult = await git.status()
+
+    , distFiles: string[] = [
+        "dist/content.html",
+        "dist/styles.css",
+        "dist/i.css",
+      ]
+
+    , distModified: string[] = getModified(status, distFiles)
+
+    , srcModified: string[] = getModified(status, [
         "src/styles.css",
         "src/content.html",
         "package-lock.json",
