@@ -164,7 +164,7 @@ How do I update and develop the page with its HTML and CSS.
 
 I use Firefox, because it has a nice style editor feature on its dev tool.
 
-1. Open your itch.io profile page. And clear out the custom CSS field.
+1. Open your itch.io profile page. And clear out the custom CSS field (just clear it out, you don't need to save it).
 2. Open the Firefox Web Developer Tools by pressing <kbd>f12</kbd> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>.
 3. Go to the `Style Editor` tab, and import the CSS source file.
 
