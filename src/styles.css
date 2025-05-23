@@ -582,6 +582,7 @@ s {
     margin: 0 .8em;
   }
   /* Fade out gradient */
+  /*
   .collection_row::before {
     content: "";
     position: absolute;
@@ -592,6 +593,10 @@ s {
     width: 100%;
     height: 76%;
     z-index: 2;
+  }
+  */
+  .carousel_wrapper {
+    mask: alpha linear-gradient(90deg, #fff 50%, #0000);
   }
   .collection_row:first-child {
     padding-left: 1.2em
