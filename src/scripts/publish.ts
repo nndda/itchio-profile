@@ -97,9 +97,11 @@ import {
       ).on(
         "exit",
         (code: number): void => {
-          code === 0 ?
-            resolve() :
-            reject(new Error(`git commit failed with code: ${code}`))
+          if (code === 0) {
+            resolve();
+          } else {
+            reject(new Error(`git commit failed with code: ${code}`));
+          }
         }
       );
     });
