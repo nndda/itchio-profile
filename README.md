@@ -3,8 +3,10 @@
 <div align="center">
 
 Source code for my itch.io profile page.
-Main stylesheet—[`styles.scss`](styles.scss),
-Profile content—[`content.html`](content.html).
+
+Main stylesheet—[`src/styles.scss`](src/styles.scss),
+｜
+Profile content—[`src/content.html`](src/content.html).
 
 <img src="https://github.com/user-attachments/assets/0f8eff10-4bb0-4f08-ab46-b753652355db" alt="" height="1436" width="900">
 
