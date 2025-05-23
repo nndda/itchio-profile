@@ -165,7 +165,7 @@ I use Firefox, because it has a nice style editor feature on its dev tool.
 
    You can start working with the CSS from here. And save your changes by pressing <kbd>Ctrl</kbd> + <kbd>S</kbd>.
 
-As for editing the HTML, I just drag and drop the content of `src/content.html` to the `.user_profile.formatted` element on the `Inspector` tab. Edit it there, and copy it back to the `src/content.html` HTML file.
+As for editing the HTML, I just copy-paste the content of `src/content.html` to the `.user_profile.formatted` element on the `Inspector` tab. Edit it there, and copy it back to the `src/content.html` HTML file.
 
 ## License
 
