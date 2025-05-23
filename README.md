@@ -4,7 +4,7 @@
 
 Source code for my itch.io profile page.
 
-Main stylesheet—[`src/styles.scss`](src/styles.scss),
+Main stylesheet—[`src/styles.css`](src/styles.css),
 ｜
 Profile content—[`src/content.html`](src/content.html).
 
@@ -133,7 +133,7 @@ Require Node.js `>23.5` or as latest as you possibly can.
     npm install
     ```
 
-1. Modify the [`src/styles.scss`](src/styles.scss) and/or the [`src/content.html`](src/content.html) to your liking.
+1. Modify the [`src/styles.css`](src/styles.css) and/or the [`src/content.html`](src/content.html) to your liking.
 
     See the [Development](#development) section.
 
