@@ -169,6 +169,12 @@ I use Firefox, because it has a nice style editor feature on its dev tool.
 
 As for editing the HTML, I just copy-paste the content of `src/content.html` to the `.user_profile.formatted` element on the `Inspector` tab. Edit it there, and copy it back to the `src/content.html` HTML file.
 
+<div align="center">
+  <a href="https://github.com/SAWARATSUKI/KawaiiLogos">
+    <img width="520" src="https://github.com/user-attachments/assets/ea12ce4c-abf4-4836-9662-456c67ee2f8b">
+  </a>
+</div>
+
 ## License
 
 [MIT licensed](LICENSE) :)
