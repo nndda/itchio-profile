@@ -167,7 +167,17 @@ I use Firefox, because it has a nice style editor feature on its dev tool.
 
    You can start working with the CSS from here. And save your changes by pressing <kbd>Ctrl</kbd> + <kbd>S</kbd>.
 
+> [!IMPORTANT]
+> When importing CSS file that has unicode characters in it (like this CSS source code),
+> Firefox may or may not break the unicode characters inside.
+>
+> To resolve this:
+> 1. Open the CSS in any text editor.
+> 2. Select and copy ALL of the content.
+> 3. Go back to the Firefox `Style Editor`, and paste it there, **overwriting** it.
+
 As for editing the HTML, I just copy-paste the content of `src/content.html` to the `.user_profile.formatted` element on the `Inspector` tab. Edit it there, and copy it back to the `src/content.html` HTML file.
+
 
 <div align="center">
   <a href="https://github.com/SAWARATSUKI/KawaiiLogos">
