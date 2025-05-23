@@ -4,7 +4,8 @@
   "private": true,
   "description": "Source code for my itch.io profile page.",
   "scripts": {
-    "build": "npx tsx src/scripts/build.ts"
+    "build": "npx tsx src/scripts/build.ts",
+    "publish": "npx tsx src/scripts/publish.ts"
   },
   "repository": {
     "type": "git",
