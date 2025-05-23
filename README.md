@@ -172,9 +172,9 @@ I use Firefox, because it has a nice style editor feature on its dev tool.
 > Firefox may or may not break the unicode characters inside.
 >
 > To resolve this:
-> 1. Open the CSS in any text edito.
-> 2. Select and copy ALL of the CSS.
-> 3. Go back to the Firefox `Style Editor`, and paste it there.
+> 1. Open the CSS in any text editor.
+> 2. Select and copy ALL of the content.
+> 3. Go back to the Firefox `Style Editor`, and paste it there, **overwriting** it.
 
 As for editing the HTML, I just copy-paste the content of `src/content.html` to the `.user_profile.formatted` element on the `Inspector` tab. Edit it there, and copy it back to the `src/content.html` HTML file.
 
