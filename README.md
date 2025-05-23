@@ -153,6 +153,11 @@ Require Node.js `>23.5` or as latest as you possibly can.
 
     And then copy-paste the CSS from `dist/styles.css` to your itch.io profile page, and save it.
 
+> [!IMPORTANT]
+> If its only the HTML that were updated/changed, there's no ***need to bump the version and publish the update*** via `npm run publish`, as its were designed only for the CSS.
+> 
+> You should, however, commit and push the changes yourself.
+
 ## Development
 
 How do I update and develop the page with its HTML and CSS.
