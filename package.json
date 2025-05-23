@@ -1,6 +1,6 @@
 {
   "name": "nnda-itchio-profile",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "private": true,
   "description": "Source code for my itch.io profile page.",
   "scripts": {
