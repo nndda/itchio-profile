@@ -27,7 +27,7 @@ function cmd(
   );
 
   if (result.status !== 0) throw new Error(
-    `Error ${result.status}:` + errMsg
+    `Error ${result.status}: ` + errMsg
   );
 }
 
