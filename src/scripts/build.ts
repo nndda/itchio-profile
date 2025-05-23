@@ -26,7 +26,8 @@ import {
   writeTxtFile,
 } from "./util";
 
-( async () => {
+
+( async (): Promise<void> => {
 
   const
     rawCSS: string = await nano(readTxtFile("./src/styles.css"), true)
