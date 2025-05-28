@@ -145,7 +145,7 @@ Require Node.js `>23.5` or as latest as you possibly can.
 
     See the [Development](#development) section.
 
-1. Bump the `version` field. e.g. from `1.2.0` to `1.3.0`.
+1. Edit `package.json`, and bump the `version` field. e.g. from `1.2.0` to `1.3.0`.
 
 1. Build the CSS.
     ```
@@ -154,7 +154,7 @@ Require Node.js `>23.5` or as latest as you possibly can.
 
 1. Test the CSS and the HTML, by copy-pasting the content of `dist/test.css` and `dist/content.html` to your itch.io profile page.
 
-1. If everything's fine and ready, edit `package.json`, and publish your updates.
+1. If everything's fine and ready, and publish your updates.
     ```
     npm run publish
     ```
