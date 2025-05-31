@@ -132,7 +132,7 @@ Profile content—[`src/content.html`](src/content.html)
 
 ## Installation
 
-Require Node.js `>23.5` or as latest as you possibly can.
+Require Node.js `>23.5` or as latest as you possibly can get.
 
 1. [Fork](https://github.com/nndda/itchio-profile/fork) this repository, and clone your fork locally.
 
@@ -154,7 +154,7 @@ Require Node.js `>23.5` or as latest as you possibly can.
 
 1. Test the CSS and the HTML, by copy-pasting the content of `dist/test.css` and `dist/content.html` to your itch.io profile page.
 
-1. If everything's fine and ready, and publish your updates.
+1. If everything's fine and ready, publish your updates.
     ```
     npm run publish
     ```
