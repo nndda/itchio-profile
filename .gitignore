@@ -1,8 +1,6 @@
 *itch.io_files/
 *itch.io.html
 
-dist/test.css
-
 # Logs
 logs
 *.log
