@@ -18,6 +18,8 @@
   --shadow: #101b;
   --transparent: #0000;
 
+  --mask-gradient: linear-gradient(90deg, #fff 50%, #0000);
+
   padding-bottom: 2.5em;
 }
 
@@ -605,7 +607,8 @@ s {
 
 /* Fade out collection list */
 .carousel_wrapper {
-  mask: alpha linear-gradient(90deg, #fff 50%, #0000);
+  mask-image: var(--mask-gradient);
+  mask-mode: alpha;
 }
 
 
