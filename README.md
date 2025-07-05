@@ -134,6 +134,8 @@ Profile content—[`src/content.html`](src/content.html)
 
 Require Node.js `>23.5` or as latest as you possibly can get.
 
+0. Star this repo?? 👉👈 (optional)
+
 1. [Fork](https://github.com/nndda/itchio-profile/fork) this repository, and clone your fork locally.
 
 1. Install the dependencies.
