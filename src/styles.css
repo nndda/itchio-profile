@@ -131,7 +131,7 @@ a {
 }
 .user_links:before, .user_links:after {
   position: absolute;
-  content: url(https://cdn.jsdelivr.net/gh/nndda/itchio-profile@1.2.0/assets/profile.webp);
+  content: url(https://cdn.jsdelivr.net/gh/nndda/itchio-profile@1.3.0/assets/profile.webp);
 
   height: 96px;
   width: 96px;
@@ -164,7 +164,7 @@ a {
 .custom-wi > div,
 .game_column > div {
   border: 1.2em solid #0000;
-  border-image: url(https://cdn.jsdelivr.net/gh/nndda/itchio-profile@1.2.0/assets/b.png) 30;
+  border-image: url(https://cdn.jsdelivr.net/gh/nndda/itchio-profile@1.3.0/assets/b.png) 30;
 }
 
 
@@ -290,7 +290,7 @@ a {
   /* height: 110%; */
 
   border: 1.5em solid #0000;
-  border-image: url(https://cdn.jsdelivr.net/gh/nndda/itchio-profile@1.2.0/assets/b2.png) 30 !important;
+  border-image: url(https://cdn.jsdelivr.net/gh/nndda/itchio-profile@1.3.0/assets/b2.png) 30 !important;
   z-index: -1;
 }
 .custom-k > * {
