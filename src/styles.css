@@ -331,6 +331,7 @@ a.custom-cb:first-child {
 /* 👉👈 */
 .custom-uwu::before, .custom-uwu::after {
   content: "👉";
+  --d: 1;
 
   display: inline-block;
   margin: 0 2px;
@@ -353,8 +354,8 @@ a.custom-cb:first-child {
 
   10%, 50%  {
     transform:
-      translateX( calc( 5px * var(--d, 1) ) )
-      rotate( calc( 9deg * var(--d, 1) ) );
+      translateX( calc( 5px * var(--d) ) )
+      rotate( calc( 9deg * var(--d) ) );
   }
 }
 

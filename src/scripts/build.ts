@@ -57,7 +57,7 @@ import "./optimize/html";
           ([
 
               [ col, [ "--primary" ] ],
-              [ prop ],
+              [ prop, [ "--d" ] ],
 
           ] as [ CSSVarTransform, string[] | undefined ][])
             .reduce(
