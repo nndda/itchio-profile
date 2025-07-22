@@ -310,22 +310,24 @@ a {
 /* Support button */
 a.custom-cb {
   color: var(--background) !important;
-  background: linear-gradient(90deg, #2a8aec, var(--secondary));
+  background: var(--primary);
   font-weight: bold;
   text-decoration: none;
   vertical-align: middle;
   padding: .2em .5em;
-  border-radius: 2px 7px 7px 2px;
+  margin: 0 .15em;
 }
 a.custom-cb > img {
   vertical-align: -.3em;
 }
 a.custom-cb:first-child {
-  flex-grow: 1;
+  --primary: var(--secondary);
   text-align: center;
-  background: var(--gradient-secondary);
-  margin-right: .3em;
   border-radius: 7px 2px 2px 7px;
+}
+a.custom-cb:last-child {
+  --primary: #f0ca0f;
+  border-radius: 2px 7px 7px 2px;
 }
 
 /* 👉👈 */
