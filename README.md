@@ -8,7 +8,7 @@ Main stylesheet—[`src/styles.css`](src/styles.css)
 ｜
 Profile content—[`src/content.html`](src/content.html)
 
-<img src="https://github.com/user-attachments/assets/0f8eff10-4bb0-4f08-ab46-b753652355db" alt="">
+<img src="https://github.com/user-attachments/assets/4a1f841a-7e95-4bda-a4c6-564f7b6301df" alt="">
 
 </div>
 
