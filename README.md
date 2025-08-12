@@ -4,11 +4,11 @@
 
 Source code for my itch.io profile page.
 
-Main stylesheet—[`src/styles.css`](src/styles.css)
+Main stylesheet: [`src/styles.css`](src/styles.css)
 ｜
-Profile content—[`src/content.html`](src/content.html)
+Profile content: [`src/content.html`](src/content.html)
 
-<img src="https://github.com/user-attachments/assets/4a1f841a-7e95-4bda-a4c6-564f7b6301df" alt="">
+<img src="https://github.com/user-attachments/assets/c396f3cd-150d-4cb1-9c93-0bab53fc76d1" alt="">
 
 </div>
 
