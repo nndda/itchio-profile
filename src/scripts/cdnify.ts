@@ -6,7 +6,7 @@ export default function (
   userRepo: string,
   version: string,
 ): string {
-  return str.replace(/https\:\/\/cdn\.jsdelivr\.net\/.+?\/(.+?\/.+?)\@(main)\//g, (
+  return str.replace(/https:\/\/cdn\.jsdelivr\.net\/.+?\/(.+?\/.+?)@(main)\//g, (
       match,
       userRepoMatch,
       verMainMatch,
