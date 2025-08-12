@@ -20,13 +20,15 @@ import {
   getCSSRulesArr
 } from "./optimize/util";
 
+import cdnify from "./cdnify";
+
 import {
   ghSlug,
   readTxtFile,
   writeTxtFile,
 } from "./util";
 
-import "./optimize/html";
+import html from "./optimize/html";
 
 ( async (): Promise<void> => {
 
@@ -35,16 +37,28 @@ import "./optimize/html";
 
   , git: SimpleGit = simpleGit()
 
-  , CDNImportTemplate: string = `@import url("https://cdn.jsdelivr.net/gh/${
-        await ghSlug(git)
-      }@${
-        (await import("../../package.json")).default.version
-      }/dist/i.css");`
+  , repoUser: string = await ghSlug(git)
+
+  , version: string = (await import("../../package.json")).default.version
+
+  , CDNImportTemplate: string = `@import url("https://cdn.jsdelivr.net/gh/${repoUser}@${version}/dist/i.css");`
   ;
 
   let
     cssAll: string = ""
   ;
+
+  console.log(
+    "Building HTML...\n",
+  );
+
+  writeTxtFile("dist/content.html",
+    cdnify(
+      await html(),
+      repoUser,
+      version,
+    )
+  );
 
   console.log(
     "Building CSS...\n",
@@ -98,7 +112,11 @@ import "./optimize/html";
         imported ? "i.css" : "styles.css"
       ),
       (!imported ? CDNImportTemplate : "") +
-      css,
+      cdnify(
+        css,
+        repoUser,
+        version,
+      ),
     );
 
     if (!imported) {
