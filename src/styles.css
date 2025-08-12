@@ -205,6 +205,58 @@ a {
 
 
 
+/* Words carousel */
+.custom-list-words {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 1.3em;
+/*   padding: 0 .5em; */
+  line-height: 1.3em;
+  justify-content: start;
+  align-items: start;
+/*   color: var(--primary); */
+  font-size: 1.85em;
+/*   font-weight: bold; */
+  white-space: nowrap;
+/*   text-transform: capitalize; */
+  overflow: hidden;
+/*   filter: */
+/*     drop-shadow(0 1em #fff6) */
+/*     drop-shadow(0 2em #fff4) */
+/*     drop-shadow(0 1em #fc3a7888) */
+/*     drop-shadow(0 2em #fc3a7866) */
+/*    ; */
+}
+.custom-list-words > span {
+  animation: 7.5s infinite words-anim;
+}
+@keyframes words-anim {
+/*   0%, 15% {
+    transform: translateY(0);
+  }
+  25%, 40% {
+    transform: translateY(-1.3em);
+  }
+  50%, 65% {
+    transform: translateY(-2.6em);
+  }
+  75%, 90% {
+    transform: translateY(-3.9em);
+  } */
+  0%, 20% {
+    transform: translateY(0);
+  }
+  40%, 60% {
+    transform: translateY(-1.3em);
+  }
+  80%, 90% {
+    transform: translateY(-2.6em);
+  }
+}
+
+
+
 /* Vertical & horizontal 'frame' dashed lines */
 .custom-h,
 .custom-j {
@@ -396,6 +448,7 @@ a.custom-cb:last-child {
 }
 .custom-wt > :first-child > div {
   overflow: hidden;
+/*   font-family: monospace; */
   text-shadow: 0 0 var(--text), 11ch 0 var(--text);
   animation: 3s linear infinite running-text;
 }
@@ -412,9 +465,10 @@ a.custom-cb:last-child {
 /* Window's content */
 .custom-wi {
   padding: 0 1em .8em;
+  overflow: hidden;
 }
 .custom-wi > div > div {
-  padding: 1.5em 0 2.5em;
+  padding: 1.5em 0 2.9em;
   margin: auto;
   max-width: 18em;
   letter-spacing: .2ch;
