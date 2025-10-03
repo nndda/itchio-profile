@@ -5,7 +5,7 @@
   opacity: 1;
 
   transition: .8s ease;
-  transition-delay: calc(var(--in) * .25s + .5s);
+  transition-delay: calc(var(--in) * .175s + .5s);
 
   @starting-style {
     transform: translateY(2em);
