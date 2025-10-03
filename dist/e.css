@@ -13,8 +13,9 @@
   }
 }
 
-.user_links > :nth-child(1) { --in: 1; }
-.user_links > :nth-child(2) { --in: 2; }
-.user_links > :nth-child(3) { --in: 3; }
-.user_links > :nth-child(4) { --in: 4; }
-.user_links > :nth-child(5) { --in: 5; }
+.user_links > :nth-child(1)::before { --in: 1; }
+.user_links > :nth-child(1) { --in: 2; }
+.user_links > :nth-child(2) { --in: 3; }
+.user_links > :nth-child(3) { --in: 4; }
+.user_links > :nth-child(4) { --in: 5; }
+.user_links > :nth-child(5) { --in: 6; }
