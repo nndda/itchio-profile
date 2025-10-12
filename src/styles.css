@@ -724,36 +724,3 @@ s {
   }
   */
 }
-
-/* Animations */
-
-.custom-wr,
-.custom-n > span,
-.user_links > *,
-.user_links::before {
-  transform: translateY(0);
-  opacity: 1;
-
-  transition: .8s ease;
-  transition-delay: calc(var(--child-i, 1) * .175s + var(--delay, .5s));
-
-  @starting-style {
-    transform: translateY(2em);
-    opacity: 0;
-  }
-}
-
-.custom-wr {
-  --delay: .85s;
-}
-
-.custom-n > span {
-  --delay: 1.2s;
-}
-
-/* .user_links::before { --child-i: 1; } */
-:where(.user_links, .custom-n) > :nth-child(1) { --child-i: 2; }
-:where(.user_links, .custom-n) > :nth-child(2) { --child-i: 3; }
-:where(.user_links, .custom-n) > :nth-child(3) { --child-i: 4; }
-:where(.user_links, .custom-n) > :nth-child(4) { --child-i: 5; }
-:where(.user_links, .custom-n) > :nth-child(5) { --child-i: 6; }
