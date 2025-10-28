@@ -2,15 +2,27 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: npm # See documentation for possible values
+    directory: / # Location of package manifests
     schedule:
-      interval: "weekly"
+      interval: weekly
     versioning-strategy: auto
-    target-branch: "dev"
+    target-branch: main
+    cooldown:
+      default-days: 15
+    groups:
+      minor-and-patch-updates:
+        update-types:
+          - minor
+          - patch
+      major-updates:
+        update-types:
+          - major
 
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: github-actions
+    directory: /
     schedule:
-      interval: "weekly"
-    target-branch: "main"
+      interval: weekly
+    target-branch: main
+    cooldown:
+      default-days: 15
