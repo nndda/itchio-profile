@@ -20,8 +20,8 @@
   "homepage": "https://github.com/nndda/itchio-profile#readme",
   "devDependencies": {
     "@eslint/compat": "^2.0.0",
-    "@eslint/js": "^9.39.1",
-    "@swc/html": "^1.15.3",
+    "@eslint/js": "^9.39.2",
+    "@swc/html": "^1.15.4",
     "@types/node": "^25.0.2",
     "autoprefixer": "^10.4.22",
     "clean-css": "^5.3.3",
@@ -29,12 +29,12 @@
     "cssnano": "^7.1.2",
     "cssnano-preset-advanced": "^7.0.10",
     "csstree-validator": "^4.0.1",
-    "eslint": "^9.39.1",
+    "eslint": "^9.39.2",
     "globals": "^16.5.0",
     "jiti": "^2.6.1",
     "postcss": "^8.5.6",
-    "sass": "^1.94.2",
+    "sass": "^1.96.0",
     "simple-git": "^3.30.0",
-    "typescript-eslint": "^8.48.1"
+    "typescript-eslint": "^8.49.0"
   }
 }
