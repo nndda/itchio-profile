@@ -1,4 +1,6 @@
-<h1 align="center"> <img height="32" width="32" src="https://cdn.simpleicons.org/itchdotio/fff"/> nnda&nbsp;<sub><sup>.itch.io</sup></sub> </h1>
+<h1 align="center"> <img height="32" width="32" src="https://cdn.simpleicons.org/itchdotio/fff"/>
+  <code>nnda.itch.io</code>
+</h1>
 
 <div align="center">
 
