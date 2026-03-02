@@ -18,12 +18,10 @@ jobs:
       fail-fast: false
       matrix:
         nodejs:
-          - 19
-          - 20
-          - 21
           - 22
           - 23
           - 24
+          - latest
 
     steps:
       - name: Checkout repository
