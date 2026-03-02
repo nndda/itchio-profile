@@ -161,7 +161,7 @@ Require Node.js `>23.5` or as latest as you possibly can get.
     npm run publish
     ```
 
-    And then copy-paste the CSS from `dist/styles.css` to your itch.io profile page, and save it.
+    And then copy-paste the CSS from `dist/styles.css` to your itch.io profile page's CSS field, and `dist/content.html` to your profile content, and save it.
 
 > [!IMPORTANT]
 > If you've only changed the HTML, there's no ***need to bump the version and publish the update*** via `npm run publish`, as that is only for the CSS updates.
@@ -172,13 +172,13 @@ Require Node.js `>23.5` or as latest as you possibly can get.
 
 ## Development
 
-How do I update and develop the page with its HTML and CSS.
+How I update and develop my profile page with its HTML and CSS.
 
-I use Firefox, because it has a nice style editor feature on its dev tool.
+I use Firefox, because it has a nice CSS editor feature on its dev tool.
 
 1. Open your itch.io profile page. And clear out the custom CSS field (just clear it out, you don't need to save it).
 2. Open the Firefox Web Developer Tools by pressing <kbd>f12</kbd> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>.
-3. Go to the `Style Editor` tab, and import the CSS source file.
+3. Go to the `Style Editor` tab, and import the CSS source file `src/styles.css`.
 
    ![](https://github.com/user-attachments/assets/495e2981-a40e-4d8d-be08-33ddb3567a34)
 
