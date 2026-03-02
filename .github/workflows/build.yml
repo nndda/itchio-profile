@@ -37,3 +37,6 @@ jobs:
 
       - name: Build HTML + CSS
         run: npm run build
+
+      - name: Checksum output files
+        run: sha512sum dist/*
