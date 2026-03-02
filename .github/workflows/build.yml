@@ -17,7 +17,8 @@ jobs:
     strategy:
       matrix:
         nodejs:
-          - 23
+          - 18
+          - 22
           - 24
 
     steps:
