@@ -24,6 +24,8 @@ Profile content: [`src/content.html`](src/content.html)
 
 ## Page theme settings
 
+Settings used in the itch.io profile page's theme editor.
+
 <table>
 <thead>
 <tr>
@@ -132,11 +134,15 @@ Profile content: [`src/content.html`](src/content.html)
 
 <br>
 
+## Requirements
+
+- [git](https://git-scm.com/)
+- GitHub account
+- [Node.js](https://nodejs.org/) v22 or later
+
 ## Installation
 
-Require Node.js `>23.5` or as latest as you possibly can get.
-
-0. Star this repo?? 👉👈 (optional)
+0. Star this repository?? 👉👈 (optional)
 
 1. [Fork](https://github.com/nndda/itchio-profile/fork) this repository, and clone your fork locally.
 
