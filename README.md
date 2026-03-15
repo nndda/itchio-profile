@@ -148,7 +148,7 @@ Settings used in the itch.io profile page's theme editor.
 
 1. Install the dependencies.
     ```
-    npm install
+    bun install
     ```
 
 1. Modify the [`src/styles.css`](src/styles.css) and/or the [`src/content.html`](src/content.html) to your liking.
@@ -159,22 +159,22 @@ Settings used in the itch.io profile page's theme editor.
 
 1. Build the CSS.
     ```
-    npm run build
+    bun run build
     ```
 
 1. Test the CSS and the HTML, by copy-pasting the content of `dist/test.css` and `dist/content.html` to your itch.io profile page.
 
 1. If everything's fine and ready, publish your updates.
     ```
-    npm run publish
+    bun run publish
     ```
 
     And then copy-paste the CSS from `dist/styles.css` to your itch.io profile page's CSS field, and `dist/content.html` to your profile content, and save it.
 
 > [!IMPORTANT]
-> If you've only changed the HTML, there's no ***need to bump the version and publish the update*** via `npm run publish`, as that is only for the CSS updates.
+> If you've only changed the HTML, there's no ***need to bump the version and publish the update*** via `bun run publish`, as that is only for the CSS updates.
 >
-> You should, however, run the `npm run build`, and then commit and push the changes to the HTML files yourself.
+> You should, however, run the `bun run build`, and then commit and push the changes to the HTML files yourself.
 
 <br>
 
