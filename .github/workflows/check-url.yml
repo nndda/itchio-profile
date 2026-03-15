@@ -8,7 +8,7 @@ on:
       - main
     paths:
       - 'dist/**'
-      - '.github/workflows/ext-url.yml'
+      - '.github/workflows/check-url.yml'
   workflow_dispatch:
 
 jobs:
