@@ -44,6 +44,6 @@ export async function ghSlug(git: SimpleGit): Promise<string> {
 
   return (origin.refs.push || origin.refs.fetch).match(
     /github\.com[/:]([^/]+\/[^/]+)/
-  )![1];
+  )![1].replace(/\.git\/?$/, "");
 }
 
