@@ -10,7 +10,7 @@ Main stylesheet: [`src/styles.css`](src/styles.css)
 ｜
 Profile content: [`src/content.html`](src/content.html)
 
-<img src="https://github.com/user-attachments/assets/ca80c3ef-f975-4c1c-8f32-cde4ca9d85c2" alt="">
+<img src="https://github.com/user-attachments/assets/8b236e25-917e-4822-b642-8da95b6dea0e" alt="">
 
 </div>
 
