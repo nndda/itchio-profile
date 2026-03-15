@@ -3,63 +3,36 @@ import
   {
     type Rule,
     type AtRule,
-    type Declaration,
     type ChildNode,
   }
 from "postcss";
+
+function node2Str(nodes: ChildNode[] = []): string {
+  return nodes
+    .map((child: ChildNode): string => {
+        if (child.type === "decl") {
+          return child.toString() + ";";
+        }
+
+        else if (child.type === "rule" || child.type === "atrule") {
+          return getCSSRuleStr(child);
+        }
+
+        return "";
+      })
+    .join(" ");
+}
 
 function getCSSRuleStr(
   node: Rule | AtRule
 ): string {
 
-  function factoryProperty(decl: Declaration): string {
-    // return `${decl.prop}: ${decl.value};`;
-    return decl.toString() + ";";
-  }
-
-  function isDeclaration(node: ChildNode): node is Declaration {
-    return node.type === "decl";
-  }
-
-  function isRule(node: ChildNode): node is Rule {
-    return node.type === "rule";
-  }
-
   if (node.type === "rule") {
-    return `${node.selector} { ${
-      node.nodes
-        .filter(isDeclaration)
-        .map(factoryProperty)
-        .join(" ")
-    } }`;
+    return `${node.selector} { ${node2Str(node.nodes)} }`;
   }
 
-  if (node.type === "atrule") {
-
-    if (node.name === "media") {
-      return `@media ${node.params} { ${
-        (node.nodes as ChildNode[])
-          .map(getCSSRuleStr as (node: ChildNode) => string)
-          .join(" ")
-      } }`;
-    }
-
-    if (node.name === "keyframes") {
-      return `@keyframes ${node.params} { ${
-        (node.nodes as ChildNode[])
-          .filter(isRule)
-          .map((kf: Rule) => {
-            return `${kf.selector} { ${
-              kf.nodes
-                .filter(isDeclaration)
-                .map(factoryProperty)
-                .join(" ")
-            } }`;
-          })
-          .join(" ")
-      } }`;
-    }
-
+  else if (node.type === "atrule") {
+    return `@${node.name} ${node.params} { ${node2Str(node.nodes)} }`;
   }
 
   return "";
