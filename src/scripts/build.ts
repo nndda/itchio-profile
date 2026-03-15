@@ -89,7 +89,7 @@ import html from "./optimize/html";
       )
     ) ),
 
-    5120 - 80 - CDNImportTemplate.length,
+    5120 - 30 - CDNImportTemplate.length,
 
   ).forEach( async ( arr: string[], i: number ): Promise<void> => {
 
