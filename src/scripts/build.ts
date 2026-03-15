@@ -22,6 +22,8 @@ import {
 
 import cdnify from "./cdnify";
 
+import extractUrls from "./ext-url";
+
 import {
   ghSlug,
   readTxtFile,
@@ -129,6 +131,8 @@ import html from "./optimize/html";
         "dist/test.css",
         cssAll,
       );
+
+      extractUrls();
 
       console.log(
 `
