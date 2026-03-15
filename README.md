@@ -207,7 +207,7 @@ As for editing the HTML, I just copy-paste the content of `src/content.html` to 
 
 <div align="center">
   <a href="https://github.com/SAWARATSUKI/KawaiiLogos">
-    <img width="520" src="https://github.com/user-attachments/assets/ea12ce4c-abf4-4836-9662-456c67ee2f8b">
+    <img width="520" src="https://github.com/user-attachments/assets/4cc1431a-5dc4-4f15-9013-ec0ffbeb8957">
   </a>
 </div>
 
