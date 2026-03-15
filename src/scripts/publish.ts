@@ -113,6 +113,7 @@ function cmd(
         "dist/content.html",
         "dist/styles.css",
         "dist/i.css",
+        "dist/test.css",
       ]
 
     , distModified: string[] = getModified(status, distFiles)
