@@ -78,14 +78,30 @@ function cmd(
 
     const
       git: SimpleGit = simpleGit()
+    ;
 
-    , tags: TagResult = await git.tags()
+    await git.fetch();
+
+    const
+      gitStats: StatusResult = await git.status()
+    ;
+
+    if (gitStats.detached) {
+      throw new Error("git: detached HEAD");
+    }
+
+    if (gitStats.behind > 0) {
+      throw new Error(`git: branch behind upstream by ${gitStats.behind}`);
+    }
+
+    const
+      tags: TagResult = await git.tags()
     , version: string = (await import("../../package.json")).default.version
     ;
 
     if (tags.all.includes(version)) {
       throw new Error(
-        `Tag '${version}' already exist.\n` +
+        `git: tag '${version}' already exist.` +
         "Bump/update the 'version' field in package.json first."
       );
     }
@@ -139,7 +155,7 @@ function cmd(
     cmd(
       "git",
       [ "commit", "-m", version ],
-      "git commit failed",
+      "git: commit failed.",
     );
 
     // Pushing
