@@ -58,13 +58,22 @@ function cmd(
       "dist/i.css",
     ].forEach((file: string): void => {
       cmd(
-        "npx",
+        // "npx",
+        "bun",
         [
           "csstree-validator",
           file,
         ],
         "CSS output validation failed",
       );
+    });
+
+    [
+      "bun",
+      "git",
+    ].forEach((bin: string): void => {
+      console.log(`Checking \`${bin}\`...`)
+      cmd(bin, ["--version"], `\`${bin}\` not found`);
     });
 
     const
@@ -81,13 +90,25 @@ function cmd(
       );
     }
 
+    // cmd(
+    //   "npm",
+    //   [
+    //     "version",
+    //     version,
+    //     "--allow-same-version",
+    //     "--no-commit-hooks",
+    //     "--no-git-tag-version",
+    //   ],
+    //   "Failed to sync package-lock.json version.",
+    // );
+
     cmd(
-      "npm",
+      "bun",
       [
+        "pm",
         "version",
         version,
         "--allow-same-version",
-        "--no-commit-hooks",
         "--no-git-tag-version",
       ],
       "Failed to sync package-lock.json version.",
