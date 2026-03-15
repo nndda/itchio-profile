@@ -1,0 +1,29 @@
+name: Check external URLs
+
+on:
+  schedule:
+    - cron: '0 */12 * * *'
+  push:
+    branches:
+      - main
+    paths:
+      - 'dist/**'
+      - '.github/workflows/ext-url.yml'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          sparse-checkout: |
+            dist/urls.txt
+            src/scripts/check-url.sh
+          sparse-checkout-cone-mode: false
+
+      - name: Check URLs
+        shell: bash
+        run: ./src/scripts/check-url.sh
