@@ -43,7 +43,7 @@ export async function ghSlug(git: SimpleGit): Promise<string> {
   ;
 
   return (origin.refs.push || origin.refs.fetch).match(
-    /github\.com[\/:]([^\/]+\/[^\/]+)/
+    /github\.com[/:]([^/]+\/[^/]+)/
   )![1];
 }
 
