@@ -1,28 +1,16 @@
 {
   "name": "nnda-itchio-profile",
   "version": "1.6.0",
-  "private": true,
-  "description": "Source code for my itch.io profile page.",
-  "scripts": {
-    "build": "npx tsx src/scripts/build.ts",
-    "publish": "npx tsx src/scripts/publish.ts",
-    "lint:scripts": "eslint --config ./src/config/eslint.config.ts ."
-  },
+  "author": "nnda",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nndda/itchio-profile.git"
   },
-  "author": "nnda",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/nndda/itchio-profile/issues"
-  },
-  "homepage": "https://github.com/nndda/itchio-profile#readme",
   "devDependencies": {
     "@eslint/compat": "^2.0.3",
     "@eslint/js": "^10.0.1",
     "@swc/html": "^1.15.11",
-    "@types/node": "^25.3.5",
+    "@types/node": "^25.5.0",
     "autoprefixer": "^10.4.24",
     "clean-css": "^5.3.3",
     "css": "^3.0.0",
@@ -33,9 +21,22 @@
     "globals": "^17.3.0",
     "jiti": "^2.6.1",
     "postcss": "^8.5.8",
-    "sass": "^1.97.3",
-    "simple-git": "^3.30.0",
-    "tsx": "^4.21.0",
-    "typescript-eslint": "^8.54.0"
+    "simple-git": "^3.33.0",
+    "typescript-eslint": "^8.57.0"
+  },
+  "bugs": {
+    "url": "https://github.com/nndda/itchio-profile/issues"
+  },
+  "description": "Source code for my itch.io profile page.",
+  "engines": {
+    "bun": "1.3.10"
+  },
+  "homepage": "https://github.com/nndda/itchio-profile#readme",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "bun src/scripts/build.ts",
+    "publish": "bun src/scripts/publish.ts",
+    "lint:scripts": "eslint --config ./src/config/eslint.config.ts ."
   }
 }

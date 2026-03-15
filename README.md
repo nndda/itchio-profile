@@ -138,7 +138,7 @@ Settings used in the itch.io profile page's theme editor.
 
 - [git](https://git-scm.com/)
 - GitHub account
-- [Node.js](https://nodejs.org/) v22 or later
+- [Bun](https://bun.com/)
 
 ## Installation
 
