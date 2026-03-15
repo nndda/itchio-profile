@@ -19,6 +19,7 @@ Profile content: [`src/content.html`](src/content.html)
 ## Devlog
 
 - May 23<sup>rd</sup> 2025 — [Profile Page Updates: Documentation](https://itch.io/blog/950966/profile-page-updates-documentation)
+- March 15<sup>th</sup> 2026 — [Profile Page Updates: Little Updates](https://itch.io/blog/1459365/profile-page-update-little-updates)
 
 <br>
 
