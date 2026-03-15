@@ -90,30 +90,6 @@ function cmd(
       );
     }
 
-    // cmd(
-    //   "npm",
-    //   [
-    //     "version",
-    //     version,
-    //     "--allow-same-version",
-    //     "--no-commit-hooks",
-    //     "--no-git-tag-version",
-    //   ],
-    //   "Failed to sync package-lock.json version.",
-    // );
-
-    cmd(
-      "bun",
-      [
-        "pm",
-        "version",
-        version,
-        "--allow-same-version",
-        "--no-git-tag-version",
-      ],
-      "Failed to sync package-lock.json version.",
-    );
-
     const
       status: StatusResult = await git.status()
 
