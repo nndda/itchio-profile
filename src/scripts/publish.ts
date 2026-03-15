@@ -51,6 +51,14 @@ function cmd(
 
   try {
 
+    [
+      "bun",
+      "git",
+    ].forEach((bin: string): void => {
+      console.log(`Checking \`${bin}\`...`)
+      cmd(bin, ["--version"], `\`${bin}\` not found`);
+    });
+
     // Validate CSS
 
     [
@@ -66,14 +74,6 @@ function cmd(
         ],
         "CSS output validation failed",
       );
-    });
-
-    [
-      "bun",
-      "git",
-    ].forEach((bin: string): void => {
-      console.log(`Checking \`${bin}\`...`)
-      cmd(bin, ["--version"], `\`${bin}\` not found`);
     });
 
     const
