@@ -206,6 +206,19 @@ As for editing the HTML, I just copy-paste the content of `src/content.html` to 
 
 <br>
 
+## Why all these setup just for HTML and CSS??
+
+CSS on itch.io's profile page is limited to only ***5120 characters***. And so, the whole build pipeline is made as a workaround for that limitation. The idea is:
+
+1. If the CSS' characters count exceeded 5120, split it to two.
+2. One 'main' CSS, that will be copy-pasted directly onto the profile page.
+3. The other half of the CSS will be imported, using CSS' `@import`, via [jsDelivr](https://www.jsdelivr.com/). Hence the need of versioning, as jsDelivr caches aggressively.
+
+> [!WARNING]
+> Because of the nature of `@import` in CSS, it will cause [FOUC](https://en.wikipedia.org/wiki/Flash_of_unstyled_content) on the profile page.
+
+<br>
+
 <div align="center">
   <a href="https://github.com/SAWARATSUKI/KawaiiLogos">
     <img width="520" src="https://github.com/user-attachments/assets/4cc1431a-5dc4-4f15-9013-ec0ffbeb8957">
