@@ -1,9 +1,17 @@
 {
   "compilerOptions": {
+    "types": ["bun"],
+
     "strict": true,
-    "lib": "ESNext",
+    "skipLibCheck": true,
+
+    "lib": ["ESNext"],
     "target": "ESNext",
     "module": "nodenext",
+
     "resolveJsonModule": true
-  }
+  },
+  "include": [
+    "./src/**/*",
+  ]
 }
