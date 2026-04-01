@@ -45,6 +45,7 @@
   "scripts": {
     "build": "bun src/scripts/build.ts",
     "publish": "bun src/scripts/publish.ts",
-    "lint:scripts": "eslint --config ./src/config/eslint.config.ts ."
+    "lint:scripts": "eslint --config src/config/eslint.config.ts .",
+    "lint:styles": "stylelint --config src/config/stylelint.config.ts src/styles.css"
   }
 }
