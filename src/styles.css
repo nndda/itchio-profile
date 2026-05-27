@@ -21,8 +21,31 @@
   --mask-gradient: linear-gradient(90deg, #fff 50%, #0000);
 
   --neko-face: "≈ •ω• ≈";
+
+  animation:
+    8.5s infinite global-i
+    linear(0, 0.27 11.1%, 0.434 16.7%, 0.641 22.2%, 0.998 30.1%, 0.779 36.1%, 0.728 38.6%, 0.712 40.9%, 0.728 43.2%, 0.773 45.5%, 0.999 52.2%, 0.894 56%, 0.871 57.6%, 0.863 59.2%, 0.869 60.7%, 0.891 62.4%, 1 67.4%, 0.951 70.3%, 0.936 72.9%, 0.949 75.4%, 1 79.8%, 0.981 82%, 0.975 84.1%, 1 90.4%, 0.995 93.4%, 1);
 }
 
+@property --i {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+@keyframes global-i {
+  0%, 20% {
+    --i: 0;
+  }
+
+  40%, 60% {
+    --i: 1;
+  }
+
+  80%, 90% {
+    --i: 2;
+  }
+}
 
 
 /* Merged common positioning to save characters. */
@@ -282,7 +305,6 @@ a {
 }
 
 
-
 /* Words carousel */
 .custom-list-words {
   display: flex;
@@ -298,21 +320,7 @@ a {
   contain: strict;
 
   & > span {
-    animation: 7.5s infinite words-anim;
-  }
-}
-
-@keyframes words-anim {
-  0%, 20% {
-    translate: 0;
-  }
-
-  40%, 60% {
-    translate: 0 -1.3em;
-  }
-
-  80%, 90% {
-    translate: 0 -2.6em;
+    translate: 0 calc(var(--i) * -1.3em);
   }
 }
 
@@ -546,13 +554,12 @@ a {
 
 /* Window's content */
 .custom-wi {
-  padding: 0 1em .8em;
-
-  /* overflow: hidden; */
+  padding: 1em;
 
   & > div {
+    position: relative;
     /* max-width: 18em; */
-    padding: 1.5em 0 2.9em;
+    padding: 2em 0 3.5em;
     /* margin: auto; */
     letter-spacing: .2ch;
   }
@@ -562,6 +569,31 @@ a {
   }
 }
 
+
+
+.custom-grc {
+  border: 0 !important;
+  padding: 6em !important;
+  margin-bottom: -12em;
+  overflow: hidden;
+}
+.custom-gr {
+  position: absolute;
+
+  right: -5em;
+  top: 1.5em;
+  width: 10em;
+
+  rotate: calc(var(--i) * 60deg);
+}
+.custom-wr > .custom-gr {
+  /* display: none; */
+  top: 9em;
+  right: -7em;
+  width: 13em;
+  rotate: calc(var(--i) * -120deg);
+  opacity: .6;
+}
 
 
 /* Gradient fill text */
@@ -584,7 +616,7 @@ s {
 
 /* Main window's social links */
 .custom-n {
-  padding: .5em 1em;
+  padding: 1em 1em;
 
   & > a {
     display: inline-block;
@@ -598,6 +630,7 @@ s {
 }
 
 .custom-w hr {
+  margin: 0 1em ;
   background: var(--gradient-primary);
 }
 
