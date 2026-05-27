@@ -1,0 +1,31 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "*"
+      - "!*test*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        run: |
+          gh api \
+            --method POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2026-03-10" \
+            "/repos/$GITHUB_REPOSITORY/releases" \
+             -f "tag_name=$GITHUB_REF_NAME" \
+             -f "name=$GITHUB_REF_NAME" \
+             -F "draft=false" \
+             -F "prerelease=false" \
+             -F "make_latest='true'" \
+             -F "generate_release_notes=false"
