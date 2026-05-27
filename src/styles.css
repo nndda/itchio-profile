@@ -18,6 +18,8 @@
   --shadow: #101b;
   --transparent: #0000;
   --mask-gradient: linear-gradient(90deg, #fff 50%, #0000);
+
+  --neko-face: "≈ •ω• ≈";
 }
 
 
@@ -151,8 +153,15 @@ a {
   {
     /* Profile picture */
     top: -3.8em;
+
+    /*
     width: 96px;
     height: 96px;
+    commented out in favour of:
+    */
+
+    display: inline-flex;
+
     overflow: hidden;
     content: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/assets/profile.webp");
     border-radius: 9px;
@@ -164,25 +173,44 @@ a {
     top: 100%;
     left: 0;
     width: 100%;
-    height: 1px;
+    height: 3px;
 
     /* position: absolute; */
     content: "";
     background: var(--gradient-primary);
-    opacity: .7;
+    /*
+    background: linear-gradient(
+      90deg,
+      var(--primary) 40%,
+      #f0ca0f,
+      var(--secondary)
+    );
+    */
+    /* opacity: .7; */
   }
 }
 
-.user_page svg {
-  opacity: 1 !important;
-  fill: var(--primary) !important;
+.user_page svg.svgicon {
+  opacity: 1;
+
+  & path {
+    fill: var(--primary);
+  }
 }
 
+/*
+.internal_link::after {
+  content: "です~!";
+  display: inline-block;
+
+  color: #f5cf0e;
+}
+*/
 
 .link_group {
   /* Space for profile picture */
   &:first-child {
-    margin-left: 7.5em; 
+    margin-left: 7.5em;
   }
 
   /* Replace default itch.io link icons */
@@ -238,11 +266,18 @@ a {
 .custom-ws > strong {
   position: absolute;
   padding: 7px 1em;
+
+  /*
   margin: 9em 0 0 -4.5em;
+  commented out in favour of:
+  */
+  left: -4.5em;
+  top: 9em;
+
   color: var(--background);
   background: var(--gradient-primary);
   border-radius: 4px;
-  transform: rotate(-90deg);
+  rotate: -90deg;
 }
 
 
@@ -258,6 +293,8 @@ a {
   font-size: 1.85em;
   line-height: 1.3em;
   white-space: nowrap;
+
+  contain: strict;
 
   & > span {
     animation: 7.5s infinite words-anim;
@@ -289,10 +326,10 @@ a {
   z-index: -9;
   border: 3px dashed #fff3;
 
-  /* INLINED 
+  /* INLINED
 
-  height: 80%; 
-  width: 500%; 
+  height: 80%;
+  width: 500%;
   */
 }
 
@@ -325,7 +362,7 @@ a {
 .custom-y {
   height: 1em;
   margin-top: 1em;
-  background: 
+  background:
     repeating-linear-gradient(
       45deg,
       #0000, #0000 1em,
@@ -370,8 +407,8 @@ a {
 
   /* INLINED
 
-  width: 100%; 
-  height: 110%; 
+  width: 100%;
+  height: 110%;
   */
 
   border: 1.5em solid #0000;
@@ -511,11 +548,11 @@ a {
   padding: 0 1em .8em;
 
   /* overflow: hidden; */
-  
-  & > div > div {
-    max-width: 18em;
+
+  & > div {
+    /* max-width: 18em; */
     padding: 1.5em 0 2.9em;
-    margin: auto;
+    /* margin: auto; */
     letter-spacing: .2ch;
   }
 
@@ -548,14 +585,14 @@ s {
 .custom-n {
   padding: .5em 1em;
 
-  & > span {
+  & > a {
     display: inline-block;
     margin: .4em;
-  }
 
-  & img {
-    margin-right: .2em;
-    vertical-align: -.4em;
+    & > img {
+      /* margin-right: .2em; */
+      vertical-align: middle;
+    }
   }
 }
 
@@ -605,7 +642,7 @@ s {
   font-size: 2em;
   background: 0 !important;
   border-left: 1px solid #fff4;
-  
+
   &::first-letter {
     margin-right: .2em;
     color: var(--primary) !important;
@@ -621,24 +658,29 @@ s {
 
 
 
-/* Specifics game items */
-
+/* Specific project items */
 /*
-.game_column [data-game_id="2223248"] {
-  background: #110f20;
-}
-.game_column [data-game_id="2223248"] .game_title > a {
-  color: #f93875 !important;
-}
+.game_column {
+  & [data-game_id="2223248"] {
+    background: #121118;
+  }
 
+  & [data-game_id="1839651"] {
+    background: #341f29;
 
-.game_column [data-game_id="1839651"] {
-  background: #341f29;
-}
-.game_column [data-game_id="1839651"] .game_title > a {
-  color: #e4d8c7 !important;
-}
-*/
+    & a {
+      color: #e4d8c7 !important;
+    }
+  }
+
+  & [data-game_id="3407605"] {
+    background: #080910;
+
+    & a {
+      color: #cdeeee !important;
+    }
+  }
+} */
 
 
 
@@ -646,21 +688,24 @@ s {
 
 /* Display: Grid */
 .game_column {
-  padding: 3em 2em;
-  padding-top: 6em;
+  padding: 6em 2em 2em;
+
   border-top: 5px solid var(--primary) !important;
   border-bottom: 1px solid;
   box-shadow: 0 0 3em 0 var(--shadow);
 
   & > div {
-    grid-template-columns: 24% 24% 24% !important;
+    grid-template-columns: 25% 28% 25% !important;
     gap: 2em;
     justify-content: center;
+    align-items: center
   }
-  
+
+  /*
   & > .game_cell_data {
     min-height: 10em;
   }
+  */
 
   &::before,
   &::after
@@ -693,11 +738,12 @@ s {
 }
 
 
+
 /* Cat-shaped divider */
 .custom-nkmm {
   z-index: 9;
   display: flex;
-  column-gap: 4em;
+  gap: 4em;
   justify-content: center;
   margin-bottom: -.85em;
 }
@@ -710,7 +756,7 @@ s {
   font-family: Lato;
   font-size: 4em;
   text-align: center;
-  content: "≈ •ω• ≈";
+  content: var(--neko-face);
   animation: neko-wink 2s infinite alternate;
 }
 
@@ -720,7 +766,7 @@ s {
   }
 
   35% {
-    content: "≈ •ω• ≈";
+    content: var(--neko-face);
   }
 }
 
@@ -735,9 +781,11 @@ s {
 
 
 /* Collections row */
+/*
 .collections h2 {
   letter-spacing: .1em;
 }
+*/
 
 .carousel_wrapper {
   border-bottom: 2px solid var(--primary);
@@ -746,13 +794,13 @@ s {
   scrollbar-color: var(--primary) var(--background) !important;
 
   /* Fade out collection list */
-  mask-image: var(--mask-gradient);
-  mask-mode: alpha;
+  -webkit-mask: var(--mask-gradient);
+  mask: alpha var(--mask-gradient);
 }
 
 .collection_description {
   flex-grow: 1;
-  text-overflow: clip !important;
+  /* text-overflow: clip !important; */
   white-space: normal !important;
 }
 
@@ -763,7 +811,7 @@ s {
     display: grid;
     grid-template-columns: 50% 50%;
     padding: 2em 0 !important;
-    
+
     & .inner_column {
       display: flex;
       flex-direction: column;
@@ -773,8 +821,9 @@ s {
 
   .collection_row {
     margin: 0 .8em;
-    overflow: hidden;
+    /* overflow: hidden; */
 
+    /*
     &:first-child {
       padding-left: 1.2em
     }
@@ -782,6 +831,7 @@ s {
     &:last-child {
       padding-right: 1.2em
     }
+    */
   }
 }
 
