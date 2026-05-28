@@ -27,6 +27,16 @@
     linear(0, 0.27 11.1%, 0.434 16.7%, 0.641 22.2%, 0.998 30.1%, 0.779 36.1%, 0.728 38.6%, 0.712 40.9%, 0.728 43.2%, 0.773 45.5%, 0.999 52.2%, 0.894 56%, 0.871 57.6%, 0.863 59.2%, 0.869 60.7%, 0.891 62.4%, 1 67.4%, 0.951 70.3%, 0.936 72.9%, 0.949 75.4%, 1 79.8%, 0.981 82%, 0.975 84.1%, 1 90.4%, 0.995 93.4%, 1);
 }
 
+@font-face {
+  font-family: "Hi Melody";
+  src: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/assets/fonts/hi-melody.400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "FA";
+  src: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/dist/i.woff2") format("woff2");
+}
+
 @property --i {
   syntax: "<number>";
   inherits: true;
@@ -100,6 +110,8 @@ position:absolute;
   padding: 0;
   margin-bottom: 0;
   border-bottom: 0;
+
+  font-family: "Zen Kaku Gothic New", "Lato", "FA";
 }
 
 /* Soften the underline color of links. */
@@ -239,8 +251,7 @@ a {
 
   /* Replace default itch.io link icons */
   &::before {
-    width: 26px;
-    height: 26px;
+    font-size: 22px;
   }
 
   & .icon-link, & .icon_twitter {
@@ -249,12 +260,12 @@ a {
 
   /* 'Website' icon */
   &:nth-child(2)::before {
-    content: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/assets/fa/chain.svg");
+    content: "";
   }
 
   /* Twitter icon */
   &:nth-child(3)::before {
-    content: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/assets/fa/twitter.svg");
+    content: "";
   }
 }
 
@@ -396,7 +407,8 @@ a {
 
   & > .custom-wi > div {
     display: flex;
-    padding: .7em 0;
+    padding: 1em 0;
+    gap: .25em;
   }
 
   & .custom-g2 {
@@ -440,18 +452,14 @@ a {
 
 
 /* Support button */
-.custom-cb {
-  padding: .2em .5em;
-  margin: 0 .15em;
-  font-weight: bold;
-  vertical-align: middle;
-  color: var(--background) !important;
+a.custom-cb {
+  flex-grow: 1;
+  text-align: center;
+  padding: .2em;
+  font-size: 1.2em;
+  color: var(--background);
   text-decoration: none;
   background: var(--primary);
-
-  & > img {
-    vertical-align: -.3em;
-  }
 
   &:first-child {
     --primary: var(--secondary);
@@ -502,12 +510,10 @@ a {
 
 /* Buttons */
 .custom-wb {
-  height: .8em;
   margin: 0 6px;
 
-  &:last-child {
-    height: 1.4em;
-    vertical-align: -.2em;
+  & > :last-child {
+    color: var(--primary);
   }
 }
 
@@ -532,7 +538,6 @@ a {
     & > div {
       overflow: hidden;
 
-      /* font-family: monospace; */
       text-shadow: 0 0 var(--text), 11ch 0 var(--text);
       animation: 3s linear infinite running-text;
     }
@@ -563,14 +568,12 @@ a {
     /* margin: auto; */
     letter-spacing: .2ch;
   }
-
-  & .custom-wn {
-    padding: 1em;
-  }
 }
 
 
 
+
+/* Gearwheels */
 .custom-grc {
   border: 0 !important;
   padding: 6em !important;
@@ -599,7 +602,8 @@ a {
 /* Gradient fill text */
 .collections h2,
 .custom-wi h3 {
-  font-size: 2em;
+  font-family: "Hi melody";
+  font-size: 3em;
   background: var(--gradient-primary);
   background-clip: text;
   -webkit-text-fill-color: #0000;
@@ -622,9 +626,11 @@ s {
     display: inline-block;
     margin: .4em;
 
-    & > img {
+    & > span {
+      display: inline-block;
       margin-right: .2em;
-      vertical-align: middle;
+      color: var(--primary);
+      font-size: 1.2em;
     }
   }
 }
@@ -634,6 +640,13 @@ s {
   background: var(--gradient-primary);
 }
 
+
+.custom-f, .custom-f > span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+}
 
 
 /* Game items/card */
