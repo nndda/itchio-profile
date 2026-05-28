@@ -7,7 +7,9 @@ U+f113 # GitHub
 U+f099 # Twitter
 
 # Solid
+U+f004 # heart
 U+f00d # xmark
+U+f017 # clock
 U+f0c1 # link
 U+f2d0 # window-maximize
 U+f2d1 # window-minimize
