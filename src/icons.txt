@@ -1,0 +1,14 @@
+# FontAwesome
+# Brands
+U+f3d9 # Patreon
+U+e856 # Ko-fi
+U+f77a # ArtStation
+U+f113 # GitHub
+U+f099 # Twitter
+
+# Solid
+U+f00d # xmark
+U+f0c1 # link
+U+f2d0 # window-maximize
+U+f2d1 # window-minimize
+U+f410 # rectangle-xmark

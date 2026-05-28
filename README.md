@@ -206,6 +206,35 @@ As for editing the HTML, I just copy-paste the content of `src/content.html` to 
 
 <br>
 
+## Icons
+
+Most of the icons are from [Font Awesome](https://fontawesome.com/), that is merged, and subsetted ([`src/icons.txt`](src/icons.txt)).
+
+```sh
+bun install
+pip install fonttools brotli
+
+pyftmerge \
+  node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2 \
+  node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2 \
+  --output-file=merged.woff2 \
+  --verbose
+
+pyftsubset merged.woff2 \
+  --unicodes-file=src/icons.txt \
+  --flavor=woff2 \
+  --no-hinting \
+  --desubroutinize \
+  --ignore-missing-glyphs \
+  --ignore-missing-unicodes \
+  --output-file=dist/i.woff2 \
+  --verbose
+
+rm merged.woff2
+```
+
+<br>
+
 ## Why all these setup just for HTML and CSS??
 
 CSS on itch.io's profile page is limited to only ***5120 characters***. And so, the whole build pipeline is made as a workaround for that limitation. The idea is:

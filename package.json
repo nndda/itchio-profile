@@ -54,5 +54,8 @@
     "publish": "bun src/scripts/publish.ts",
     "lint:scripts": "eslint --config src/config/eslint.config.ts .",
     "lint:styles": "stylelint --config src/config/stylelint.config.ts src/styles.css"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.2.0"
   }
 }
