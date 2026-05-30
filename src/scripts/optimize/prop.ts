@@ -18,7 +18,7 @@ export default ( function (
 
     .entries(
       src
-        .matchAll(/(?:--([\w-]+):\s*(.+?)[;}])/gm)
+        .matchAll(/(?:@property\s+--|--)([\w-]+)(?:\s*\{|:\s*(.+?)[;}])/gm)
         .reduce(
           (
             prev: Record<string, string>,

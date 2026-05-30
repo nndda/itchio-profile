@@ -70,7 +70,12 @@ import html from "./optimize/html";
       ( await getCSSRulesArr(
           ([
 
-              [ col, [ "--primary" ] ],
+              [ col, [
+                  "--primary",
+                  "--icon-col",
+                  "--text-col",
+                ]
+              ],
               [ prop, [ "--d" ] ],
 
           ] as [ CSSVarTransform, string[] | undefined ][])
