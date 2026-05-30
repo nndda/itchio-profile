@@ -1,6 +1,6 @@
 {
   "name": "nnda-itchio-profile",
-  "version": "1.9.0",
+  "version": "1.10.0-test",
   "author": "nnda",
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
     "cssnano": "8.0.1",
     "cssnano-preset-advanced": "8.0.1",
     "csstree-validator": "^4.0.1",
-    "eslint": "^10.4.0",
+    "eslint": "^10.4.1",
     "globals": "^17.6.0",
     "jiti": "^2.7.0",
     "postcss": "^8.5.15",

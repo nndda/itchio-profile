@@ -1,6 +1,5 @@
 /*
  * Copyright 2023-2026 nnda <talk@nnda.dev>
- * Copyright © 2024-2026 nnda
  *
  * SPDX-License-Identifier: MIT
  */
@@ -13,7 +12,7 @@
   --secondary: #3ae5f9;
   --gradient-primary: linear-gradient(90deg, var(--primary), #b23ee0);
   --gradient-secondary: linear-gradient(90deg, var(--secondary), #2a8aec);
-  --background: #13151b;
+  --background: #0d0e12;
   --background-lighten: #101218;
   --background-window: #101218;
   --shadow: #101b;
@@ -62,6 +61,8 @@
 #profile_header,
 .user_links,
 .custom-w,
+.custom-y,
+.custom-wi > div,
 .custom-list-words,
 .custom-wr,
 .game_column,
@@ -75,7 +76,10 @@ position:relative;
 .custom-h,
 .custom-j,
 .custom-k,
-.custom-k>*
+.custom-k>*,
+.custom-gr,
+.custom-bg,
+.custom-ws > strong
 {
 position:absolute;
 }
@@ -147,7 +151,7 @@ a {
 
 /* Header banner */
 #profile_header {
-  border: 0;
+  /* border: 0; */
 
   & img {
     width: 100%;
@@ -161,7 +165,9 @@ a {
 
 
 /* Scrolling background. */
-.profile_column {
+.custom-bg {
+  inset: -52em;
+
   background: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/assets/hero/hideout.svg");
   background-size: 52em auto;
   animation: 9s linear infinite bg-scroll;
@@ -169,26 +175,32 @@ a {
 
 @keyframes bg-scroll {
   to {
-    background-position: 52em 52em;
+    transform: translate(52em, 52em);
   }
 }
 
 
 
 /* Links. */
-.user_links {
+.user_links, .custom-n {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.7em;
   row-gap: .8em;
-  padding: .8em 1em;
+  padding: 1.5em;
   margin-bottom: 0 !important;
   color: var(--primary);
   background: var(--background-lighten);
-  box-shadow: 0 -1.5em 3em var(--shadow);
+}
+.user_links {
+  padding: 1em;
+  box-shadow: 0 -2em 3em 1em var(--shadow);
 
-  &::before,
-  &::after
-  {
+  border-top: 1px solid #fff2;
+
+  &::before {
     /* Profile picture */
-    top: -3.8em;
+    top: -3em;
 
     /*
     width: 96px;
@@ -198,74 +210,130 @@ a {
 
     display: inline-flex;
 
-    overflow: hidden;
+    contain: paint;
     content: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/assets/profile.webp");
     border-radius: 9px;
     box-shadow: 0 0 8px var(--shadow);
   }
 
-  /* Bottom gradient border */
-  &::after {
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 3px;
+  & .link_group {
 
-    /* position: absolute; */
-    content: "";
-    background: var(--gradient-primary);
-    /*
-    background: linear-gradient(
-      90deg,
-      var(--primary) 40%,
-      #f0ca0f,
-      var(--secondary)
-    );
-    */
-    /* opacity: .7; */
+    /* Space for profile picture */
+    &:first-child {
+      margin-left: 8em;
+    }
+
+    /* Replace default itch.io link icons */
+    & .icon-link, & .icon_twitter {
+      display: none;
+    }
+
+    /* 'Website' icon */
+    &:nth-child(2)::before {
+      content: "";
+    }
+
+    /* Twitter icon */
+    &:nth-child(3)::before {
+      content: "";
+    }
   }
 }
 
 .user_page svg.svgicon {
   opacity: 1;
-
-  & path {
-    fill: var(--primary);
-  }
 }
 
-/*
-.internal_link::after {
-  content: "です~!";
-  display: inline-block;
+/* Platform + handle refactor */
+.link_group, .custom-n > a {
+  display: flex;
+  align-items: center;
 
-  color: #f5cf0e;
+  &::before, .custom-ic {
+    font-size: 1.6em;
+    color: var(--icon-col);
+  }
+  & .custom-ic {
+    margin-right: .25em;
+  }
+
+  & .svgicon, .icon, .custom-ic {
+    &:is(svg) {
+      height: 1.6em;
+      width: 1.6em;
+
+      & > path {
+        fill: var(--icon-col);
+      }
+    }
+
+    & + a, + .custom-pn{
+      display: flex;
+      flex-direction: column;
+      margin: .25em;
+
+      color: var(--text-col, #fd81a9);
+
+      text-decoration: none;
+      font-size: .7em;
+
+      &:is(a)::before, > span {
+        content: var(--soc-name, "Website");
+        line-height: .75;
+
+        font-size: 2em;
+        font-family: "Hi melody";
+      }
+    }
+  }
+
+  & .icon_itchio_new {
+    --icon-col: #fa5c5c;
+
+    & + a {
+      --soc-name: "itch.io";
+      --text-col: #fdaeae;
+    }
+  }
+
+  & .icon_mastodon {
+    --icon-col: #6364ff;
+
+    & + a {
+      --soc-name: "Mastodon";
+      --text-col: #b1b2ff;
+    }
+  }
+
+  &:has(> .icon_twitter) {
+    --icon-col: #009ef7;
+
+    & a {
+      --soc-name: "Twitter";
+      --text-col: #80cffb;
+    }
+  }
+
+  & .icon_bluesky {
+    --icon-col: #0285ff;
+
+    & + a {
+      --soc-name: "Bluesky";
+      --text-col: #81c2ff;
+    }
+  }
 }
-*/
+.custom-n {
+  row-gap: .6em;
+  font-size: .9em;
+  --text-col: #e7e9e8;
 
-.link_group {
-  /* Space for profile picture */
-  &:first-child {
-    margin-left: 7.5em;
+  & > a {
+    text-decoration: none;
   }
 
-  /* Replace default itch.io link icons */
-  &::before {
-    font-size: 22px;
-  }
-
-  & .icon-link, & .icon_twitter {
-    display: none;
-  }
-
-  /* 'Website' icon */
-  &:nth-child(2)::before {
-    content: "";
-  }
-
-  /* Twitter icon */
-  &:nth-child(3)::before {
-    content: "";
+  & > div {
+    flex-basis: 100%;
   }
 }
 
@@ -291,15 +359,18 @@ a {
 }
 
 .user_profile {
-  padding-top: 4em;
-  overflow: hidden;
+  contain: paint;
+
+  & > .custom-g2 {
+    margin-bottom: 6em;
+  }
 }
 
 
 
 /* "ABOUT ME" vertical side label */
 .custom-ws > strong {
-  position: absolute;
+  /* position: absolute; */
   padding: 7px 1em;
 
   /*
@@ -323,7 +394,6 @@ a {
   align-items: start;
   justify-content: start;
   height: 1.3em;
-  overflow: hidden;
   font-size: 1.85em;
   line-height: 1.3em;
   white-space: nowrap;
@@ -341,10 +411,9 @@ a {
 .custom-h,
 .custom-j {
   /* position: absolute; */
-  top: 10%;
-  left: -200%;
+  inset: 10% -200%;
   z-index: -9;
-  border: 3px dashed #fff3;
+  border: 4px dashed #fff3;
 
   /* INLINED
 
@@ -354,8 +423,7 @@ a {
 }
 
 .custom-h {
-  top: -100% !important;
-  left: 10% !important;
+  inset: -100% 10%;
 
   /* INLINED
 
@@ -380,21 +448,32 @@ a {
 
 /* Animated yellow stripes */
 .custom-y {
+  /* position: relative; */
   height: 1em;
   margin-top: 1em;
-  background:
-    repeating-linear-gradient(
-      45deg,
-      #0000, #0000 1em,
-      #ffd90e 1em, #ffd90e 2em
-    );
-  background-size: 200%;
-  animation: 18s linear infinite running-stripes;
+
+  overflow: hidden;
+
+  & > div {
+    position: absolute;
+    width: 200%;
+
+    inset: 0;
+
+    background:
+      repeating-linear-gradient(
+        45deg,
+        #0000, #0000 1em,
+        #ffd90e 1em, #ffd90e 2em
+      );
+
+    animation: 18s linear infinite running-stripes;
+  }
 }
 
 @keyframes running-stripes {
   to {
-    background-position: 100%;
+    translate: -50%;
   }
 }
 
@@ -422,8 +501,7 @@ a {
 .custom-k > *
 {
   /* position: absolute; */
-  top: -1.5em;
-  left: -1.5em;
+  inset: -1.5em;
   z-index: -1;
 
   /* INLINED
@@ -536,7 +614,8 @@ a.custom-cb {
     border-radius: 7px 7px 0 0;
 
     & > div {
-      overflow: hidden;
+      contain: paint;
+      /* overflow: hidden; */
 
       text-shadow: 0 0 var(--text), 11ch 0 var(--text);
       animation: 3s linear infinite running-text;
@@ -562,7 +641,7 @@ a.custom-cb {
   padding: 1em;
 
   & > div {
-    position: relative;
+    /* position: relative; */
     /* max-width: 18em; */
     padding: 2em 0 3.5em;
     /* margin: auto; */
@@ -581,7 +660,7 @@ a.custom-cb {
   overflow: hidden;
 }
 .custom-gr {
-  position: absolute;
+  /* position: absolute; */
 
   right: -5em;
   top: 1.5em;
@@ -619,6 +698,7 @@ s {
 
 
 /* Main window's social links */
+/*
 .custom-n {
   padding: 1em 1em;
 
@@ -634,13 +714,16 @@ s {
     }
   }
 }
+*/
 
 .custom-w hr {
   margin: 0 1em ;
   background: var(--gradient-primary);
 }
 
-
+.custom-f {
+  padding: 1.2em;
+}
 .custom-f, .custom-f > span {
   display: flex;
   align-items: center;
@@ -706,7 +789,7 @@ s {
 
 
 /* Specific project items */
-/*
+/* 
 .game_column {
   & [data-game_id="2223248"] {
     background: #121118;
