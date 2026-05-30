@@ -182,25 +182,26 @@ a {
 
 
 /* Links. */
-.user_links, .custom-n {
+.user_links
+/* .custom-n */
+{
   display: flex;
   flex-wrap: wrap;
-  column-gap: 1.7em;
-  row-gap: .8em;
-  padding: 1.5em;
+  column-gap: 1em;
+  row-gap: .35em;
   margin-bottom: 0 !important;
   color: var(--primary);
   background: var(--background-lighten);
-}
-.user_links {
-  padding: 1em;
+/* } */
+/* .user_links { */
+  padding: .6em;
   box-shadow: 0 -2em 3em 1em var(--shadow);
 
   border-top: 1px solid #fff2;
 
   &::before {
     /* Profile picture */
-    top: -3em;
+    top: -4em;
 
     /*
     width: 96px;
@@ -220,12 +221,16 @@ a {
 
     /* Space for profile picture */
     &:first-child {
-      margin-left: 8em;
+      margin-left: 7.5em;
     }
 
     /* Replace default itch.io link icons */
     & .icon-link, & .icon_twitter {
       display: none;
+    }
+
+    &::before {
+      font-size: 1.45em;
     }
 
     /* 'Website' icon */
@@ -242,9 +247,14 @@ a {
 
 .user_page svg.svgicon {
   opacity: 1;
+
+  & > path {
+    fill: var(--primary);
+  }
 }
 
 /* Platform + handle refactor */
+/*
 .link_group, .custom-n > a {
   display: flex;
   align-items: center;
@@ -336,7 +346,7 @@ a {
     flex-basis: 100%;
   }
 }
-
+*/
 
 
 /* Corner border background */
@@ -601,23 +611,26 @@ a.custom-cb {
 .custom-wt {
   display: flex;
   padding: 6px 6px 3px;
-  font-weight: bold;
+  /* font-weight: bold; */
   white-space: nowrap;
   background: var(--background);
 
   & > :first-child {
-    width: 6em;
+    /* font-family: monospace; */
+    /* text-transform: uppercase; */
+    font-size: .85em;
+
     padding: 4px 1em;
     margin-bottom: -4px;
     color: #0000;
     background: var(--background-window);
     border-radius: 7px 7px 0 0;
 
-    & > div {
-      contain: paint;
-      /* overflow: hidden; */
+    contain: paint;
 
-      text-shadow: 0 0 var(--text), 11ch 0 var(--text);
+    & > strong {
+      /* overflow: hidden; */
+      text-shadow: 0 0 var(--text), 12ch 0 var(--text);
       animation: 3s linear infinite running-text;
     }
   }
@@ -626,11 +639,15 @@ a.custom-cb {
     flex-grow: 1;
   }
 }
-
+/* 
+.custom-wn .custom-wt strong {
+  --primary: var(--secondary);  
+}
+*/
 /* Running title bar text */
 @keyframes running-text {
   to {
-    text-shadow: -11ch 0 var(--text), 0 0 var(--text);
+    text-shadow: -12ch 0 var(--text), 0 0 var(--text);
   }
 }
 
@@ -698,7 +715,6 @@ s {
 
 
 /* Main window's social links */
-/*
 .custom-n {
   padding: 1em 1em;
 
@@ -706,15 +722,15 @@ s {
     display: inline-block;
     margin: .4em;
 
-    & > span {
+    & > .custom-ic {
       display: inline-block;
       margin-right: .2em;
       color: var(--primary);
-      font-size: 1.2em;
     }
   }
 }
-*/
+
+
 
 .custom-w hr {
   margin: 0 1em ;
@@ -789,7 +805,7 @@ s {
 
 
 /* Specific project items */
-/* 
+/*
 .game_column {
   & [data-game_id="2223248"] {
     background: #121118;
