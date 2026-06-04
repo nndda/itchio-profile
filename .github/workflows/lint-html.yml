@@ -40,5 +40,5 @@ jobs:
       - name: Install dependencies
         run: bun ci
 
-      - name: Lint scripts
-        run: bun lint:scripts
+      - name: Lint HTML
+        run: bun lint:html
