@@ -46,4 +46,3 @@ export async function ghSlug(git: SimpleGit): Promise<string> {
     /github\.com[/:]([^/]+\/[^/]+)/
   )![1].replace(/\.git\/?$/, "");
 }
-
