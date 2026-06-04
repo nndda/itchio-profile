@@ -18,7 +18,6 @@
   --shadow: #101b;
   --transparent: #0000;
   --mask-gradient: linear-gradient(90deg, #fff 50%, #0000);
-
   --neko-face: "≈ •ω• ≈";
 
   animation:
@@ -32,7 +31,7 @@
 }
 
 @font-face {
-  font-family: "FA";
+  font-family: FA;
   src: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/dist/i.woff2") format("woff2");
 }
 
@@ -113,9 +112,8 @@ position:absolute;
 .user_page .profile_content {
   padding: 0;
   margin-bottom: 0;
+  font-family: "Zen Kaku Gothic New", Lato, FA;
   border-bottom: 0;
-
-  font-family: "Zen Kaku Gothic New", "Lato", "FA";
 }
 
 /* Soften the underline color of links. */
@@ -167,7 +165,6 @@ a {
 /* Scrolling background. */
 .custom-bg {
   inset: -52em;
-
   background: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/assets/hero/hideout.svg");
   background-size: 52em auto;
   animation: 9s linear infinite bg-scroll;
@@ -187,17 +184,17 @@ a {
 {
   display: flex;
   flex-wrap: wrap;
-  column-gap: 1em;
-  row-gap: .35em;
+  gap: .35em 1em;
+
+/* } */
+
+/* .user_links { */
+  padding: .6em;
   margin-bottom: 0 !important;
   color: var(--primary);
   background: var(--background-lighten);
-/* } */
-/* .user_links { */
-  padding: .6em;
-  box-shadow: 0 -2em 3em 1em var(--shadow);
-
   border-top: 1px solid #fff2;
+  box-shadow: 0 -2em 3em 1em var(--shadow);
 
   &::before {
     /* Profile picture */
@@ -210,7 +207,6 @@ a {
     */
 
     display: inline-flex;
-
     contain: paint;
     content: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/assets/profile.webp");
     border-radius: 9px;
@@ -218,7 +214,6 @@ a {
   }
 
   & .link_group {
-
     /* Space for profile picture */
     &:first-child {
       margin-left: 7.5em;
@@ -254,6 +249,7 @@ a {
 }
 
 /* Platform + handle refactor */
+
 /*
 .link_group, .custom-n > a {
   display: flex;
@@ -380,16 +376,16 @@ a {
 
 /* "ABOUT ME" vertical side label */
 .custom-ws > strong {
-  /* position: absolute; */
-  padding: 7px 1em;
+  top: 9em;
 
   /*
   margin: 9em 0 0 -4.5em;
   commented out in favour of:
   */
   left: -4.5em;
-  top: 9em;
 
+  /* position: absolute; */
+  padding: 7px 1em;
   color: var(--background);
   background: var(--gradient-primary);
   border-radius: 4px;
@@ -404,11 +400,10 @@ a {
   align-items: start;
   justify-content: start;
   height: 1.3em;
+  contain: strict;
   font-size: 1.85em;
   line-height: 1.3em;
   white-space: nowrap;
-
-  contain: strict;
 
   & > span {
     translate: 0 calc(var(--i) * -1.3em);
@@ -461,22 +456,18 @@ a {
   /* position: relative; */
   height: 1em;
   margin-top: 1em;
-
   overflow: hidden;
 
   & > div {
     position: absolute;
-    width: 200%;
-
     inset: 0;
-
+    width: 200%;
     background:
       repeating-linear-gradient(
         45deg,
         #0000, #0000 1em,
         #ffd90e 1em, #ffd90e 2em
       );
-
     animation: 18s linear infinite running-stripes;
   }
 }
@@ -496,8 +487,8 @@ a {
 
   & > .custom-wi > div {
     display: flex;
-    padding: 1em 0;
     gap: .25em;
+    padding: 1em 0;
   }
 
   & .custom-g2 {
@@ -542,10 +533,10 @@ a {
 /* Support button */
 a.custom-cb {
   flex-grow: 1;
-  text-align: center;
   padding: .2em;
   font-size: 1.2em;
   color: var(--background);
+  text-align: center;
   text-decoration: none;
   background: var(--primary);
 
@@ -611,22 +602,23 @@ a.custom-cb {
 .custom-wt {
   display: flex;
   padding: 6px 6px 3px;
+
   /* font-weight: bold; */
   white-space: nowrap;
   background: var(--background);
 
   & > :first-child {
-    /* font-family: monospace; */
-    /* text-transform: uppercase; */
-    font-size: .85em;
-
     padding: 4px 1em;
     margin-bottom: -4px;
+    contain: paint;
+
+    /* font-family: monospace; */
+
+    /* text-transform: uppercase; */
+    font-size: .85em;
     color: #0000;
     background: var(--background-window);
     border-radius: 7px 7px 0 0;
-
-    contain: paint;
 
     & > strong {
       /* overflow: hidden; */
@@ -639,11 +631,13 @@ a.custom-cb {
     flex-grow: 1;
   }
 }
-/* 
+
+/*
 .custom-wn .custom-wt strong {
-  --primary: var(--secondary);  
+  --primary: var(--secondary);
 }
 */
+
 /* Running title bar text */
 @keyframes running-text {
   to {
@@ -659,8 +653,10 @@ a.custom-cb {
 
   & > div {
     /* position: relative; */
+
     /* max-width: 18em; */
     padding: 2em 0 3.5em;
+
     /* margin: auto; */
     letter-spacing: .2ch;
   }
@@ -671,27 +667,29 @@ a.custom-cb {
 
 /* Gearwheels */
 .custom-grc {
-  border: 0 !important;
   padding: 6em !important;
   margin-bottom: -12em;
   overflow: hidden;
+  border: 0 !important;
 }
+
 .custom-gr {
+  top: 1.5em;
+
   /* position: absolute; */
 
   right: -5em;
-  top: 1.5em;
   width: 10em;
-
   rotate: calc(var(--i) * 60deg);
 }
+
 .custom-wr > .custom-gr {
   /* display: none; */
   top: 9em;
   right: -7em;
   width: 13em;
-  rotate: calc(var(--i) * -120deg);
   opacity: .6;
+  rotate: calc(var(--i) * -120deg);
 }
 
 
@@ -716,7 +714,7 @@ s {
 
 /* Main window's social links */
 .custom-n {
-  padding: 1em 1em;
+  padding: 1em;
 
   & > a {
     display: inline-block;
@@ -738,14 +736,18 @@ s {
 }
 
 .custom-f {
+  position: relative;
+  z-index: 9;
   padding: 1.2em;
 }
+
 .custom-f, .custom-f > span {
   display: flex;
+  gap: 1em;
   align-items: center;
   justify-content: space-between;
-  gap: 1em;
 }
+
 
 
 /* Game items/card */
@@ -805,6 +807,7 @@ s {
 
 
 /* Specific project items */
+
 /*
 .game_column {
   & [data-game_id="2223248"] {
@@ -835,7 +838,6 @@ s {
 /* Display: Grid */
 .game_column {
   padding: 6em 2em 2em;
-
   border-top: 5px solid var(--primary) !important;
   border-bottom: 1px solid;
   box-shadow: 0 0 3em 0 var(--shadow);
@@ -843,8 +845,8 @@ s {
   & > div {
     grid-template-columns: 25% 28% 25% !important;
     gap: 2em;
-    justify-content: center;
-    align-items: center
+    align-items: center;
+    justify-content: center
   }
 
   /*
@@ -927,6 +929,7 @@ s {
 
 
 /* Collections row */
+
 /*
 .collections h2 {
   letter-spacing: .1em;
@@ -940,12 +943,13 @@ s {
   scrollbar-color: var(--primary) var(--background) !important;
 
   /* Fade out collection list */
-  -webkit-mask: var(--mask-gradient);
+  mask: var(--mask-gradient);
   mask: alpha var(--mask-gradient);
 }
 
 .collection_description {
   flex-grow: 1;
+
   /* text-overflow: clip !important; */
   white-space: normal !important;
 }
@@ -967,6 +971,7 @@ s {
 
   .collection_row {
     margin: 0 .8em;
+
     /* overflow: hidden; */
 
     /*
