@@ -18,7 +18,8 @@
     "publish": "bun src/scripts/publish.ts",
     "lint:scripts": "eslint --config src/config/eslint.config.ts .",
     "lint:styles": "stylelint --config src/config/stylelint.config.ts src/styles.css",
-    "lint:html": "eslint --config src/config/eslint.html.config.ts src/content.html"
+    "lint:html": "eslint --config src/config/eslint.html.config.ts src/content.html",
+    "validate:css": "bunx csstree-validator dist/ --reporter gnu"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.2.0"
