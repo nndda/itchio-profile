@@ -141,12 +141,13 @@ import html from "./optimize/html";
 |                                                 |
 |  Build complete.                                |
 |  Copy-paste the content of 'dist/test.css'      |
+|  and 'dist/content.html'                        |
 |  to the profile page first,                     |
 |  to test it out.                                |
 |                                                 |
 + ----------------------------------------------- +
 |                                                 |
-|  Run 'npm run publish' to push the updates.     |
+|  Run 'bun run publish' to push the updates.     |
 |  And copy-paste the content of                  |
 |  'dist/styles.css'                              |
 |                                                 |
