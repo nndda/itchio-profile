@@ -683,7 +683,7 @@ a.custom-cb {
   rotate: calc(var(--i) * 60deg);
 }
 
-.custom-wr > .custom-gr {
+.custom-wr > .custom-gr { /* stylelint-disable-line csstools/use-nesting */
   /* display: none; */
   top: 9em;
   right: -7em;
