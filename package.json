@@ -2,9 +2,25 @@
   "name": "nnda-itchio-profile",
   "version": "1.10.1",
   "author": "nnda",
+  "homepage": "https://github.com/nndda/itchio-profile#readme",
+  "description": "HTML & CSS source code and build pipelines for my itch.io profile page's content.",
+  "license": "MIT",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nndda/itchio-profile.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nndda/itchio-profile/issues"
+  },
+  "scripts": {
+    "build": "bun src/scripts/build.ts",
+    "publish": "bun src/scripts/publish.ts",
+    "lint:scripts": "eslint --config src/config/eslint.config.ts .",
+    "lint:styles": "stylelint --config src/config/stylelint.config.ts src/styles.css"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.2.0"
   },
   "devDependencies": {
     "@eslint/compat": "^2.1.0",
@@ -30,7 +46,7 @@
     "stylelint-order": "^8.1.1",
     "stylelint-use-nesting": "^6.0.2",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.60.0"
+    "typescript-eslint": "^8.60.1"
   },
   "overrides": {
     "brace-expansion": "^5.0.6",
@@ -39,23 +55,8 @@
     "picomatch": "^4.0.4",
     "postcss": "^8.5.15"
   },
-  "bugs": {
-    "url": "https://github.com/nndda/itchio-profile/issues"
-  },
-  "description": "Source code for my itch.io profile page.",
   "engines": {
-    "bun": "1.3.11"
+    "bun": "1.3.14"
   },
-  "homepage": "https://github.com/nndda/itchio-profile#readme",
-  "license": "MIT",
-  "private": true,
-  "scripts": {
-    "build": "bun src/scripts/build.ts",
-    "publish": "bun src/scripts/publish.ts",
-    "lint:scripts": "eslint --config src/config/eslint.config.ts .",
-    "lint:styles": "stylelint --config src/config/stylelint.config.ts src/styles.css"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-free": "^7.2.0"
-  }
+  "packageManager": "bun@1.3.14"
 }
