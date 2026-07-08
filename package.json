@@ -35,7 +35,7 @@
     "@html-eslint/eslint-plugin": "^0.62.0",
     "@swc/html": "^1.15.41",
     "@types/bun": "^1.3.14",
-    "@types/node": "^25.9.3",
+    "@types/node": "^26.0.0",
     "autoprefixer": "^10.5.0",
     "clean-css": "^5.3.3",
     "css": "^3.0.0",
