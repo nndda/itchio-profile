@@ -1,6 +1,13 @@
 *itch.io_files/
 *itch.io.html
 
+# Python
+bin/
+include/
+lib*
+share/
+pyvenv.cfg
+
 # Logs
 logs
 *.log
