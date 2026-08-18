@@ -1,10 +1,6 @@
-import fnCol from "./col";
-import fnProp from "./prop";
-import fnNano from "./cssnano";
-
-export const col = fnCol;
-export const prop = fnProp;
-export const nano = fnNano;
+export { default as col } from "./col";
+export { default as prop } from "./prop";
+export { default as nano } from "./cssnano";
 
 export function whyDoesItchIoProfilePageHave5120CharacterCountLimitButOtherPagesDontIDontUnderstand(
   cssArr: string[],

@@ -1,7 +1,3 @@
-import type {
-  CSSVarTransform,
-} from "./type";
-
 import
   simpleGit,
   {

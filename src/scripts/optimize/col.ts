@@ -3,8 +3,6 @@
 
 // color: #abc;
 
-import type { CSSVarTransform } from "../type";
-
 export default ( function (
   src: string,
   except: string[] = [],
