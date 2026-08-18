@@ -249,14 +249,23 @@ CSS on itch.io's profile page is limited to only ***5120 characters***. And so, 
 
 <br>
 
-<div align="center">
-  <a href="https://github.com/SAWARATSUKI/KawaiiLogos">
-    <img width="520" src="https://github.com/user-attachments/assets/4cc1431a-5dc4-4f15-9013-ec0ffbeb8957">
+<p align="center">
+  <a href="https://github.com/andregans/code_logotype">
+    <img width="350" src="https://github.com/user-attachments/assets/0a28ddec-df94-4b22-b47c-0a0e42d54154">
   </a>
-</div>
+</p>
+<br>
+<p align="center">
+  <a href="https://github.com/Aikoyori/ProgrammingVTuberLogos">
+    <img width="480" src="https://github.com/user-attachments/assets/9480bf19-c897-4851-8d03-9beda531e3ee">
+  </a>
+</p>
 
 <br>
 
 ## License
 
 [MIT licensed](LICENSE) :)
+
+- CSS logo from [`andregans/code_logotype`](https://github.com/andregans/code_logotype) by [Andre Rio](https://github.com/andregans)
+- Bun logo from [`Aikoyori/ProgrammingVTuberLogos`](https://github.com/Aikoyori/ProgrammingVTuberLogos) by [Aikoyori](https://github.com/Aikoyori)
