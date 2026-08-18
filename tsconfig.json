@@ -1,14 +1,18 @@
 {
   "compilerOptions": {
-    "types": ["bun"],
+    "types": [
+      "bun",
+      "node"
+    ],
 
     "strict": true,
     "skipLibCheck": true,
 
     "lib": ["ESNext"],
-    "target": "ESNext",
-    "module": "ESNext",
+    "target": "esnext",
+    "module": "nodenext",
 
+    "moduleResolution": "nodenext",
     "resolveJsonModule": true
   },
   "include": [
