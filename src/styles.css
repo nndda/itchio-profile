@@ -35,6 +35,15 @@
   src: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/dist/i.woff2") format("woff2");
 }
 
+/* inconsolata-latin-400-normal */
+/*
+@font-face {
+  font-family: Inconsolata;
+  src: url("https://cdn.jsdelivr.net/fontsource/fonts/inconsolata@5.3.0/latin-400-normal.woff2") format("woff2");
+  font-display: swap;
+}
+*/
+
 @property --i {
   syntax: "<number>";
   inherits: true;
@@ -111,7 +120,16 @@ position:absolute;
 
 .inner_column {
   max-width: 100%;
+
+  /* backdrop-filter: blur(1em) */
 }
+
+/*
+#profile_header {
+  position: sticky;
+  top: 0;
+  z-index: -10;
+} */
 
 #profile_header,
 .user_page .profile_content {
@@ -150,18 +168,79 @@ a {
   }
 }
 
+.user_page.has_banner .header {
+  position: relative;
 
+  & > .text_header {
+    position: absolute;
+    bottom: .25rem;
+    left: 7rem;
+    display: block;
+    min-width: 10em;
+
+    /* z-index: 99; */
+    font-size: 3em;
+    letter-spacing: .15em;
+    white-space: nowrap;
+
+    &::before,
+    &::after,
+    & > h1::before,
+    & > h1::after
+    {
+       font-family: Inconsolata, monospace;
+      font-weight: bold;
+      color: var(--secondary);
+      content: "<";
+    }
+
+    &::after {
+      content: "/>";
+    }
+
+    & > h1 {
+      display: inline-block;
+      margin: 0;
+      font-size: 1em;
+
+      &::before, &::after {
+        color: yellow;
+        /* Weird highlighting on Zed :/ */
+        content: "\007B"; /* } */
+      }
+
+      &::after {
+        content: "\007D"; /* } */
+      }
+    }
+  }
+}
 
 /* Header banner */
 #profile_header {
-  /* border: 0; */
+  & > .image_header {
+    &::after {
+      position: absolute;
+      inset: 0;
+      content: "";
 
-  & img {
-    width: 100%;
+      /*
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      */
 
-    /* Responsiveness. */
-    height: var(--height-min);
-    object-fit: cover;
+      background: linear-gradient(190deg, #0000 60%, var(--primary) 90%);
+    }
+
+    & > img {
+      width: 100%;
+
+      /* Responsiveness. */
+      height: var(--height-min);
+      object-fit: cover;
+    }
   }
 }
 
@@ -187,23 +266,31 @@ a {
 .user_links
 /* .custom-n */
 {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .35em 1em;
+  /*
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  */
+  gap: .3em 1em;
 
 /* } */
 
 /* .user_links { */
-  padding: .6em;
-  margin-bottom: 0 !important;
+  padding: .7em;
+  margin: 0 !important;
+
+/*   padding-bottom: 1em; */
   color: var(--primary);
-  background: var(--background-lighten);
+
+  /* background: var(--background-lighten); */
   border-top: 1px solid #fff2;
-  box-shadow: 0 -2em 3em 1em var(--shadow);
+  box-shadow: 0 0 2em .25em var(--shadow);
 
   &::before {
     /* Profile picture */
     top: -4em;
+
+    /* translate: 0 5em; */
 
     /*
     width: 96px;
@@ -218,10 +305,21 @@ a {
     box-shadow: 0 0 8px var(--shadow);
   }
 
+  &::after {
+    inset: 100% 0;
+    height: 3px;
+    content: "";
+    background: var(--gradient-primary);
+  }
+
+  & a {
+    color: var(--secondary);
+  }
+
   & .link_group {
     /* Space for profile picture */
     &:first-child {
-      margin-left: 7.5em;
+      margin-left: 7.5rem;
     }
 
     /* Replace default itch.io link icons */
@@ -350,9 +448,29 @@ a {
 */
 
 
+/* Blur backdrop background */
+.user_links,
+.custom-w {
+  background: var(--background-window);
+
+/*   background: linear-gradient(var(--rot, 90deg), var(--background-window) 15%, #0000 90%); */
+}
+
+/* NOTE:
+  backdrop-filter clashes with
+  direct child's (.custom-h, .custom-j) ordering :/
+*/
+
+/*
+.user_links,
+:is(.custom-wi, .custom-n) {
+  backdrop-filter: blur(7px) brightness(80%);
+}
+*/
+
 /* Corner border background */
 :is(.custom-wi, .game_column) > div {
-  border: 1.2em solid #0000;
+  border: 1.3em solid #0000;
   border-image: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/assets/b.png") 30;
 }
 
@@ -360,21 +478,18 @@ a {
 
 /* Window panel UI */
 .custom-w {
-  background: var(--background-window);
+  position: relative;
   border: 1px solid #fff2;
   border-radius: 4px;
   box-shadow:
     /*9px 9px 0 -3px #bbb,*/
-    9px 9px 0 -3px #fff2,
+    9px 9px 0 -3px #fff3,
     0 0 2em 0 var(--shadow);
 }
 
 .user_profile {
+  padding-top: 6em;
   contain: paint;
-
-  & > .custom-g2 {
-    margin-bottom: 6em;
-  }
 }
 
 
@@ -387,13 +502,15 @@ a {
   margin: 9em 0 0 -4.5em;
   commented out in favour of:
   */
-  left: -4.5em;
+  left: -3em;
+
+/*   font-family: Inconsolata; */
 
   /* position: absolute; */
-  padding: 7px 1em;
+  padding: 7px 1em 3em;
   color: var(--background);
   background: var(--gradient-primary);
-  border-radius: 4px;
+  border-radius: 6px;
   rotate: -90deg;
 }
 
@@ -402,8 +519,6 @@ a {
 .custom-list-words {
   display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: start;
   height: 1.3em;
   contain: strict;
   font-size: 1.85em;
@@ -501,8 +616,6 @@ a {
   }
 }
 
-
-
 .custom-k,
 .custom-k > *
 {
@@ -538,17 +651,14 @@ a {
 /* Support button */
 a.custom-cb {
   flex-grow: 1;
-  padding: .2em;
   font-size: 1.2em;
   color: var(--background);
   text-align: center;
-  text-decoration: none;
   background: var(--primary);
 
   &:first-child {
     --primary: var(--secondary);
 
-    text-align: center;
     border-radius: 7px 2px 2px 7px;
   }
 
@@ -641,7 +751,7 @@ a.custom-cb {
 .custom-wn .custom-wt strong {
   --primary: var(--secondary);
 }
-*/
+ */
 
 /* Running title bar text */
 @keyframes running-text {
@@ -672,19 +782,20 @@ a.custom-cb {
 
 /* Gearwheels */
 .custom-grc {
-  padding: 6em !important;
+  height: 6.5em;
+
+  /* padding: 6em !important; */
+
+  /* top: 12em; */
   margin-bottom: -12em;
   overflow: hidden;
   border: 0 !important;
 }
 
 .custom-gr {
-  top: 1.5em;
-
   /* position: absolute; */
 
   right: -5em;
-  width: 10em;
   rotate: calc(var(--i) * 60deg);
 }
 
@@ -709,7 +820,6 @@ a.custom-cb {
 }
 
 
-
 /* Main window's strikethrough text */
 s {
   text-decoration-color: var(--primary);
@@ -724,10 +834,11 @@ s {
   & > a {
     display: inline-block;
     margin: .4em;
+    color: var(--secondary);
 
     & > .custom-ic {
       display: inline-block;
-      margin-right: .2em;
+      margin-right: .3em;
       color: var(--primary);
     }
   }
@@ -761,16 +872,54 @@ s {
   border: 1px solid #fff3;
   border-radius: 4px;
   box-shadow: 0 0 8px var(--shadow);
-}
 
-.game_cell_data {
-  min-height: 10em;
-  margin-top: .3em !important;
+  & .game_cell_data {
+    min-height: 10em;
+    margin-top: .3em !important;
 
-  & > * {
-    padding: .2em 1em;
+    & > * {
+      padding: .2em 1em;
+    }
+
+    & .game_title {
+      display: flex;
+      padding-bottom: .5em;
+      border-bottom: 1px dashed #fff6;
+
+      /*
+      & > a {
+        text-wrap: balance;
+      }
+      */
+    }
+
+    & .meta_tag .price_value {
+      /* padding: .25em 0 .5em .5em !important; */
+      font-size: 2em;
+      background: var(--background);
+
+      /* background: 0 !important; */
+
+      /* border-left: 1px solid #fff4; */
+
+      &::first-letter {
+        margin-right: .2em;
+        color: var(--primary);
+      }
+    }
+
+    & .game_platform {
+      padding-bottom: 1em;
+    }
+
+    & .web_flag {
+      font-weight: bold;
+      color: var(--background);
+      background: var(--secondary);
+    }
   }
 }
+
 
 .link_group .icon,
 .game_platform > .icon {
@@ -778,35 +927,13 @@ s {
   color: var(--primary);
 }
 
-.web_flag {
-  font-weight: bold;
-  color: var(--background) !important;
-  background: var(--secondary) !important;
-}
-
-.game_title {
-  display: flex !important;
-  padding-bottom: .5em;
-  border-bottom: 1px dashed #fff6;
-}
-
-.price_value {
-  padding: .25em 0 .5em .5em !important;
-  font-size: 2em;
-  background: 0 !important;
-  border-left: 1px solid #fff4;
-
-  &::first-letter {
-    margin-right: .2em;
-    color: var(--primary) !important;
-  }
-}
-
+/*
 .collections .title {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
 }
+*/
 
 
 
@@ -814,15 +941,39 @@ s {
 /* Specific project items */
 
 /*
+@font-face {
+  font-family: Ubuntu;
+  font-display: swap;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/ubuntu@5.3.0/latin-400-normal.woff2) format(woff2);
+}
+
+@font-face {
+  font-family: Gabriela;
+  font-display: swap;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/gabriela@5.3.0/latin-400-normal.woff2) format(woff2);
+}
+
+@font-face {
+  font-family: Comfortaa;
+  font-display: swap;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/comfortaa@5.3.0/latin-400-normal.woff2) format(woff2);
+}
+
 .game_column {
   & [data-game_id="2223248"] {
     background: #121118;
+
+    & a {
+      font-family: Ubuntu;
+      color: #fc3a78 !important;
+    }
   }
 
   & [data-game_id="1839651"] {
     background: #341f29;
 
     & a {
+      font-family: Gabriela;
       color: #e4d8c7 !important;
     }
   }
@@ -831,14 +982,54 @@ s {
     background: #080910;
 
     & a {
+      font-family: Comfortaa;
       color: #cdeeee !important;
     }
   }
-} */
-
+}
+*/
 
 
 /* Game column */
+
+
+.game_column {
+  &:has(.game_cell:hover) {
+    & .game_cell:not(:hover) {
+      filter: blur(.3em);
+
+      /* opacity: .8; */
+      scale: .95;
+    }
+  }
+
+  & .game_cell {
+    transition: .3s;
+
+    &:hover {
+      /*
+      rotate: 3deg;
+
+      &:nth-child(2n) {
+        rotate: -3deg;
+      }
+      */
+
+      & .title.game_link {
+        color: var(--secondary);
+      }
+
+      & img {
+        transition: .3s;
+      }
+    }
+  }
+
+& .game_cell:hover {
+  scale: 1.05;
+}
+}
+
 
 /* Display: Grid */
 .game_column {
@@ -851,7 +1042,7 @@ s {
     grid-template-columns: 25% 28% 25% !important;
     gap: 2em;
     align-items: center;
-    justify-content: center
+    justify-content: center;
   }
 
   /*
@@ -874,7 +1065,7 @@ s {
     white-space: nowrap;
     text-shadow: 0 0 #eee2, 1600px 0 #eee2;
     content: "ハイライトされたプロジェクト";
-    animation: 19s linear infinite running-text-large;
+    animation: 21s linear infinite running-text-large;
   }
 
   &::after {
@@ -909,11 +1100,13 @@ s {
     }
   }
 }
+
 @keyframes flatten {
   0%,
   20% {
     transform: rotateX(0) skewX(0);
   }
+
   10% {
     transform: rotateX(60deg) skewX(30deg);
   }
@@ -953,13 +1146,35 @@ s {
 
 /* Collections row */
 
+@keyframes carousel-effect {
+  0% {
+    /* scale: .3; */
+
+    /* width: 4em; */
+
+    /* transform: rotateY(60deg) skewY(45deg); */
+
+    /* transform: matrix(1, 3, 2, 2); */
+    filter: blur(.5em) grayscale(80%);
+
+    /* left: -1em; */
+  }
+
+  100% {
+    /* transform: rotateY(0) scale(1); */
+
+    /* left: 0; */
+    filter: blur(0) grayscale(0);
+  }
+}
+
 /*
 .collections h2 {
   letter-spacing: .1em;
 }
 */
-
 .carousel_wrapper {
+  display: flex;
   border-bottom: 2px solid var(--primary);
 
   /* stylelint-disable-next-line */
@@ -967,6 +1182,13 @@ s {
 
   /* Fade out collection list */
   mask: alpha var(--mask-gradient);
+
+  & .game_cell {
+    /* position: relative; */
+    transform-origin: left;
+    animation: carousel-effect linear;
+    animation-timeline: view(inline 90% 0%);
+  }
 }
 
 .collection_description {
