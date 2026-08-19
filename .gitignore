@@ -1,6 +1,9 @@
 *itch.io_files/
 *itch.io.html
 
+screenshots/*
+!screenshots/[0-9]*.[0-9]*.[0-9]*.webp
+
 # Python
 bin/
 include/

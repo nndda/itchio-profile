@@ -150,7 +150,12 @@ function cmd(
 
     cmd(
       "git",
-      [ "commit", "-m", version ],
+      [
+        "commit",
+        "--no-verify",
+        "-m",
+        version,
+      ],
       "git: commit failed.",
     );
 
