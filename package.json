@@ -59,7 +59,7 @@
     "stylelint-no-unsupported-browser-features": "^8.1.1",
     "stylelint-order": "^8.1.1",
     "stylelint-use-nesting": "^6.0.2",
-    "typescript": "^6.0.3",
+    "typescript": "^7.0.2",
     "typescript-eslint": "^8.67.0"
   },
   "overrides": {
