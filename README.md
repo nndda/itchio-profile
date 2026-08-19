@@ -10,7 +10,7 @@ Main stylesheet: [`src/styles.css`](src/styles.css)
 ｜
 Profile content: [`src/content.html`](src/content.html)
 
-<img src="https://github.com/user-attachments/assets/6a94c86a-6563-401e-8a92-9a6488016082" alt="">
+<img src="./screenshots/1.12.1.webp" alt="">
 
 </div>
 
