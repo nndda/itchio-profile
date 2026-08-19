@@ -1,0 +1,31 @@
+# https://lefthook.dev/configuration/
+
+commit-msg:
+  jobs:
+    - name: commitlint
+      run: bunx commitlint --edit {1}
+
+pre-commit:
+  parallel: true
+  jobs:
+    - name: ESLint
+      run: bun lint:scripts
+      glob: '*.ts'
+
+    - name: Stylelint
+      run: bun lint:styles
+      glob:
+        - src/styles.css
+
+    - name: CSS validation
+      run: bun validate:css
+      glob:
+        - dist/*.css
+
+pre-push:
+  jobs:
+    - name: Packages audit
+      run: bun audit
+      glob:
+        - package.json
+        - bun.lock
