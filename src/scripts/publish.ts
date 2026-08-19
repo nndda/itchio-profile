@@ -116,7 +116,7 @@ function cmd(
     , srcModified: string[] = getModified(status, [
         "src/styles.css",
         "src/content.html",
-        "package-lock.json",
+        "bun.lock",
         "package.json",
       ])
     ;
@@ -127,7 +127,7 @@ function cmd(
       throw new Error(
         "Error: At least one of the following files must be modified:\n" +
         lsFiles(distFiles) +
-        "\nMake sure to run `npm run build` first"
+        "\nMake sure to run `bun run build` first"
       );
     }
 
