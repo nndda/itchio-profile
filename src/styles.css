@@ -36,6 +36,7 @@
 }
 
 /* inconsolata-latin-400-normal */
+
 /*
 @font-face {
   font-family: Inconsolata;
@@ -115,6 +116,7 @@ position:absolute;
 
   /* border: 1px solid #fff3; */
   margin: auto;
+  overflow: hidden;
   box-shadow: 0 -2em 3em var(--shadow);
 }
 
@@ -205,6 +207,7 @@ a {
 
       &::before, &::after {
         color: yellow;
+
         /* Weird highlighting on Zed :/ */
         content: "\007B"; /* } */
       }
@@ -992,8 +995,27 @@ s {
 
 /* Game column */
 
+/* Display: Grid */
 
 .game_column {
+  padding: 6em 2em 2em;
+  border-top: 5px solid var(--primary) !important;
+  border-bottom: 1px solid;
+  box-shadow: 0 0 3em 0 var(--shadow);
+
+  & > div {
+    grid-template-columns: 25% 28% 25% !important;
+    gap: 2em;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /*
+  & .game_cell_data {
+    min-height: 10em;
+  }
+  */
+
   &:has(.game_cell:hover) {
     & .game_cell:not(:hover) {
       filter: blur(.3em);
@@ -1025,31 +1047,9 @@ s {
     }
   }
 
-& .game_cell:hover {
-  scale: 1.05;
-}
-}
-
-
-/* Display: Grid */
-.game_column {
-  padding: 6em 2em 2em;
-  border-top: 5px solid var(--primary) !important;
-  border-bottom: 1px solid;
-  box-shadow: 0 0 3em 0 var(--shadow);
-
-  & > div {
-    grid-template-columns: 25% 28% 25% !important;
-    gap: 2em;
-    align-items: center;
-    justify-content: center;
+  & .game_cell:hover {
+    scale: 1.05;
   }
-
-  /*
-  & > .game_cell_data {
-    min-height: 10em;
-  }
-  */
 
   &::before,
   &::after
