@@ -10,6 +10,7 @@ U+f099 # Twitter
 U+f004 # heart
 U+f00d # xmark
 U+f017 # clock
+U+f49e # box-open
 U+f0c1 # link
 U+f2d0 # window-maximize
 U+f2d1 # window-minimize

@@ -10,14 +10,20 @@
   --link: #eaeaea;
   --primary: #fc3a78;
   --secondary: #3ae5f9;
+
   --gradient-primary: linear-gradient(90deg, var(--primary), #b23ee0);
   --gradient-secondary: linear-gradient(90deg, var(--secondary), #2a8aec);
+
   --background: #0d0e12;
   --background-lighten: #101218;
   --background-window: #101218;
+
   --shadow: #101b;
+
   --transparent: #0000;
+
   --mask-gradient: linear-gradient(90deg, #fff 50%, #0000);
+
   --neko-face: "≈ •ω• ≈";
 
   animation:
@@ -32,8 +38,11 @@
 
 @font-face {
   font-family: FA;
+  /* src: url("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/webfonts/fa-solid-900.woff2") format("woff2"); */
   src: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/dist/i.woff2") format("woff2");
 }
+
+/* BUG: multiple @font-face causes the -52em inset and background-size properties to be merged on build... for some reason... :/ */
 
 /* inconsolata-latin-400-normal */
 
@@ -78,9 +87,7 @@
 .custom-nkmm,
 .user_game_grid,
 .collection_row
-{
-position:relative;
-}
+{ position:relative; }
 
 .custom-h,
 .custom-j,
@@ -89,9 +96,7 @@ position:relative;
 .custom-gr,
 .custom-bg,
 .custom-ws > strong
-{
-position:absolute;
-}
+{ position:absolute; }
 
 .game_column,
 .user_game_grid,
@@ -123,7 +128,7 @@ position:absolute;
 .inner_column {
   max-width: 100%;
 
-  /* backdrop-filter: blur(1em) */
+/*   backdrop-filter: blur(1em) */
 }
 
 /*
@@ -190,7 +195,7 @@ a {
     & > h1::before,
     & > h1::after
     {
-       font-family: Inconsolata, monospace;
+      font-family: Inconsolata, monospace;
       font-weight: bold;
       color: var(--secondary);
       content: "<";
@@ -206,7 +211,7 @@ a {
       font-size: 1em;
 
       &::before, &::after {
-        color: yellow;
+        color: var(--primary);
 
         /* Weird highlighting on Zed :/ */
         content: "\007B"; /* } */
@@ -234,7 +239,7 @@ a {
       height: 100%;
       */
 
-      background: linear-gradient(190deg, #0000 60%, var(--primary) 90%);
+      background: linear-gradient(189deg, #0000 56%, var(--background-lighten) 96%);
     }
 
     & > img {
@@ -471,12 +476,39 @@ a {
 }
 */
 
+/* TODO: surely there's has to be a better way, or maybe not. */
 /* Corner border background */
-:is(.custom-wi, .game_column) > div {
-  border: 1.3em solid #0000;
-  border-image: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/assets/b.png") 30;
+.custom-wi > div {
+  border: 1.3em solid;
+  border-image: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/assets/b.fc3a78.png") 30;
+}
+.custom-wn > .custom-wi > div {
+  border-image: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/assets/b.3ae5f9.png") 30;
+}
+.game_column > div {
+  border: 1.6em solid;
+  border-image: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/assets/b3.fc3a78.png") 30;
 }
 
+a.custom-cta-c {
+  display: inline-block;
+  position: relative;
+  bottom: 6.5em;
+  left: -4em;
+  padding: 1em 5em;
+
+  background: #ffd90e;
+  color: var(--background);
+  border: 3px dashed var(--background-lighten);
+  text-decoration: none;
+
+  rotate: 45deg;
+
+  & > code {
+    letter-spacing: .2ch;
+    font-weight: 700;
+  }
+}
 
 
 /* Window panel UI */
@@ -490,11 +522,10 @@ a {
     0 0 2em 0 var(--shadow);
 }
 
-.user_profile {
-  padding-top: 6em;
+.custom-pc {
   contain: paint;
+  padding-block: 7em;
 }
-
 
 
 /* "ABOUT ME" vertical side label */
@@ -585,6 +616,7 @@ a {
     position: absolute;
     inset: 0;
     width: 200%;
+
     background:
       repeating-linear-gradient(
         45deg,
@@ -854,25 +886,11 @@ s {
   background: var(--gradient-primary);
 }
 
-.custom-f {
-  position: relative;
-  z-index: 9;
-  padding: 1.2em;
-}
-
-.custom-f, .custom-f > span {
-  display: flex;
-  gap: 1em;
-  align-items: center;
-  justify-content: space-between;
-}
-
-
 
 /* Game items/card */
 .game_cell {
   background: var(--background-lighten);
-  border: 1px solid #fff3;
+  border: 1px solid #fff2;
   border-radius: 4px;
   box-shadow: 0 0 8px var(--shadow);
 
@@ -998,16 +1016,17 @@ s {
 /* Display: Grid */
 
 .game_column {
-  padding: 6em 2em 2em;
+  padding: 7em 2em 3em;
+  background: var(--background);
   border-top: 5px solid var(--primary) !important;
   border-bottom: 1px solid;
   box-shadow: 0 0 3em 0 var(--shadow);
 
   & > div {
     grid-template-columns: 25% 28% 25% !important;
-    gap: 2em;
+    /* gap: 3.5em; */
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
   }
 
   /*
@@ -1027,6 +1046,7 @@ s {
 
   & .game_cell {
     transition: .3s;
+    z-index: 1;
 
     &:hover {
       /*
@@ -1057,13 +1077,14 @@ s {
     /* position: absolute; */
     top: .3em;
     left: 0;
-    z-index: -1;
+    /* z-index: -1; */
     width: 100%;
     overflow: hidden;
     font-size: 92px;
     color: #0000;
+    opacity: .25;
     white-space: nowrap;
-    text-shadow: 0 0 #eee2, 1600px 0 #eee2;
+    text-shadow: 0 0 var(--primary), 1600px 0 var(--primary);
     content: "ハイライトされたプロジェクト";
     animation: 21s linear infinite running-text-large;
   }
@@ -1077,7 +1098,7 @@ s {
 
 @keyframes running-text-large {
   to {
-    text-shadow: -1600px 0 #eee2, 0 0 #eee2;
+    text-shadow: -1600px 0 var(--primary), 0 0 var(--primary);
   }
 }
 
@@ -1085,11 +1106,13 @@ s {
 
 /* Cat-shaped divider */
 .custom-nkmm {
-  z-index: 9;
+/*   z-index: -1; */
   display: flex;
   gap: 4em;
   justify-content: center;
-  margin-bottom: -.85em;
+  margin-bottom: -.65em;
+  margin-top: calc(-80px - 3em);
+  pointer-events: none;
 
   & > img {
     transform-origin: 50% 100%;
@@ -1113,7 +1136,7 @@ s {
 }
 
 .user_game_grid::before {
-  top: -1.5em;
+  top: -1.75em;
 
   /* position: absolute; */
   width: 100%;
@@ -1199,12 +1222,123 @@ s {
 }
 
 
+/* Pseudo footer */
+
+/* Absolutely foul */
+
+.collections {
+  margin-bottom: calc(350px - 3em);
+}
+
+.custom-fc {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+
+  width: min(1200px, 100dvw);
+  bottom: 2.5em;
+  height: calc(350px - 3em);
+
+  background: var(--background);
+
+  overflow: hidden;
+  z-index: 9;
+
+  & > hr {
+    width: 100%;
+    background: 0;
+    margin-block: 1em;
+    border-top: 3px dashed #fff5;
+    z-index: 9;
+  }
+}
+
+.custom-fci {
+  display: flex;
+  flex-grow: 1;
+  gap: 3em;
+
+  padding: 2em 3em;
+  align-items: center;
+  justify-content: end;
+
+  & a {
+    transition: .3s ease;
+
+    &:hover {
+      scale: 1.2;
+    }
+  }
+
+  & > a > img {
+    filter: drop-shadow(.5em .5em var(--secondary));
+  }
+}
+
+.custom-f {
+  position: relative;
+  z-index: 9;
+  padding: 1.2em;
+  translate: 0 .5em;
+}
+
+.custom-fsp {
+  flex-grow: 1;
+}
+
+/* Human Made logo */
+.custom-hm {
+  position: relative;
+  width: 120px;
+  height: 120px;
+
+  & > :nth-child(1) {
+    inset: -100% -125%;
+
+    animation: human-made-stamp-rotate 15s infinite linear;
+  }
+
+  & > * {
+    position: absolute;
+    inset: -25%;
+    max-width: unset !important;
+  }
+
+  & > div {
+    inset: -100% -125%;
+
+    height: 400px;
+    width: 400px;
+
+    box-shadow:
+      var(--background) 1em -90px 1em inset
+      , var(--background) 1em 90px 1em inset
+      ;
+
+    pointer-events: none;
+  }
+}
+
+@keyframes human-made-stamp-rotate {
+  to {
+    rotate: 360deg;
+  }
+}
+
+.custom-f, .custom-f > span {
+  display: flex;
+/*   align-items: center; */
+}
+.custom-f, .custom-f > div {
+  gap: 1em;
+}
+
 
 @media ( width >= 780px ) {
   .collections {
     display: grid;
     grid-template-columns: 50% 50%;
-    padding: 2em 0 !important;
+    padding: 5em 0 !important;
 
     & .inner_column {
       display: flex;
@@ -1215,18 +1349,6 @@ s {
 
   .collection_row {
     margin: 0 .8em;
-
-    /* overflow: hidden; */
-
-    /*
-    &:first-child {
-      padding-left: 1.2em
-    }
-
-    &:last-child {
-      padding-right: 1.2em
-    }
-    */
   }
 }
 
@@ -1249,5 +1371,16 @@ s {
 
   .game_column .game_grid_widget {
     grid-template-columns: 250px !important;
+  }
+
+  .collections {
+    margin-bottom: 820px;
+  }
+  .custom-fc {
+    height: 820px;
+  }
+
+  .custom-fci, .custom-f {
+    flex-direction: column;
   }
 }
