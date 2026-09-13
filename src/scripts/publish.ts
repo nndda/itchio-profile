@@ -116,6 +116,7 @@ function cmd(
     , srcModified: string[] = getModified(status, [
         "src/styles.css",
         "src/content.html",
+        "icons.txt",
         "bun.lock",
         "package.json",
       ])
