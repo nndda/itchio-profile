@@ -9,10 +9,7 @@ import { mkdir } from "fs/promises";
 
 (async () => {
   const
-    packageJSON = await Bun.file("./package.json").json()
-
-  , itchUser = packageJSON.itchUsername
-  , version = packageJSON.version
+    { itchUsername, version } = await Bun.file("./package.json").json() as PackageJSON
   ;
 
   console.log("Launching browser...");
@@ -21,7 +18,7 @@ import { mkdir } from "fs/promises";
     browser = await puppeteer.launch()
   , page = await browser.newPage()
 
-  , itchUrl = `${itchUser}.itch.io`
+  , itchUrl = `${itchUsername}.itch.io`
 
   , css = await Bun.file("./dist/test.css").text()
   , html = await Bun.file("./dist/content.html").text()
