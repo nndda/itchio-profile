@@ -21,8 +21,6 @@ import {
 
 import html from "./optimize/html";
 
-import customClassMap from "../../custom-class-map.json";
-
 ( async (): Promise<void> => {
 
   const
@@ -85,7 +83,10 @@ import customClassMap from "../../custom-class-map.json";
             ),
 
           function(rule) {
-            const selector = rule.selector;
+            const
+              selector = rule.selector
+            , customClassMap = JSON.parse(readTxtFile("./custom-class-map.json"))
+            ;
 
             if (selector.includes(".custom")) {
               console.log("\nSelector:", selector);
