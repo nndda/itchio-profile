@@ -157,14 +157,14 @@ Settings used in the itch.io profile page's theme editor.
 
     See the [Development](#development) section.
 
-1. Edit `package.json`, and bump the `version` field. e.g. from `1.2.0` to `1.3.0`.
+1. **(IMPORTANT)** Edit `package.json`, and bump the `version` field. e.g. from `1.2.0` to `1.3.0`.
 
 1. Build the CSS.
     ```
     bun run build
     ```
 
-1. Test the CSS and the HTML, by copy-pasting the content of `dist/test.css` and `dist/content.html` to your itch.io profile page.
+1. Test the CSS and the HTML first, by copy-pasting the content of `dist/test.css` and `dist/content.html` to your itch.io profile page.
 
 1. If everything's fine and ready, publish your updates.
     ```
@@ -195,7 +195,7 @@ I use Firefox, because it has a nice CSS editor feature on its dev tool.
    You can start working with the CSS from here. And save your changes by pressing <kbd>Ctrl</kbd> + <kbd>S</kbd>.
 
 > [!IMPORTANT]
-> When importing CSS file that has unicode characters in it (like this CSS),
+> When importing CSS file that contains unicode characters (emojis, kanji, etc.) (like this CSS),
 > Firefox might break those characters.
 >
 > To fix that:
