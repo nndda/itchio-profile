@@ -1,8 +1,6 @@
 {
-
   "itchUsername": "nnda",
   "version": "1.13.0",
-
   "name": "nnda-itchio-profile",
   "description": "HTML & CSS source code and build pipelines for my itch.io profile page's content.",
   "author": {
@@ -34,49 +32,50 @@
     "@fortawesome/fontawesome-free": "^7.3.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^21.2.2",
-    "@commitlint/config-conventional": "^21.2.2",
+    "@commitlint/cli": "^21.2.3",
+    "@commitlint/config-conventional": "^21.2.3",
     "@eslint/compat": "^2.1.1",
     "@eslint/js": "^10.0.1",
-    "@html-eslint/eslint-plugin": "^0.66.0",
-    "@swc/html": "^1.16.2",
+    "@html-eslint/eslint-plugin": "^0.66.1",
+    "@swc/html": "^1.16.18",
     "@types/bun": "^1.4.2",
-    "@types/node": "^26.5.1",
-    "autoprefixer": "^10.6.0",
+    "@types/node": "^26.6.5",
+    "autoprefixer": "^10.6.1",
     "clean-css": "^5.3.3",
     "css": "^3.0.0",
-    "cssnano": "^9.0.4",
-    "cssnano-preset-advanced": "^9.0.4",
+    "cssnano": "^9.6.0",
+    "cssnano-preset-advanced": "^9.5.0",
     "csstree-validator": "^4.0.1",
-    "eslint": "^10.10.0",
-    "globals": "^17.12.0",
+    "eslint": "^10.12.0",
+    "globals": "^17.13.0",
     "jiti": "^2.7.0",
-    "lefthook": "^2.1.12",
-    "postcss": "^8.5.28",
-    "puppeteer": "^25.10.0",
-    "simple-git": "^3.36.0",
-    "stylelint": "^17.15.0",
+    "lefthook": "^2.2.1",
+    "lighthouse": "^13.5.0",
+    "postcss": "^8.5.29",
+    "puppeteer": "^25.13.0",
+    "simple-git": "^4.0.2",
+    "stylelint": "^17.16.0",
     "stylelint-config-recess-order": "^7.8.0",
     "stylelint-config-standard": "^40.0.0",
     "stylelint-no-unsupported-browser-features": "^8.1.2",
-    "stylelint-order": "^8.1.1",
+    "stylelint-order": "^8.1.2",
     "stylelint-use-nesting": "^6.0.2",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.70.0"
+    "typescript-eslint": "^8.71.1"
   },
   "overrides": {
-    "brace-expansion": "^5.0.9",
+    "brace-expansion": "^5.0.12",
     "decode-uri-component": "^0.5.0",
-    "fast-uri": "^4.1.2",
-    "flatted": "^3.4.3",
-    "js-yaml": "^5.2.2",
-    "nanoid": "^3.3.18",
-    "picomatch": "^4.0.5",
-    "postcss": "^8.5.23",
-    "svgo": "^4.0.2"
+    "fast-uri": "^4.2.2",
+    "flatted": "^3.4.4",
+    "js-yaml": "^5.4.3",
+    "nanoid": "^6.0.2",
+    "picomatch": "^4.0.7",
+    "postcss": "^8.5.29",
+    "svgo": "^4.1.0"
   },
   "engines": {
-    "bun": "1.4.0"
+    "bun": "1.4.3"
   },
-  "packageManager": "bun@1.4.0"
+  "packageManager": "bun@1.4.3"
 }
