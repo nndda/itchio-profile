@@ -25,7 +25,7 @@ pre-commit:
 pre-push:
   jobs:
     - name: Packages audit
-      run: bun audit
+      run: bun run audit
       glob:
         - package.json
         - bun.lock
