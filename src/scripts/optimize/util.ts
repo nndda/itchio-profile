@@ -7,7 +7,12 @@ import
   }
 from "postcss";
 
-function node2Str(nodes: ChildNode[] = []): string {
+type CSSRuleTransformFn = (rule: Rule) => Rule;
+
+function node2Str(
+  nodes: ChildNode[] = [],
+  transform: CSSRuleTransformFn,
+): string {
   return nodes
     .map((child: ChildNode): string => {
         if (child.type === "decl") {
@@ -15,7 +20,7 @@ function node2Str(nodes: ChildNode[] = []): string {
         }
 
         else if (child.type === "rule" || child.type === "atrule") {
-          return getCSSRuleStr(child);
+          return getCSSRuleStr(child, transform);
         }
 
         return "";
@@ -24,15 +29,17 @@ function node2Str(nodes: ChildNode[] = []): string {
 }
 
 function getCSSRuleStr(
-  node: Rule | AtRule
+  node: Rule | AtRule | ChildNode,
+  transform: CSSRuleTransformFn,
 ): string {
 
   if (node.type === "rule") {
-    return `${node.selector} { ${node2Str(node.nodes)} }`;
+    if (transform) node = transform(node);
+    return `${node.selector} { ${node2Str(node.nodes, transform)} }`;
   }
 
   else if (node.type === "atrule") {
-    return `@${node.name} ${node.params} { ${node2Str(node.nodes)} }`;
+    return `@${node.name} ${node.params} { ${node2Str(node.nodes, transform)} }`;
   }
 
   return "";
@@ -40,11 +47,14 @@ function getCSSRuleStr(
 
 export async function getCSSRulesArr(
   rawCSS: string,
+  transform: CSSRuleTransformFn,
 ): Promise<string[]> {
   return postcss
     .parse(rawCSS, { from: undefined })
     .nodes
-    .map(getCSSRuleStr as (node: ChildNode) => string)
+    .map((node: ChildNode) => {
+      return getCSSRuleStr(node!, transform);
+    })
     .filter((str: string) => str.trim().length > 0)
   ;
 }

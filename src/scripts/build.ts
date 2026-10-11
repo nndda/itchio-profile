@@ -21,6 +21,8 @@ import {
 
 import html from "./optimize/html";
 
+import customClassMap from "../../custom-class-map.json";
+
 ( async (): Promise<void> => {
 
   const
@@ -80,7 +82,45 @@ import html from "./optimize/html";
 
               },
               rawCSS,
-            )
+            ),
+
+          function(rule) {
+            const selector = rule.selector;
+
+            if (selector.includes(".custom")) {
+              console.log("\nSelector:", selector);
+
+              let selectorNew = selector;
+
+              Array
+                .from(selector.matchAll(/\.(custom([\w|\-|_]+))/g))
+                .sort(
+                  (
+                    a: RegExpExecArray,
+                    b: RegExpExecArray
+                  ) => {
+                    return b[0].length - a[0].length;
+                  }
+                )
+                .forEach(res => {
+                  const customClass = res[1];
+
+                  if (customClass in customClassMap) {
+                    selectorNew = selectorNew.replaceAll(res[0],
+                      ".custom" +
+                      customClassMap[customClass as keyof typeof customClassMap],
+                    );
+                  }
+                })
+              ;
+
+              rule.selector = selectorNew;
+
+              console.log("         ", selectorNew);
+            }
+
+            return rule;
+          }
         )
       )
     ) ),
