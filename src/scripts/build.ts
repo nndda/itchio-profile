@@ -1,9 +1,4 @@
-import
-  simpleGit,
-  {
-    type SimpleGit
-  }
-from "simple-git";
+import { simpleGit } from "simple-git";
 
 import {
   col,
@@ -31,7 +26,7 @@ import html from "./optimize/html";
   const
     rawCSS: string = await nano(readTxtFile("./src/styles.css"), true)
 
-  , git: SimpleGit = simpleGit()
+  , git = simpleGit()
 
   , repoUser: string = await ghSlug(git)
 
