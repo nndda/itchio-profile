@@ -1,22 +1,12 @@
-import {
-  spawnSync,
-  type SpawnSyncReturns,
-} from "node:child_process";
-
-import {
-  simpleGit,
-  type SimpleGit,
-  type TagResult,
-  type StatusResult,
-} from "simple-git";
-
+import { spawnSync } from "node:child_process";
+import { simpleGit, type StatusResult } from "simple-git";
 
 function cmd(
   command: string,
   args: string[],
   errMsg: string,
 ): void {
-  const result: SpawnSyncReturns<Buffer<ArrayBufferLike>> = spawnSync(
+  const result = spawnSync(
     command,
     args,
     { stdio: "inherit" },
@@ -70,15 +60,10 @@ function cmd(
       "CSS output validation failed",
     );
 
-    const
-      git: SimpleGit = simpleGit()
-    ;
-
+    const git = simpleGit();
     await git.fetch();
 
-    const
-      gitStats: StatusResult = await git.status()
-    ;
+    const gitStats = await git.status();
 
     if (gitStats.detached) {
       throw new Error("git: detached HEAD");
@@ -89,7 +74,7 @@ function cmd(
     }
 
     const
-      tags: TagResult = await git.tags()
+      tags = await git.tags()
     , version: string = (await import("../../package.json")).default.version
     ;
 
@@ -101,9 +86,9 @@ function cmd(
     }
 
     const
-      status: StatusResult = await git.status()
+      status = await git.status()
 
-    , distFiles: string[] = [
+    , distFiles = [
         "dist/content.html",
         "dist/styles.css",
         "dist/i.css",
@@ -111,9 +96,9 @@ function cmd(
         "dist/i.woff2",
       ]
 
-    , distModified: string[] = getModified(status, distFiles)
+    , distModified = getModified(status, distFiles)
 
-    , srcModified: string[] = getModified(status, [
+    , srcModified = getModified(status, [
         "src/styles.css",
         "src/content.html",
         "src/icons.txt",
@@ -123,7 +108,6 @@ function cmd(
     ;
 
     // Staging
-
     if (distModified.length === 0) {
       throw new Error(
         "Error: At least one of the following files must be modified:\n" +
@@ -136,32 +120,19 @@ function cmd(
     console.log(
       "Staged files:\n",
       lsFiles(distModified),
-    )
+    );
 
     if (srcModified.length > 0) {
       await git.add(srcModified);
-
       console.log(lsFiles(srcModified));
-
     } else {
       console.log("CSS/HTML source not modified.");
     }
 
     // Committing
-
-    cmd(
-      "git",
-      [
-        "commit",
-        "--no-verify",
-        "-m",
-        version,
-      ],
-      "git: commit failed.",
-    );
+    await git.commit(version, ["--no-verify"]);
 
     // Pushing
-
     await git.addTag(version);
     await git.push("origin", "HEAD");
     await git.pushTags("origin");

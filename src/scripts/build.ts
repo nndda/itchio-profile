@@ -1,47 +1,25 @@
 import { simpleGit } from "simple-git";
-
-import {
-  col,
-  prop,
-  nano,
-  whyDoesItchIoProfilePageHave5120CharacterCountLimitButOtherPagesDontIDontUnderstand,
-} from "./optimize";
-
-import {
-  getCSSRulesArr
-} from "./optimize/util";
-
-import cdnify from "./cdnify";
-
-import {
-  ghSlug,
-  readTxtFile,
-  writeTxtFile,
-} from "./util";
-
+import { col, prop, nano, whyDoesItchIoProfilePageHave5120CharacterCountLimitButOtherPagesDontIDontUnderstand } from "./optimize";
+import { getCSSRulesArr } from "./optimize/util";
 import html from "./optimize/html";
+import cdnify from "./cdnify";
+import { ghSlug, readTxtFile, writeTxtFile } from "./util";
+
+type CSSTransforms = [ CSSVarTransform, string[] | undefined ];
 
 ( async (): Promise<void> => {
 
   const
-    rawCSS: string = await nano(readTxtFile("./src/styles.css"), true)
-
+    rawCSS = await nano(readTxtFile("./src/styles.css"), true)
   , git = simpleGit()
-
-  , repoUser: string = await ghSlug(git)
-
-  , version: string = (await import("../../package.json")).default.version
-
-  , CDNImportTemplate: string = `@import url("https://cdn.jsdelivr.net/gh/${repoUser}@${version}/dist/i.css");`
+  , repoUser = await ghSlug(git)
+  , version = (await import("../../package.json")).default.version
+  , CDNImportTemplate = `@import url("https://cdn.jsdelivr.net/gh/${repoUser}@${version}/dist/i.css");`
   ;
 
-  let
-    cssAll: string = ""
-  ;
+  let cssAll = "";
 
-  console.log(
-    "Building HTML...\n",
-  );
+  console.log("Building HTML...\n");
 
   writeTxtFile("dist/content.html",
     cdnify(
@@ -69,16 +47,9 @@ import html from "./optimize/html";
               ],
               [ prop, [ "--d" ] ],
 
-          ] as [ CSSVarTransform, string[] | undefined ][])
+          ] as CSSTransforms[])
             .reduce(
-              (
-                prev: string,
-                val: [ CSSVarTransform, string[] | undefined ]
-              ): string => {
-
-                return val[0](prev, val[1] || []);
-
-              },
+              ( prev, val ) => val[0](prev, val[1] || []),
               rawCSS,
             ),
 
@@ -95,14 +66,7 @@ import html from "./optimize/html";
 
               Array
                 .from(selector.matchAll(/\.(custom([\w|\-|_]+))/g))
-                .sort(
-                  (
-                    a: RegExpExecArray,
-                    b: RegExpExecArray
-                  ) => {
-                    return b[0].length - a[0].length;
-                  }
-                )
+                .sort( ( a, b ) =>  b[0].length - a[0].length )
                 .forEach(res => {
                   const customClass = res[1];
 
@@ -116,7 +80,6 @@ import html from "./optimize/html";
               ;
 
               rule.selector = selectorNew;
-
               console.log("         ", selectorNew);
             }
 
@@ -131,41 +94,27 @@ import html from "./optimize/html";
   ).forEach( async ( arr: string[], i: number ): Promise<void> => {
 
     const
-      imported: boolean = i === 0
-    , css: string = await nano(arr.join(""))
+      imported = i === 0
+    , css = await nano(arr.join(""))
     ;
 
     cssAll += css;
 
     console.log(
       imported ? "\nCSS character count:\n" : "",
-      (
-        imported ? "imported" : "main"
-      ) + ":", css.length,
+      ( imported ? "imported" : "main" ) + ":", css.length,
     );
 
     writeTxtFile(
-      "dist/" + (
-        imported ? "i.css" : "styles.css"
-      ),
-      (!imported ? CDNImportTemplate : "") +
-      cdnify(
-        css,
-        repoUser,
-        version,
-      ),
+      "dist/" +
+      ( imported ? "i.css" : "styles.css" ),
+      ( imported ? "" : CDNImportTemplate) +
+      cdnify( css, repoUser, version ),
     );
 
     if (!imported) {
-
-      console.log(
-        " total:", cssAll.length
-      );
-
-      writeTxtFile(
-        "dist/test.css",
-        cssAll,
-      );
+      console.log(" total:", cssAll.length);
+      writeTxtFile("dist/test.css", cssAll);
 
       console.log(
 `
@@ -186,9 +135,6 @@ import html from "./optimize/html";
 + ----------------------------------------------- +
 `
       );
-
     }
-
   });
-
 })();
