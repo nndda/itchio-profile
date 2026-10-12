@@ -43,7 +43,6 @@
     "@types/bun": "^1.4.3",
     "@types/node": "^26.6.5",
     "autoprefixer": "^10.6.1",
-    "clean-css": "^5.3.3",
     "css": "^3.0.0",
     "cssnano": "^9.8.0",
     "cssnano-preset-advanced": "^9.7.0",
