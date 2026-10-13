@@ -3,7 +3,7 @@ import { readTxtFile } from "./util";
 import { chooseOldest } from "./version";
 
 export const
-  reHTMLCSSResource = /(?:src=|url)(?:\(|"|')(https:\/\/.+?)(?:\)|"|')/gm
+  reHTMLCSSResource = /(?:src=|url)(?:\(|"|'|\(")(https:\/\/.+?)(?:"\)|\)|"|')/gm
 , reJSDelivrMainURL = /https:\/\/cdn\.jsdelivr\.net\/.+?\/(?<repo>.+?\/.+?)@main\//
 , reJSDelivr =       /^https:\/\/cdn\.jsdelivr\.net\/.+?\/(?<repo>.+?\/.+?)@(?<ver>.+?)\/.+?$/gm
 ;
