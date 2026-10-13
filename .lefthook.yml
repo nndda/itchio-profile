@@ -12,6 +12,12 @@ pre-commit:
       run: bun lint:scripts
       glob: '*.ts'
 
+    - name: ESLint HTML
+      run: bun lint:html
+      glob:
+        - src/content.html
+        - src/config/eslint.html.config.ts
+
     - name: Stylelint
       run: bun lint:styles
       glob:
