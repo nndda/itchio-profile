@@ -18,6 +18,7 @@ export default defineConfig([
     extends: ["html/recommended"],
     language: "html/html",
     rules: {
+      "html/require-img-alt": "off",
       // "html/indent": "off",
     },
   },
