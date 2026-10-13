@@ -94,6 +94,9 @@ function cmd(
         "dist/i.css",
         "dist/test.css",
         "dist/i.woff2",
+
+        "dist/assets-version.json",
+        "dist/urls.txt",
       ]
 
     , distModified = getModified(status, distFiles)
