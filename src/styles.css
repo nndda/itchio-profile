@@ -10,20 +10,14 @@
   --link: #eaeaea;
   --primary: #fc3a78;
   --secondary: #3ae5f9;
-
   --gradient-primary: linear-gradient(90deg, var(--primary), #b23ee0);
   --gradient-secondary: linear-gradient(90deg, var(--secondary), #2a8aec);
-
   --background: #0d0e12;
   --background-lighten: #101218;
   --background-window: #101218;
-
   --shadow: #101b;
-
   --transparent: #0000;
-
   --mask-gradient: linear-gradient(90deg, #fff 50%, #0000);
-
   --neko-face: "≈ •ω• ≈";
 
   animation:
@@ -38,6 +32,7 @@
 
 @font-face {
   font-family: FA;
+
   /* src: url("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/webfonts/fa-solid-900.woff2") format("woff2"); */
   src: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/dist/i.woff2") format("woff2");
 }
@@ -78,24 +73,24 @@
 /* Merged common positioning to save characters. */
 #profile_header,
 .user_links,
-.custom-w,
-.custom-y,
-.custom-wi > div,
+.custom-window,
+.custom-yellow-stripes,
+.custom-window-content > div,
 .custom-list-words,
-.custom-wr,
+.custom-window-container,
 .game_column,
-.custom-nkmm,
+.custom-nekomimi,
 .user_game_grid,
 .collection_row
 { position:relative; }
 
-.custom-h,
-.custom-j,
-.custom-k,
-.custom-k>*,
-.custom-gr,
-.custom-bg,
-.custom-ws > strong
+.custom-bg-frame-v,
+.custom-bg-frame-h,
+.custom-supportme-frame,
+.custom-supportme-frame>*,
+.custom-gearwheel,
+.custom-scrolling-bg,
+.custom-window-side-decoration > strong
 { position:absolute; }
 
 .game_column,
@@ -109,8 +104,8 @@
 }
 
 /* Merged animations */
-.custom-st,
-.custom-nkmm > img {
+.custom-jumping-cat,
+.custom-nekomimi > img {
   animation: 2s cubic-bezier(.175, .885, .32, 1.275) infinite alternate;
 }
 
@@ -154,7 +149,7 @@ a {
 
 
 /* Jumping cat animation */
-.custom-st {
+.custom-jumping-cat {
   /* INLINED
 
   margin: -12px 1em;
@@ -255,7 +250,7 @@ a {
 
 
 /* Scrolling background. */
-.custom-bg {
+.custom-scrolling-bg {
   inset: -52em;
   background: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/assets/hero/hideout.svg");
   background-size: 52em auto;
@@ -272,7 +267,7 @@ a {
 
 /* Links. */
 .user_links
-/* .custom-n */
+/* .custom-social-link-container */
 {
   /*
   position: sticky;
@@ -362,19 +357,19 @@ a {
 /* Platform + handle refactor */
 
 /*
-.link_group, .custom-n > a {
+.link_group, .custom-social-link-container > a {
   display: flex;
   align-items: center;
 
-  &::before, .custom-ic {
+  &::before, .custom-social-link-icon {
     font-size: 1.6em;
     color: var(--icon-col);
   }
-  & .custom-ic {
+  & .custom-social-link-icon {
     margin-right: .25em;
   }
 
-  & .svgicon, .icon, .custom-ic {
+  & .svgicon, .icon, .custom-social-link-icon {
     &:is(svg) {
       height: 1.6em;
       width: 1.6em;
@@ -384,7 +379,7 @@ a {
       }
     }
 
-    & + a, + .custom-pn{
+    & + a, + .custom-social-link-platform{
       display: flex;
       flex-direction: column;
       margin: .25em;
@@ -440,7 +435,7 @@ a {
     }
   }
 }
-.custom-n {
+.custom-social-link-container {
   row-gap: .6em;
   font-size: .9em;
   --text-col: #e7e9e8;
@@ -458,7 +453,7 @@ a {
 
 /* Blur backdrop background */
 .user_links,
-.custom-w {
+.custom-window {
   background: var(--background-window);
 
 /*   background: linear-gradient(var(--rot, 90deg), var(--background-window) 15%, #0000 90%); */
@@ -466,53 +461,42 @@ a {
 
 /* NOTE:
   backdrop-filter clashes with
-  direct child's (.custom-h, .custom-j) ordering :/
+  direct child's (.custom-bg-frame-v, .custom-bg-frame-h) ordering :/
 */
 
 /*
 .user_links,
-:is(.custom-wi, .custom-n) {
+:is(.custom-window-content, .custom-social-link-container) {
   backdrop-filter: blur(7px) brightness(80%);
 }
 */
 
-/* TODO: surely there's has to be a better way, or maybe not. */
 /* Corner border background */
-.custom-wi > div {
-  border: 1.3em solid;
-  border-image: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/assets/b.fc3a78.png") 30;
-}
-.custom-wn > .custom-wi > div {
+.custom-window-supportme > div {
   border-image: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/assets/b.3ae5f9.png") 30;
 }
-.game_column > div {
-  border: 1.6em solid;
-  border-image: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/assets/b3.fc3a78.png") 30;
-}
 
-a.custom-cta-c {
-  display: inline-block;
+a.custom-source-code-ribbon {
   position: relative;
   bottom: 6.5em;
   left: -4em;
+  display: inline-block;
   padding: 1em 5em;
-
-  background: #ffd90e;
   color: var(--background);
-  border: 3px dashed var(--background-lighten);
   text-decoration: none;
-
+  background: #ffd90e;
+  border: 3px dashed var(--background-lighten);
   rotate: 45deg;
 
   & > code {
-    letter-spacing: .2ch;
     font-weight: 700;
+    letter-spacing: .2ch;
   }
 }
 
 
 /* Window panel UI */
-.custom-w {
+.custom-window {
   position: relative;
   border: 1px solid #fff2;
   border-radius: 4px;
@@ -522,14 +506,14 @@ a.custom-cta-c {
     0 0 2em 0 var(--shadow);
 }
 
-.custom-pc {
-  contain: paint;
+.custom-profile-window-container {
   padding-block: 7em;
+  contain: paint;
 }
 
 
 /* "ABOUT ME" vertical side label */
-.custom-ws > strong {
+.custom-window-side-decoration > strong {
   top: 9em;
 
   /*
@@ -567,8 +551,8 @@ a.custom-cta-c {
 
 
 /* Vertical & horizontal 'frame' dashed lines */
-.custom-h,
-.custom-j {
+.custom-bg-frame-v,
+.custom-bg-frame-h {
   /* position: absolute; */
   inset: 10% -200%;
   z-index: -9;
@@ -581,7 +565,7 @@ a.custom-cta-c {
   */
 }
 
-.custom-h {
+.custom-bg-frame-v {
   inset: -100% 10%;
 
   /* INLINED
@@ -594,19 +578,19 @@ a.custom-cta-c {
 
 
 /* Window container */
-.custom-wr {
+.custom-window-container {
   max-width: 26.5em;
   margin: 0 auto 15em;
 }
 
 /* Gradient bar */
-.custom-g2 {
+.custom-gradient {
   height: .5em;
   background: var(--gradient-primary);
 }
 
 /* Animated yellow stripes */
-.custom-y {
+.custom-yellow-stripes {
   /* position: relative; */
   height: 1em;
   margin-top: 1em;
@@ -616,7 +600,6 @@ a.custom-cta-c {
     position: absolute;
     inset: 0;
     width: 200%;
-
     background:
       repeating-linear-gradient(
         45deg,
@@ -636,23 +619,23 @@ a.custom-cta-c {
 
 
 /* Support window */
-.custom-wn {
+.custom-window-supportme {
   float: right;
   margin: -5em -2vw 0 0;
 
-  & > .custom-wi > div {
+  & > .custom-window-content > div {
     display: flex;
     gap: .25em;
     padding: 1em 0;
   }
 
-  & .custom-g2 {
+  & .custom-gradient {
     --gradient-primary: var(--gradient-secondary);
   }
 }
 
-.custom-k,
-.custom-k > *
+.custom-supportme-frame,
+.custom-supportme-frame > *
 {
   /* position: absolute; */
   inset: -1.5em;
@@ -668,7 +651,7 @@ a.custom-cta-c {
   border-image: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/assets/b2.png") 30 !important;
 }
 
-.custom-k > * {
+.custom-supportme-frame > * {
   /* INLINED
 
   height: 10%;
@@ -738,7 +721,7 @@ a.custom-cb {
 /* Window's title bar */
 
 /* Buttons */
-.custom-wb {
+.custom-window-buttons {
   margin: 0 6px;
 
   & > :last-child {
@@ -749,7 +732,7 @@ a.custom-cb {
 
 
 /* Title bar */
-.custom-wt {
+.custom-window-titlebar {
   display: flex;
   padding: 6px 6px 3px;
 
@@ -783,7 +766,7 @@ a.custom-cb {
 }
 
 /*
-.custom-wn .custom-wt strong {
+.custom-window-supportme .custom-window-titlebar strong {
   --primary: var(--secondary);
 }
  */
@@ -798,7 +781,7 @@ a.custom-cb {
 
 
 /* Window's content */
-.custom-wi {
+.custom-window-content {
   padding: 1em;
 
   & > div {
@@ -809,6 +792,10 @@ a.custom-cb {
 
     /* margin: auto; */
     letter-spacing: .2ch;
+
+    /* Corner border background */
+    border: 1.3em solid;
+    border-image: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/assets/b.fc3a78.png") 30;
   }
 }
 
@@ -816,7 +803,7 @@ a.custom-cb {
 
 
 /* Gearwheels */
-.custom-grc {
+.custom-gearwheel-container {
   height: 6.5em;
 
   /* padding: 6em !important; */
@@ -827,14 +814,14 @@ a.custom-cb {
   border: 0 !important;
 }
 
-.custom-gr {
+.custom-gearwheel {
   /* position: absolute; */
 
   right: -5em;
   rotate: calc(var(--i) * 60deg);
 }
 
-.custom-wr > .custom-gr { /* stylelint-disable-line csstools/use-nesting */
+.custom-window-container > .custom-gearwheel { /* stylelint-disable-line csstools/use-nesting */
   /* display: none; */
   top: 9em;
   right: -7em;
@@ -846,7 +833,7 @@ a.custom-cb {
 
 /* Gradient fill text */
 .collections h2,
-.custom-wi h3 {
+.custom-window-content h3 {
   font-family: "Hi melody";
   font-size: 3em;
   background: var(--gradient-primary);
@@ -863,7 +850,7 @@ s {
 
 
 /* Main window's social links */
-.custom-n {
+.custom-social-link-container {
   padding: 1em;
 
   & > a {
@@ -871,7 +858,7 @@ s {
     margin: .4em;
     color: var(--secondary);
 
-    & > .custom-ic {
+    & > .custom-social-link-icon {
       display: inline-block;
       margin-right: .3em;
       color: var(--primary);
@@ -881,7 +868,7 @@ s {
 
 
 
-.custom-w hr {
+.custom-window hr {
   margin: 0 1em ;
   background: var(--gradient-primary);
 }
@@ -1024,9 +1011,14 @@ s {
 
   & > div {
     grid-template-columns: 25% 28% 25% !important;
+
     /* gap: 3.5em; */
     align-items: center;
     justify-content: space-evenly;
+
+    /* Border corner background */
+    border: 1.6em solid;
+    border-image: url("https://cdn.jsdelivr.net/gh/nndda/itchio-profile@main/assets/b3.fc3a78.png") 30;
   }
 
   /*
@@ -1045,8 +1037,8 @@ s {
   }
 
   & .game_cell {
-    transition: .3s;
     z-index: 1;
+    transition: .3s;
 
     &:hover {
       /*
@@ -1077,15 +1069,16 @@ s {
     /* position: absolute; */
     top: .3em;
     left: 0;
+
     /* z-index: -1; */
     width: 100%;
     overflow: hidden;
     font-size: 92px;
     color: #0000;
-    opacity: .25;
     white-space: nowrap;
     text-shadow: 0 0 var(--primary), 1600px 0 var(--primary);
     content: "ハイライトされたプロジェクト";
+    opacity: .25;
     animation: 21s linear infinite running-text-large;
   }
 
@@ -1105,13 +1098,13 @@ s {
 
 
 /* Cat-shaped divider */
-.custom-nkmm {
+.custom-nekomimi {
 /*   z-index: -1; */
   display: flex;
   gap: 4em;
   justify-content: center;
-  margin-bottom: -.65em;
   margin-top: calc(-80px - 3em);
+  margin-bottom: -.65em;
   pointer-events: none;
 
   & > img {
@@ -1230,37 +1223,33 @@ s {
   margin-bottom: calc(350px - 3em);
 }
 
-.custom-fc {
+.custom-footer-container {
   position: absolute;
+  bottom: 2.5em;
+  z-index: 9;
   display: flex;
   flex-direction: column;
-
   width: min(1200px, 100dvw);
-  bottom: 2.5em;
   height: calc(350px - 3em);
-
+  overflow: hidden;
   background: var(--background);
 
-  overflow: hidden;
-  z-index: 9;
-
   & > hr {
-    width: 100%;
-    background: 0;
-    margin-block: 1em;
-    border-top: 3px dashed #fff5;
     z-index: 9;
+    width: 100%;
+    margin-block: 1em;
+    background: 0;
+    border-top: 3px dashed #fff5;
   }
 }
 
-.custom-fci {
+.custom-footer-content {
   display: flex;
   flex-grow: 1;
   gap: 3em;
-
-  padding: 2em 3em;
   align-items: center;
   justify-content: end;
+  padding: 2em 3em;
 
   & a {
     transition: .3s ease;
@@ -1275,7 +1264,7 @@ s {
   }
 }
 
-.custom-f {
+.custom-footer-end {
   position: relative;
   z-index: 9;
   padding: 1.2em;
@@ -1294,7 +1283,6 @@ s {
 
   & > :nth-child(1) {
     inset: -100% -125%;
-
     animation: human-made-stamp-rotate 15s infinite linear;
   }
 
@@ -1306,16 +1294,13 @@ s {
 
   & > div {
     inset: -100% -125%;
-
-    height: 400px;
     width: 400px;
-
+    height: 400px;
+    pointer-events: none;
     box-shadow:
       var(--background) 1em -90px 1em inset
       , var(--background) 1em 90px 1em inset
       ;
-
-    pointer-events: none;
   }
 }
 
@@ -1325,11 +1310,13 @@ s {
   }
 }
 
-.custom-f, .custom-f > span {
+.custom-footer-end, .custom-footer-end > span {
   display: flex;
+
 /*   align-items: center; */
 }
-.custom-f, .custom-f > div {
+
+.custom-footer-end, .custom-footer-end > div {
   gap: 1em;
 }
 
@@ -1365,7 +1352,7 @@ s {
     --height-min: 26vh;
   }
 
-  .custom-w.custom-wn {
+  .custom-window.custom-window-supportme {
     margin: -4.5em 3em;
   }
 
@@ -1376,11 +1363,12 @@ s {
   .collections {
     margin-bottom: 820px;
   }
-  .custom-fc {
+
+  .custom-footer-container {
     height: 820px;
   }
 
-  .custom-fci, .custom-f {
+  .custom-footer-content, .custom-footer-end {
     flex-direction: column;
   }
 }
