@@ -4,12 +4,18 @@
 
 <div align="center">
 
-Source code for my itch.io profile page.
+Source code & build pipeline for my itch.io profile page.
 
 Main stylesheet: [`src/styles.css`](src/styles.css)
 ｜
 Profile content: [`src/content.html`](src/content.html)
 
+<br>
+
+<img src="https://img.shields.io/github/actions/workflow/status/nndda/itchio-profile/build.yml?branch=main&style=flat-square&label=build">
+<img src="https://img.shields.io/github/size/nndda/itchio-profile/dist%2Fstyles.css?branch=main&style=flat-square&logo=css">
+<img src="https://img.shields.io/github/size/nndda/itchio-profile/dist%2Fcontent.html?branch=main&style=flat-square&logo=html5&logoColor=white">
+<br><br>
 <img src="https://github.com/user-attachments/assets/b5544f13-1a02-4d78-bf43-7ec8d4f849b9" alt="">
 
 </div>
@@ -248,17 +254,22 @@ CSS on itch.io's profile page is limited to only ***5120 characters***. And so, 
 > Because of the nature of `@import` in CSS, it will cause [FOUC](https://en.wikipedia.org/wiki/Flash_of_unstyled_content) on the profile page.
 
 <br>
-
-<p align="center">
-  <a href="https://github.com/andregans/code_logotype">
-    <img width="350" src="https://github.com/user-attachments/assets/0a28ddec-df94-4b22-b47c-0a0e42d54154">
-  </a>
-</p>
 <br>
 <p align="center">
-  <a href="https://github.com/Aikoyori/ProgrammingVTuberLogos">
-    <img width="480" src="https://github.com/user-attachments/assets/9480bf19-c897-4851-8d03-9beda531e3ee">
-  </a>
+  <a href="https://github.com/andregans/code_logotype"><img height="180" src="https://github.com/user-attachments/assets/0a28ddec-df94-4b22-b47c-0a0e42d54154"></a>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/Aikoyori/ProgrammingVTuberLogos"><img height="180" src="https://github.com/user-attachments/assets/9480bf19-c897-4851-8d03-9beda531e3ee"></a>
+</p>
+<br>
+<br>
+<p align="center">
+<a href="https://www.star-history.com/?repos=nndda%2Fitchio-profile&type=timeline&legend=bottom-right">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=nndda/itchio-profile&type=timeline&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=nndda/itchio-profile&type=timeline&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=nndda/itchio-profile&type=timeline&legend=top-left" />
+ </picture>
+</a>
 </p>
 
 <br>
