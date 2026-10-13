@@ -22,6 +22,7 @@ pre-commit:
       run: bun lint:styles
       glob:
         - src/styles.css
+        - src/config/stylelint.config.ts
 
     - name: CSS validation
       run: bun validate:css
