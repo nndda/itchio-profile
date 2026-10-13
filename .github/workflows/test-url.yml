@@ -1,0 +1,35 @@
+name: Assets' URL test
+
+on:
+  schedule:
+    - cron: '0 */12 * * *'
+  push:
+    paths:
+      - 'dist/urls.txt'
+      - 'src/scripts/urls.ts'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7.0.1
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Cache dependencies
+        uses: actions/cache@v6
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('bun.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+
+      - name: Install dependencies
+        run: bun ci
+
+      - name: Test URLs
+        run: bun test:assets

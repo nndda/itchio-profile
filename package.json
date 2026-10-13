@@ -27,6 +27,7 @@
     "lint:html": "eslint --config src/config/eslint.html.config.ts src/content.html",
     "validate:css": "bunx csstree-validator dist/ --reporter gnu",
     "screenshot": "bun src/scripts/tests/screenshot.ts",
+    "test:assets": "bun src/scripts/tests/url.ts",
     "audit": "bun audit --ignore=GHSA-vfj7-8cjw-p6xm"
   },
   "dependencies": {
