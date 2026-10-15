@@ -15,6 +15,7 @@ Profile content: [`src/content.html`](src/content.html)
 <img src="https://img.shields.io/github/actions/workflow/status/nndda/itchio-profile/build.yml?branch=main&style=flat-square&label=build">
 <img src="https://img.shields.io/github/size/nndda/itchio-profile/dist%2Fstyles.css?branch=main&style=flat-square&logo=css">
 <img src="https://img.shields.io/github/size/nndda/itchio-profile/dist%2Fcontent.html?branch=main&style=flat-square&logo=html5&logoColor=white">
+<img src="https://img.shields.io/badge/%E2%99%A5%EF%B8%8E%20Made%20by-human-fc3a78?style=flat-square" alt="Made by human">
 <br><br>
 <img src="https://github.com/user-attachments/assets/b5544f13-1a02-4d78-bf43-7ec8d4f849b9" alt="">
 
