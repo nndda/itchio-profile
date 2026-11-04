@@ -46,7 +46,7 @@
     "autoprefixer": "^10.6.1",
     "css": "^3.0.0",
     "cssnano": "^9.8.0",
-    "cssnano-preset-advanced": "^9.7.0",
+    "cssnano-preset-advanced": "^10.0.0",
     "csstree-validator": "^4.0.1",
     "eslint": "^10.12.0",
     "globals": "^17.13.0",
